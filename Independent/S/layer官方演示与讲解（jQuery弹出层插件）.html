@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<!-- saved from url=(0023)http://layer.layui.com/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./layer官方演示与讲解（jQuery弹出层插件）_files/ca-pub-6111334333458862.js.下载"></script><script type="text/javascript" async="" charset="utf-8" src="./layer官方演示与讲解（jQuery弹出层插件）_files/core.php"></script>
+
+<title>layer官方演示与讲解（jQuery弹出层插件）</title>
+
+<meta name="keywords" content="弹出层,jQuery弹出层插件,layer">
+<meta name="description" content=" layer是一款口碑极佳的web弹层组件，她具备全方位的解决方案，致力于服务各个水平段的开发人员，您的页面会轻松地拥有丰富而友好的操作体验。">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<link rel="stylesheet" href="./layer官方演示与讲解（jQuery弹出层插件）_files/layui.css" media="all">
+<link rel="stylesheet" href="./layer官方演示与讲解（jQuery弹出层插件）_files/global.css" media="all">
+<link rel="stylesheet" href="./layer官方演示与讲解（jQuery弹出层插件）_files/demo.css" media="all">
+
+<script src="./layer官方演示与讲解（jQuery弹出层插件）_files/jquery.min.js.下载"></script>
+<script src="./layer官方演示与讲解（jQuery弹出层插件）_files/layer.js.下载"></script><link rel="stylesheet" href="./layer官方演示与讲解（jQuery弹出层插件）_files/layer.css" id="layuicss-layer">
+
+<link rel="stylesheet" href="./layer官方演示与讲解（jQuery弹出层插件）_files/style.css" id="layuicss-thememoonstylecss"><link rel="preload" href="./layer官方演示与讲解（jQuery弹出层插件）_files/integrator.js.下载" as="script"><script type="text/javascript" src="./layer官方演示与讲解（jQuery弹出层插件）_files/integrator.js.下载"></script><link id="layuicss-skincodecss" rel="stylesheet" href="./layer官方演示与讲解（jQuery弹出层插件）_files/code.css" media="all"></head>
+<body>
+
+<div class="header">
+  <div class="layui-main">
+    <a class="logo" href="http://www.layui.com/">
+      <img src="./layer官方演示与讲解（jQuery弹出层插件）_files/logo.png" alt="layui">
+    </a>
+    <ul class="layui-nav">
+      <li class="layui-nav-item">
+        <a href="http://www.layui.com/" target="_blank">UI主页</a>
+      </li>
+      <li class="layui-nav-item layui-this">
+        <a href="http://www.layui.com/alone.html">layer 独立版</a>
+      </li>
+      <li class="layui-nav-item">
+        <a href="http://fly.layui.com/" target="_blank">社区</a>
+      </li>
+    <span class="layui-nav-bar" style="width: 0px; left: 0px; opacity: 0;"></span></ul>
+  </div>
+</div>
+
+<div class="layer_banner">
+  <div class="box" style="height:190px;">
+    <h1>layer弹层组件官方演示与讲解</h1>
+    <span class="ie6PNG" title="layer,一个可以让你想到即可做到的JavaScript弹窗（层）解决方案"></span>
+  </div>
+</div>
+
+<div class="layer_nav">
+  <div class="box"> 
+    <a href="http://www.layui.com/doc/modules/layer.html" title="api" target="_blank">文档手册</a>
+     <a href="javascript:;" id="demore">
+       功能示例
+       <!--
+       <cite class="filter_nums">hot</cite>
+       <cite class="area_zero"></cite>
+       -->
+     </a>
+    <a href="http://layer.layui.com/hello.html" target="_blank">快速上手</a>
+    <a href="http://layer.layui.com/mobile/" target="_blank">
+      layer 移动版
+    </a>
+  </div>    
+</div>
+
+<div class="runtest">
+  <textarea class="site-demo-text" id="testmain">//在这里面输入任何合法的js语句
+layer.open({
+  type: 1 //Page层类型
+  ,area: ['500px', '300px']
+  ,title: '你好，layer。'
+  ,shade: 0.6 //遮罩透明度
+  ,maxmin: true //允许全屏最小化
+  ,anim: 1 //0-6的动画形式，-1不开启
+  ,content: '&lt;div style="padding:50px;"&gt;这是一个非常普通的页面层，传入了自定义的html&lt;/div&gt;'
+});    
+  </textarea>
+  <a href="javascript:;" class="layui-btn layui-btn-normal" onclick="try{new Function(testmain.value)();}catch(e){alert(&#39;语句异常：&#39;+e.message)}">立即运行</a>
+</div>
+
+<div class="clear box layer-main">
+  
+  
+  <a href="http://layim.layui.com/?from=layer" target="_blank" title="layim">
+    <img src="./layer官方演示与讲解（jQuery弹出层插件）_files/168_1481125723110_43746.png" alt="layim" style="margin-bottom: 5px;">
+  </a>
+
+  <ul class="layer_notice">
+    <li><a href="http://fly.layui.com/jie/5366/" target="_blank">1. layer 系列常见问题的处理和相关实用干货集锦</a></li>
+    <li><a href="https://github.com/sentsin/layer/blob/master/CHANGELOG.md" target="_blank">2. layer 所有版本完整更新日志</a></li>
+    <li><a href="http://fly.layui.com/jie/2461.html" target="_blank">3. 关注 layui 微信公众号，随时随地获取最新动态</a></li>
+  </ul>
+  
+  <div class="layer_download">
+    <ul>
+      <li style="margin-top: 10px;">当前版本：<script>document.write(layer.v);</script>3.1.1（2017-12-05 更新）</li>
+      <li style="margin-top: 10px;">
+        <iframe style="border: none" src="./layer官方演示与讲解（jQuery弹出层插件）_files/github-btn.html" width="100" height="20"></iframe>
+        <iframe style="border: none" src="./layer官方演示与讲解（jQuery弹出层插件）_files/github-btn(1).html" width="100" height="20"></iframe>
+      </li>
+    </ul>
+    <span class="layer_yuan layer_ico ie6PNG"></span>
+    <a class="layer_down" href="http://res.layui.com/download/layer/layer-v3.1.1.zip" target="_blank" title="layer弹出层插件下载"></a>
+    <span class="layer_downs">总大小：45KB，下载数：<em id="downs">506508</em></span>
+  </div> 
+
+  <div class="layer-text" style="z-index:100;">
+    <fieldset class="layui-elem-field layui-field-title" style="margin-right: 220px;">
+      <legend>弹层之美</legend>
+    </fieldset>
+    
+    <span class="layer-tool">
+      <a href="javascript:;" class="layui-btn" id="L_layerDebug">在线调试</a>
+      <a href="http://layer.layui.com/skin.html" class="layui-btn layui-btn-normal" target="_blank">扩展皮肤</a>
+    </span>
+
+    <p>
+      <i>layer</i>是一款近年来备受青睐的web弹层组件，她具备全方位的解决方案，致力于服务各水平段的开发人员，您的页面会轻松地拥有丰富友好的操作体验。
+    </p>
+    <p>
+      在与同类组件的比较中，<i>layer</i>总是能轻易获胜。她尽可能地在以更少的代码展现更强健的功能，且格外注重性能的提升、易用和实用性，正因如此，越来越多的开发者将媚眼投上了<i>layer</i>（已被<em id="sees">5919107</em>人次关注）。<i>layer</i> 甚至兼容了包括 IE6 在内的所有主流浏览器。她数量可观的接口，使得您可以自定义太多您需要的风格，每一种弹层模式各具特色，广受欢迎。当然，这种“王婆卖瓜”的陈述听起来总是有点难受，因此你需要进一步了解她是否真的如你所愿。
+    </p>
+    <p>
+      <i>layer</i> 采用 MIT 开源许可证，<em>将会永久性提供无偿服务</em>。因着数年的坚持维护，截至到2017年9月13日，已运用在超过 <em>30万</em> 家 Web 平台，其中不乏众多知名大型网站。目前 layer 已经成为国内乃至全世界最多人使用的 Web 弹层解决方案，并且她仍在与 Layui 一并高速发展。<a href="http://fly.layui.com/" target="_blank"><em>Fly</em></a>
+    </p>
+  </div>
+
+  
+  <div class="clearfix layer-text">
+    <fieldset class="layui-elem-field layui-field-title">
+      <legend>先睹为快</legend>
+    </fieldset>
+
+    <div class="clearfix layer-area" id="chutiyan">
+      <a class="layui-btn layui-btn-primary" href="javascript:;">初体验</a>
+      <a class="layui-btn layui-btn-primary" href="javascript:;">第三方扩展皮肤</a>
+      <a class="layui-btn layui-btn-primary" href="javascript:;">询问层</a>
+      <a class="layui-btn layui-btn-primary" href="javascript:;">提示层</a>
+      <a class="layui-btn layui-btn-primary" href="javascript:;">墨绿深蓝风</a>
+      <a class="layui-btn layui-btn-primary" href="javascript:;" style="_display:none;">捕获页</a>
+      <a class="layui-btn layui-btn-primary" href="javascript:;">页面层</a>
+      <a class="layui-btn layui-btn-primary" href="javascript:;">自定页</a>
+      <a class="layui-btn layui-btn-primary" href="javascript:;">tips层</a>
+      <a class="layui-btn layui-btn-primary" href="javascript:;">iframe层</a>
+      <a class="layui-btn layui-btn-primary" href="javascript:;">iframe窗</a>
+      <a class="layui-btn layui-btn-primary" href="javascript:;">加载层</a>
+      <a class="layui-btn layui-btn-primary" href="javascript:;">loading层</a>
+      <a class="layui-btn layui-btn-primary" href="javascript:;">小tips</a>
+      <a class="layui-btn layui-btn-primary" href="javascript:;">prompt层</a>
+      <a class="layui-btn layui-btn-primary" href="javascript:;">tab层</a>
+      <a class="layui-btn layui-btn-primary" href="javascript:;">相册层</a>
+      <a class="layui-btn layui-btn-primary" href="http://www.layui.com/demo/layim.html" target="_blank">WebIM</a>
+    </div>
+    
+    <!-- layer-970*90 -->
+    <div style="margin-top:10px; text-align:center;">
+      <ins class="adsbygoogle" style="display:inline-block;width:970px; height:90px;" data-ad-client="ca-pub-6111334333458862" data-ad-slot="5254867833" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:970px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:970px;background-color:transparent;"><iframe width="970" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;width:970px;height:90px;" src="./layer官方演示与讲解（jQuery弹出层插件）_files/saved_resource.html"></iframe></ins></ins></ins>
+    </div>
+
+  </div>
+  
+  <pre id="demo1" class="layui-code layui-box layui-code-view" lay-height="380px" lay-title="上述示例对应代码"><h3 class="layui-code-h3">上述示例对应代码<a href="http://www.layui.com/doc/modules/code.html" target="_blank">layui.code</a></h3><ol class="layui-code-ol" style="margin-left: 1px; max-height: 380px;"><li>特别说明：事件需自己绑定，以下只展现调用代码。</li><li><p>//初体验</p></li><li>layer.alert('内容')</li><li><p>//第三方扩展皮肤</p></li><li>layer.alert('内容', {</li><li>  icon: 1,</li><li>  skin: 'layer-ext-moon' //该皮肤由layer.seaning.com友情扩展。关于皮肤的扩展规则，<a target="_balnk" style="color:#00B2E2;" href="http://layer.layui.com/skin.html#publish">去这里查阅</a></li><li>})</li><li><p>//询问框</p></li><li>layer.confirm('您是如何看待前端开发？', {</li><li>  btn: ['重要','奇葩'] //按钮</li><li>}, function(){</li><li>  layer.msg('的确很重要', {icon: 1});</li><li>}, function(){</li><li>  layer.msg('也可以这样', {</li><li>    time: 20000, //20s后自动关闭</li><li>    btn: ['明白了', '知道了']</li><li>  });</li><li>});</li><li><p>//提示层</p></li><li>layer.msg('玩命提示中');</li><li><p>//墨绿深蓝风</p></li><li>layer.alert('墨绿风格，点击确认看深蓝', {</li><li>  skin: 'layui-layer-molv' //样式类名</li><li>  ,closeBtn: 0</li><li>}, function(){</li><li>  layer.alert('偶吧深蓝style', {</li><li>    skin: 'layui-layer-lan'</li><li>    ,closeBtn: 0</li><li>    ,anim: 4 //动画类型</li><li>  });</li><li>});</li><li><p>//捕获页</p></li><li>layer.open({</li><li>  type: 1,</li><li>  shade: false,</li><li>  title: false, //不显示标题</li><li>  content: $('.layer_notice'), //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响</li><li>  cancel: function(){</li><li>    layer.msg('捕获就是从页面已经存在的元素上，包裹layer的结构', {time: 5000, icon:6});</li><li>  }</li><li>});</li><li><p>//页面层</p></li><li>layer.open({</li><li>  type: 1,</li><li>  skin: 'layui-layer-rim', //加上边框</li><li>  area: ['420px', '240px'], //宽高</li><li>  content: 'html内容'</li><li>});</li><li><p>//自定页</p></li><li>layer.open({</li><li>  type: 1,</li><li>  skin: 'layui-layer-demo', //样式类名</li><li>  closeBtn: 0, //不显示关闭按钮</li><li>  anim: 2,</li><li>  shadeClose: true, //开启遮罩关闭</li><li>  content: '内容'</li><li>});</li><li><p>//tips层</p></li><li>layer.tips('Hi，我是tips', '吸附元素选择器，如#id');</li><li><p>//iframe层</p></li><li>layer.open({</li><li>  type: 2,</li><li>  title: 'layer mobile页',</li><li>  shadeClose: true,</li><li>  shade: 0.8,</li><li>  area: ['380px', '90%'],</li><li>  content: 'mobile/' //iframe的url</li><li>}); </li><li><p>//iframe窗</p></li><li>layer.open({</li><li>  type: 2,</li><li>  title: false,</li><li>  closeBtn: 0, //不显示关闭按钮</li><li>  shade: [0],</li><li>  area: ['340px', '215px'],</li><li>  offset: 'rb', //右下角弹出</li><li>  time: 2000, //2秒后自动关闭</li><li>  anim: 2,</li><li>  content: ['test/guodu.html', 'no'], //iframe的url，no代表不显示滚动条</li><li>  end: function(){ //此处用于演示</li><li>    layer.open({</li><li>      type: 2,</li><li>      title: '很多时候，我们想最大化看，比如像这个页面。',</li><li>      shadeClose: true,</li><li>      shade: false,</li><li>      maxmin: true, //开启最大化最小化按钮</li><li>      area: ['893px', '600px'],</li><li>      content: '//fly.layui.com/'</li><li>    });</li><li>  }</li><li>});</li><li><p>//加载层</p></li><li>var index = layer.load(0, {shade: false}); //0代表加载的风格，支持0-2</li><li><p>//loading层</p></li><li>var index = layer.load(1, {</li><li>  shade: [0.1,'#fff'] //0.1透明度的白色背景</li><li>});</li><li><p>//小tips</p></li><li>layer.tips('我是另外一个tips，只不过我长得跟之前那位稍有些不一样。', '吸附元素选择器', {</li><li>  tips: [1, '#3595CC'],</li><li>  time: 4000</li><li>});</li><li><p>//prompt层</p></li><li>layer.prompt({title: '输入任何口令，并确认', formType: 1}, function(pass, index){</li><li>  layer.close(index);</li><li>  layer.prompt({title: '随便写点啥，并确认', formType: 2}, function(text, index){</li><li>    layer.close(index);</li><li>    layer.msg('演示完毕！您的口令：'+ pass +'&lt;br&gt;您最后写下了：'+text);</li><li>  });</li><li>});</li><li><p>//tab层</p></li><li>layer.tab({</li><li>  area: ['600px', '300px'],</li><li>  tab: [{</li><li>    title: 'TAB1', </li><li>    content: '内容1'</li><li>  }, {</li><li>    title: 'TAB2', </li><li>    content: '内容2'</li><li>  }, {</li><li>    title: 'TAB3', </li><li>    content: '内容3'</li><li>  }]</li><li>});</li><li><p>//相册层</p></li><li>$.getJSON('test/photos.json?v='+new Date, function(json){</li><li>  layer.photos({</li><li>    photos: json //格式见API文档手册页</li><li>    ,anim: 5 //0-6的选择，指定弹出图片动画类型，默认随机</li><li>  });</li><li>});</li><li>  </li></ol></pre>
+  
+  
+  <div class="layer-text" style="padding:20px 0 10px;" id="yiwang">
+    <fieldset class="layui-elem-field layui-field-title">
+      <legend>再试牛刀</legend>
+    </fieldset>
+  </div>
+  
+  <ul class="clearfix demolist">
+    <li class="layer-area">
+      <div>信息框</div>
+      <a class="layui-btn layui-btn-primary layer-demolist" href="javascript:;">例1</a>
+      <a class="layui-btn layui-btn-primary layer-demolist" href="javascript:;">例2</a>
+      <a class="layui-btn layui-btn-primary layer-demolist" href="javascript:;">例3</a>
+      <a class="layui-btn layui-btn-primary layer-demolist" href="javascript:;">例4</a>
+      <a class="layui-btn layui-btn-primary layer-demolist" href="javascript:;">例5</a>
+    </li>
+    
+    <li class="layer-area">
+      <div>页面层/iframe层</div>
+      <a class="layui-btn layui-btn-primary layer-demolist" href="javascript:;">页面层-自定义</a>
+      <a class="layui-btn layui-btn-primary layer-demolist" href="javascript:;">页面层-佟丽娅</a>
+      <a class="layui-btn layui-btn-primary layer-demolist" href="javascript:;" id="parentIframe">iframe-子父操作</a>
+      <a class="layui-btn layui-btn-primary layer-demolist" href="javascript:;">iframe-多媒体</a>
+      <a class="layui-btn layui-btn-primary layer-demolist" href="javascript:;">iframe-禁滚动条</a>
+    </li>
+    
+    <li>
+      <!-- layer-300*250 -->
+      <ins class="adsbygoogle" style="display: inline-block; width: 300px; height: 250px;" data-ad-client="ca-pub-6111334333458862" data-ad-slot="2182025432" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><ins id="aswift_1_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><iframe width="300" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;width:300px;height:250px;" src="./layer官方演示与讲解（jQuery弹出层插件）_files/saved_resource(1).html"></iframe></ins></ins></ins>
+    </li>
+    
+    <li class="layer-area">
+      <div>加载层</div>
+      <a class="layui-btn layui-btn-primary layer-demolist" href="javascript:;">默认</a>
+      <a class="layui-btn layui-btn-primary layer-demolist" href="javascript:;">风格2</a>
+      <a class="layui-btn layui-btn-primary layer-demolist" href="javascript:;">风格3</a>
+      <a class="layui-btn layui-btn-primary layer-demolist" href="javascript:;">风格4</a>
+      <a class="layui-btn layui-btn-primary layer-demolist" href="javascript:;">打酱油</a>
+    </li>
+    
+    <li class="layer-area">
+      <div>tips层</div>
+      <a class="layui-btn layui-btn-primary layer-demolist" href="javascript:;">上</a>
+      <a class="layui-btn layui-btn-primary layer-demolist" href="javascript:;">右</a>
+      <a class="layui-btn layui-btn-primary layer-demolist" href="javascript:;">下</a>
+      <a class="layui-btn layui-btn-primary layer-demolist" href="javascript:;">左</a>
+      <a class="layui-btn layui-btn-primary layer-demolist" href="javascript:;">允许多个</a>
+    </li>
+    
+    <li class="layer-area">
+      <div>其它演示</div>
+      <a class="layui-btn layui-btn-primary layer-demolist" href="javascript:;">默认prompt</a>
+      <a class="layui-btn layui-btn-primary layer-demolist" href="javascript:;">屏蔽浏览器滚动条</a>
+      <a class="layui-btn layui-btn-primary layer-demolist" href="javascript:;">弹出即全屏</a>
+      <a class="layui-btn layui-btn-primary layer-demolist" href="javascript:;">正上方</a>
+      <a class="layui-btn layer-demolist" href="http://layer.layui.com/test/more.html" target="_blank">更多例子</a>
+    </li>
+  </ul>
+
+  <pre id="demo2" class="layui-code layui-box layui-code-view" lay-height="360px" lay-title="对应配置"><h3 class="layui-code-h3">对应配置<a href="http://www.layui.com/doc/modules/code.html" target="_blank">layui.code</a></h3><ol class="layui-code-ol" style="margin-left: 1px; max-height: 360px;"><li><p>//信息框-例1</p></li><li>layer.alert('见到你真的很高兴', {icon: 6});</li><li> </li><li><p>//信息框-例2</p></li><li>layer.msg('你确定你很帅么？', {</li><li>  time: 0 //不自动关闭</li><li>  ,btn: ['必须啊', '丑到爆']</li><li>  ,yes: function(index){</li><li>    layer.close(index);</li><li>    layer.msg('雅蠛蝶 O.o', {</li><li>      icon: 6</li><li>      ,btn: ['嗷','嗷','嗷']</li><li>    });</li><li>  }</li><li>});</li><li><p>//信息框-例3</p></li><li>layer.msg('这是最常用的吧');</li><li><p>//信息框-例4</p></li><li>layer.msg('不开心。。', {icon: 5});</li><li><p>//信息框-例5</p></li><li>layer.msg('玩命卖萌中', function(){</li><li>//关闭后的操作</li><li>});</li><li><p>//页面层-自定义</p></li><li>layer.open({</li><li>  type: 1,</li><li>  title: false,</li><li>  closeBtn: 0,</li><li>  shadeClose: true,</li><li>  skin: 'yourclass',</li><li>  content: '自定义HTML内容'</li><li>});</li><li><p>//页面层-佟丽娅</p></li><li>layer.open({</li><li>  type: 1,</li><li>  title: false,</li><li>  closeBtn: 0,</li><li>  area: '516px',</li><li>  skin: 'layui-layer-nobg', //没有背景色</li><li>  shadeClose: true,</li><li>  content: $('#tong')</li><li>});</li><li><p>//iframe层-父子操作</p></li><li>layer.open({</li><li>  type: 2,</li><li>  area: ['700px', '450px'],</li><li>  fixed: false, //不固定</li><li>  maxmin: true,</li><li>  content: 'test/iframe.html'</li><li>});</li><li><p>//iframe层-多媒体</p></li><li>layer.open({</li><li>  type: 2,</li><li>  title: false,</li><li>  area: ['630px', '360px'],</li><li>  shade: 0.8,</li><li>  closeBtn: 0,</li><li>  shadeClose: true,</li><li>  content: '//player.youku.com/embed/XMjY3MzgzODg0'</li><li>});</li><li>layer.msg('点击任意处关闭');</li><li><p>//iframe层-禁滚动条</p></li><li>layer.open({</li><li>  type: 2,</li><li>  area: ['360px', '500px'],</li><li>  skin: 'layui-layer-rim', //加上边框</li><li>  content: ['mobile/', 'no']</li><li>});</li><li><p>//加载层-默认风格</p></li><li>layer.load();</li><li>//此处演示关闭</li><li>setTimeout(function(){</li><li>  layer.closeAll('loading');</li><li>}, 2000);</li><li><p>//加载层-风格2</p></li><li>layer.load(1);</li><li>//此处演示关闭</li><li>setTimeout(function(){</li><li>  layer.closeAll('loading');</li><li>}, 2000);</li><li><p>//加载层-风格3</p></li><li>layer.load(2);</li><li>//此处演示关闭</li><li>setTimeout(function(){</li><li>  layer.closeAll('loading');</li><li>}, 2000);</li><li><p>//加载层-风格4</p></li><li>layer.msg('加载中', {</li><li>  icon: 16</li><li>  ,shade: 0.01</li><li>});</li><li><p>//打酱油</p></li><li>layer.msg('尼玛，打个酱油', {icon: 4});</li><li><p>//tips层-上</p></li><li>layer.tips('上', '#id或者.class', {</li><li>  tips: [1, '#0FA6D8'] //还可配置颜色</li><li>});</li><li><p>//tips层-右</p></li><li>layer.tips('默认就是向右的', '#id或者.class');</li><li><p>//tips层-下</p></li><li>layer.tips('下', '#id或者.class', {</li><li>  tips: 3</li><li>});</li><li><p>//tips层-左</p></li><li>layer.tips('左边么么哒', '#id或者.class', {</li><li>  tips: [4, '#78BA32']</li><li>});</li><li><p>//tips层-不销毁之前的</p></li><li>layer.tips('不销毁之前的', '#id或者.class', {</li><li>  tipsMore: true</li><li>});</li><li><p>//默认prompt</p></li><li>layer.prompt(function(val, index){</li><li>  layer.msg('得到了'+val);</li><li>  layer.close(index);</li><li>});</li><li><p>//屏蔽浏览器滚动条</p></li><li>layer.open({</li><li>  content: '浏览器滚动条已锁',</li><li>  scrollbar: false</li><li>});</li><li><p>//弹出即全屏</p></li><li>var index = layer.open({</li><li>  type: 2,</li><li>  content: 'http://layim.layui.com',</li><li>  area: ['320px', '195px'],</li><li>  maxmin: true</li><li>});</li><li>layer.full(index);</li><li><p>//正上方</p></li><li>layer.msg('灵活运用offset', {</li><li>  offset: 't',</li><li>  anim: 6</li><li>});</li><li>//更多例子 </li><li>layer.msg('Hi');</li><li>  </li></ol></pre>
+
+  <div style="margin-top: 20px; text-align: center;">
+    <p style=" font-weight: 300;">倘若 layer 于你有益，欢迎：</p>
+    <a href="http://fly.layui.com/sponsors?from=layer" target="_blank" class="layui-btn layui-btn-danger" style="margin-top: 10px;">小额赞赏</a>
+  </div>
+ 
+  
+  <div class="layer-text" id="yiwang" style="padding:20px 0 10px;">
+    <fieldset class="layui-elem-field layui-field-title">
+      <legend>美妙之旅</legend>
+    </fieldset>
+    
+    <blockquote class="layui-elem-quote">
+      事实上layer提供的丰富的接口支撑，已经足够让你的弹层变得千变万化，请恕我们无法为您逐一演示。如果您仍觉得文档和代码有不当之处，迫切地希望您能反馈，你可以通过Fly社区和加群的方式进入layer的圈子，许多和你一样的小伙伴将会和你一起，经历这段美妙的旅程。
+    </blockquote>
+  </div>
+
+</div>
+
+<div id="tong" class="hide"><img src="./layer官方演示与讲解（jQuery弹出层插件）_files/tong.jpg"></div>            
+
+
+<div class="layui-footer footer footer-index">
+  <div class="layui-main">
+    <p>© 2017 <a href="http://www.layui.com/">layui.com</a> MIT license</p>
+    <p class="layui-text">
+      <a href="http://fly.layui.com/jie/3147/" target="_blank">付费计划</a>
+      <a href="http://fly.layui.com/jie/2461/" target="_blank">微信公众号</a>
+      <a href="http://fly.layui.com/jie/" target="_blank">Fly社区</a>
+    </p>
+  </div>
+</div>  
+
+
+<script src="./layer官方演示与讲解（jQuery弹出层插件）_files/layui.js.下载"></script>
+<script src="./layer官方演示与讲解（jQuery弹出层插件）_files/demo.js.下载"></script>
+
+<script async="" src="./layer官方演示与讲解（jQuery弹出层插件）_files/adsbygoogle.js.下载"></script>
+<script>
+var i = 0, len = jQuery('.adsbygoogle').length;
+for(; i < len; i++){
+  (adsbygoogle = window.adsbygoogle || []).push({});
+}
+(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: "ca-pub-6111334333458862",
+  enable_page_level_ads: true
+});
+</script>
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_30088308'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D30088308' type='text/javascript'%3E%3C/script%3E"));</script><span id="cnzz_stat_icon_30088308"></span><script src="./layer官方演示与讲解（jQuery弹出层插件）_files/c.php" type="text/javascript"></script>
+
+<!--[if IE 6]> 
+<script type="text/javascript" src="http://res.layui.com/lay/lib/png.js"></script>
+<script type="text/javascript">DD_belatedPNG.fix('.ie6PNG');</script>
+<![endif]-->
+
+
+
+
+
+<ins class="adsbygoogle" data-adsbygoogle-status="done" style="display: none;"><ins id="aswift_2_expand" style="display:inline-table;border:none;height:NaNpx;margin:0;padding:0;position:relative;visibility:visible;width:NaNpx;background-color:transparent;"><ins id="aswift_2_anchor" style="display:block;border:none;height:NaNpx;margin:0;padding:0;position:relative;visibility:visible;width:NaNpx;background-color:transparent;"><iframe frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;width:NaNpx;height:NaNpx;" src="./layer官方演示与讲解（jQuery弹出层插件）_files/saved_resource(2).html"></iframe></ins></ins></ins><div style="position: static; display: none; width: 0px; height: 0px; border: none; padding: 0px; margin: 0px;"><div id="trans-tooltip"><div id="tip-left-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left-top.png&quot;);"></div><div id="tip-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-top.png&quot;) repeat-x;"></div><div id="tip-right-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right-top.png&quot;);"></div><div id="tip-right" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right.png&quot;) repeat-y;"></div><div id="tip-right-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right-bottom.png&quot;);"></div><div id="tip-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-bottom.png&quot;) repeat-x;"></div><div id="tip-left-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left-bottom.png&quot;);"></div><div id="tip-left" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left.png&quot;);"></div><div id="trans-content"></div></div><div id="tip-arrow-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-arrow-bottom.png&quot;);"></div><div id="tip-arrow-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-arrow-top.png&quot;);"></div></div><ul class="layui-fixbar"><li class="layui-icon" lay-type="bar1" style=""></li><li class="layui-icon layui-fixbar-top" lay-type="top" style="display: none;"></li></ul></body></html>

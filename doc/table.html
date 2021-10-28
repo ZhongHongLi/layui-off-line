@@ -1,0 +1,795 @@
+﻿
+ 
+ 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>layui开发使用文档 - 入门指南</title>
+<meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  
+  <link rel="stylesheet" href="../layui/css/layui.css"  media="all">
+  <link rel="stylesheet" href="../css/global.css" media="all">
+</head>
+<body>
+<div class="layui-header header header-doc">
+  <div class="layui-main">
+    <a class="logo" href="../layui.html">
+      <img src="../imgs/logo.png" alt="layui">
+    </a>
+    <div class="layui-form component">
+      <select lay-search lay-filter="component">
+        <option value="">搜索组件或模块</option>
+        <option value="layout.html">grid 栅格布局</option>
+        <option value="layout.html#admin">admin 后台布局</option>
+        <option value="color.html">color 颜色</option>
+        <option value="icon.html">iconfont 字体图标</option>
+        <option value="anim.html">animation 动画</option>
+        <option value="button.html">button 按钮</option>
+        <option value="form.html">form 表单组</option>
+        <option value="form.html#input">input 输入框</option>
+        <option value="form.html#select">select 下拉选择框</option>
+        <option value="form.html#checkbox">checkbox 复选框</option>
+        <option value="form.html#switch">switch 开关</option>
+        <option value="form.html#radio">radio 单选框</option>
+        <option value="form.html#textarea">textarea 文本域</option>
+        <option value="nav.html">nav 导航菜单</option>
+        <option value="nav.html#breadcrumb">breadcrumb 面包屑</option>
+        <option value="tab.html">tabs 选项卡</option>
+        <option value="progress.html">progress 进度条</option>
+        <option value="collapse.html">collapse 折叠面板/手风琴</option>
+        <option value="table.html">table 表格元素</option>
+        <option value="badge.html">badge 徽章</option>
+        <option value="timeline.html">timeline 时间线</option>
+        <option value="auxiliar.html#blockquote">blockquote 引用块</option>
+        <option value="auxiliar.html#fieldset">fieldset 字段集</option>
+        <option value="auxiliar.html#hr">hr 分割线</option>
+        
+        <option value="layer.html">layer 弹出层/弹窗综合</option>
+        <option value="laydate.html">laydate 日期时间选择器</option>
+        <option value="layim.html">layim 即时通讯/聊天</option>
+        <option value="laypage.html">laypage 分页</option>
+        <option value="laytpl.html">laytpl 模板引擎</option>
+        <option value="form.html">form 表单模块</option>
+        <option value="table.html">table 数据表格</option>
+        <option value="upload.html">upload 文件/图片上传</option>
+        <option value="element.html">element 常用元素操作</option>
+        <option value="carousel.html">carousel 轮播/跑马灯</option>
+        <option value="layedit.html">layedit 富文本编辑器</option>
+        <option value="tree.html">tree 树形菜单</option>
+        <option value="flow.html">flow 信息流/图片懒加载</option>
+        <option value="util.html">util 工具集</option>
+        <option value="code.html">code 代码修饰</option>
+      </select>
+    </div>
+    <ul class="layui-nav">
+      <li class="layui-nav-item layui-this">
+        <a href="doc.html">文档<!--  --></a> 
+      </li>
+      <li class="layui-nav-item ">
+        <a href="../demo/demo.html">示例<!-- <span class="layui-badge-dot"></span> --></a>
+      </li> 
+      
+      <li class="layui-nav-item layui-hide-xs">
+        <a href="http://fly.layui.com/" target="_blank">社区</a>
+      </li>
+      
+      
+      <li class="layui-nav-item">
+        <!--<span class="layui-badge-dot" style="margin: -4px 3px 0;"></span>-->
+        <a href="javascript:;">周边</a>
+        <dl class="layui-nav-child">
+          <dd class="layui-hide-sm layui-show-xs"><a href="http://fly.layui.com/" target="_blank">社区交流</a><hr></dd>
+          <dd><a href="http://layim.layui.com/" target="_blank">即时聊天</a></dd>
+          <dd><a href="http://www.layui.com/template/fly/" target="_blank">社区模板<span class="layui-badge-dot"></span></a></dd>
+          <hr>
+          <dd><a href="http://www.layui.com/alone.html" target="_blank">独立组件</a></dd>
+          <dd><a href="http://fly.layui.com/jie/9842/" target="_blank">Axure组件</a></dd>
+        </dl>
+      </li>
+      
+      
+      <li class="layui-nav-item layui-hide-xs">
+        <a href="http://www.layui.com/admin/" target="_blank">后台方案<span class="layui-badge-dot"></span></a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+<!--[if lt IE 9]>
+  <script src="../js/html5.min.js"></script>
+  <script src="../js/respond.min.js"></script>
+<![endif]--> 
+<ul class="site-dir">
+  <li><a href="#default"><cite>常规用法</cite></a></li>
+  <li><a href="#attr"><cite>基础属性</cite></a></li>
+  <li><a href="#skin"><cite>风格</cite></a></li>
+  <li><a href="#size"><cite>尺寸</cite></a></li>
+  <li><a href="dataTable.html"><cite>表格动态操作</cite></a></li>
+</ul>
+<div class="layui-main site-inline">
+  <div class="site-tree">
+  <ul class="layui-tree">
+  
+    <li><h2>基础说明</h2></li>
+  
+    <li class="site-tree-noicon ">
+      <a href="doc.html">
+        <cite>开始使用</cite>
+        <em>Getting Started</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="infrastructure.html">
+        <cite>底层方法</cite>
+        <em>基础支撑</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="element.html">
+        <cite>页面元素</cite>
+        <em>规范 / 公共类 / 属性</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="modules.html">
+        <cite>模块规范</cite>
+        <em>使用 / 扩展</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="faq.html">
+        <cite>常见问题</cite>
+        <em>FAQ</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="changelog.html">
+        <cite>更新日志</cite>
+        
+        <span class="layui-badge-dot" style="position: relative; top: -3px; left: -3px;"></span>
+        
+      </a>
+    </li>
+    
+    <li><h2>页面元素</h2></li>
+    
+    
+    <li class="site-tree-noicon ">
+      <a href="layout.html">
+        <cite>布局</cite>
+        <em>栅格 / 后台布局</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="color.html">
+        <cite>颜色</cite>
+        <em>主题色设计感 / 内置背景色</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="icon.html">
+        <cite>图标</cite>
+        <em>字体图标</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="anim.html">
+        <cite>动画</cite>
+        <em>内置的CSS3动画类</em>
+      </a>
+    </li>
+    
+    <li class="site-tree-noicon ">
+      <a href="button.html">
+        <cite>按钮</cite>
+        <em>button组</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="form.html">
+        <cite>表单</cite>
+        <em>form元素集合</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="nav.html">
+        <cite>导航</cite>
+        <em>菜单 / 面包屑</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="tab.html">
+        <cite>选项卡</cite>
+        <em>Tabs 切换</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="progress.html">
+        <cite>进度条</cite>
+        <em>progress</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="panel.html">
+        <cite>面板</cite>
+        <em>折叠 / 手风琴</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon layui-this">
+      <a href="table.html">
+        <cite>表格</cite>
+        <em>静态table</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="badge.html">
+        <cite>徽章</cite>
+        <em>小圆点 / 小边框</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="timeline.html">
+        <cite>时间线</cite>
+        <em>timeline</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="auxiliar.html">
+        <cite>辅助</cite>
+        <em>引用 / 字段集 / 横线等</em>
+      </a>
+    </li>
+   
+    
+    <li><h2>内置模块</h2></li>
+    
+    <li class="">
+      <a href="layer.html">
+        <i class="layui-icon" style="top: 3px;">&#xe638;</i><cite>弹出层</cite>
+        <em>layer</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="laydate.html">
+        <i class="layui-icon" style="top: 1px;">&#xe637;</i><cite>日期与时间选择</cite>
+        <em>laydate</em>
+      </a>
+    </li>
+    <li >
+      <a href="layim.html">
+        <i class="layui-icon" style="position: relative; top: 3px;">&#xe63a;</i>
+        <cite>即时通讯</cite>
+        <em>layim</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="laypage.html">
+        <i class="layui-icon">&#xe633;</i><cite>分页</cite>
+        <em>laypage</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="laytpl.html">
+        <i class="layui-icon">&#xe628;</i><cite>模板引擎</cite>
+        <em>laytpl</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="dataTable.html">
+        <i class="layui-icon">&#xe62d;</i>
+        <cite>数据表格</cite>
+        <em>table</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="DataForm.html">
+        <i class="layui-icon" style="top: 2px;">&#xe63c;</i>
+        <cite>表单</cite>
+        <em>form</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="upload.html">
+        <i class="layui-icon">&#xe62f;</i>
+        <cite>文件上传</cite>
+        <em>upload</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="DataElement.html">
+        <i class="layui-icon" style="top: 1px; font-size: 18px;">&#xe62a;</i>
+        <cite>常用元素操作</cite>
+        <em>element</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="carousel.html">
+        <i class="layui-icon">&#xe634;</i>
+        <cite>轮播</cite>
+        <em>carousel</em>
+      </a>
+    </li>
+    
+    <li class="">
+      <a href="flow.html">
+        <i class="layui-icon">&#xe636;</i>
+        <cite>流加载</cite>
+        <em>flow</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="util.html">
+        <i class="layui-icon">&#xe631;</i>
+        <cite>工具集</cite>
+        <em>util</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="code.html">
+        <i class="layui-icon" style="top: 1px;">&#xe635;</i>
+        <cite>代码修饰器</cite>
+        <em>code</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="layedit.html">
+        <i class="layui-icon" style="top: 1px;">&#xe639;</i>
+        <cite><span style="font-size:1px;">1.0.9:</span>富文本编辑器</cite>
+        <em>layedit</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="tree.html">
+        <i class="layui-icon" style="top: 1px;">&#xe62e;</i>
+        <cite><span style="font-size:1px;">1.0.9:</span>树形菜单</cite>
+        <em>tree</em>
+      </a>
+    </li>
+  </ul>
+</div>
+
+  <div class="site-content">
+    <h1 class="site-h1">表格 - 页面元素</h1>
+    <blockquote class="site-text layui-elem-quote">
+      本篇为你介绍表格的HTML使用，你将通过内置的自定义属性对其进行风格的多样化设定。<em>请注意：</em>这仅仅局限于呈现基础表格，如果你急切需要的是数据表格（<em>datatable</em>），那么你应该详细阅读：<a href="/doc/modules/table.html">table模块</a>
+    </blockquote>
+    
+
+    
+    <fieldset class="layui-elem-field layui-field-title site-title">
+      <legend><a name="default">常规用法</a></legend>
+    </fieldset>
+    
+    
+    
+    <table class="layui-table">
+      <colgroup>
+        <col width="150">
+        <col width="200">
+        <col>
+      </colgroup>
+      <thead>
+        <tr>
+          <th>昵称</th>
+          <th>加入时间</th>
+          <th>签名</th>
+        </tr> 
+      </thead>
+      <tbody>
+        <tr>
+          <td>贤心</td>
+          <td>2016-11-29</td>
+          <td>人生就像是一场修行</td>
+        </tr>
+        <tr>
+          <td>许闲心</td>
+          <td>2016-11-28</td>
+          <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+        </tr>
+        <tr>
+          <td>sentsin</td>
+          <td>2016-11-27</td>
+          <td> Life is either a daring adventure or nothing.</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div class="site-text">
+      <pre class="layui-code" lay-title="HTML">
+&lt;table class=&quot;layui-table&quot;&gt;
+  &lt;colgroup&gt;
+    &lt;col width=&quot;150&quot;&gt;
+    &lt;col width=&quot;200&quot;&gt;
+    &lt;col&gt;
+  &lt;/colgroup&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;昵称&lt;/th&gt;
+      &lt;th&gt;加入时间&lt;/th&gt;
+      &lt;th&gt;签名&lt;/th&gt;
+    &lt;/tr&gt; 
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;贤心&lt;/td&gt;
+      &lt;td&gt;2016-11-29&lt;/td&gt;
+      &lt;td&gt;人生就像是一场修行&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;许闲心&lt;/td&gt;
+      &lt;td&gt;2016-11-28&lt;/td&gt;
+      &lt;td&gt;于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+      </pre>
+    </div>
+    
+    <fieldset class="layui-elem-field layui-field-title site-title">
+      <legend><a name="attr">基础属性</a></legend>
+    </fieldset>
+    <div class="site-text">
+      <p>静态表格支持以下基础属性，可定义不同风格/尺寸的表格样式：</p>
+    </div>
+    <table class="layui-table">
+      <colgroup>
+        <col width="150">
+        <col width="200">
+        <col>
+      </colgroup>
+      <thead>
+        <tr>
+          <th>属性名</th>
+          <th>属性值</th>
+          <th>备注</th>
+        </tr> 
+      </thead>
+      <tbody>
+        <tr>
+          <td>lay-even</td>
+          <td>无</td>
+          <td>用于开启 <em>隔行</em> 背景，可与其它属性一起使用</td>
+        </tr>
+        <tr>
+          <td>lay-skin="属性值"</td>
+          <td>
+            line （行边框风格）
+            <br>row （列边框风格）
+            <br>nob （无边框风格）
+          </td>
+          <td>
+            若使用默认风格不设置该属性即可
+          </td>
+        </tr>
+        <tr>
+          <td>lay-size="属性值"</td>
+          <td>
+            sm （小尺寸）
+            <br>lg （大尺寸）
+          </td>
+          <td>
+            若使用默认尺寸不设置该属性即可
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="site-text">
+      <p>将你所需要的基础属性写在table标签上即可，如（一个带有隔行背景，且行边框风格的大尺寸表格）：</p>
+    </div>
+    <pre class="layui-code" lay-title="HTML">
+&lt;table lay-even lay-skin="line" lay-size="lg"&gt;
+…
+&lt;/table&gt;
+    </pre>
+    
+    
+    <fieldset class="layui-elem-field layui-field-title site-title">
+      <legend><a name="skin">表格其它风格</a></legend>
+    </fieldset>
+    
+    <div class="site-text">
+      <p>除了默认的表格风格外，我们还提供了其它几种风格，你可以按照实际需求自由设定</p>
+    </div>
+    
+    <table class="layui-table" lay-skin="line">
+      <colgroup>
+        <col width="150">
+        <col width="200">
+        <col>
+      </colgroup>
+      <thead>
+        <tr>
+          <th>昵称</th>
+          <th>加入时间</th>
+          <th>签名</th>
+        </tr> 
+      </thead>
+      <tbody>
+        <tr>
+          <td>贤心</td>
+          <td>2016-11-29</td>
+          <td>人生就像是一场修行</td>
+        </tr>
+        <tr>
+          <td>许闲心</td>
+          <td>2016-11-28</td>
+          <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+        </tr>
+        <tr>
+          <td>sentsin</td>
+          <td>2016-11-27</td>
+          <td> Life is either a daring adventure or nothing.</td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="layui-table" lay-skin="row">
+      <colgroup>
+        <col width="150">
+        <col width="200">
+        <col>
+      </colgroup>
+      <thead>
+        <tr>
+          <th>昵称</th>
+          <th>加入时间</th>
+          <th>签名</th>
+        </tr> 
+      </thead>
+      <tbody>
+        <tr>
+          <td>贤心</td>
+          <td>2016-11-29</td>
+          <td>人生就像是一场修行</td>
+        </tr>
+        <tr>
+          <td>许闲心</td>
+          <td>2016-11-28</td>
+          <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+        </tr>
+        <tr>
+          <td>sentsin</td>
+          <td>2016-11-27</td>
+          <td> Life is either a daring adventure or nothing.</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <table class="layui-table" lay-even lay-skin="nob">
+      <colgroup>
+        <col width="150">
+        <col width="200">
+        <col>
+      </colgroup>
+      <thead>
+        <tr>
+          <th>昵称</th>
+          <th>加入时间</th>
+          <th>签名</th>
+        </tr> 
+      </thead>
+      <tbody>
+        <tr>
+          <td>贤心</td>
+          <td>2016-11-29</td>
+          <td>人生就像是一场修行</td>
+        </tr>
+        <tr>
+          <td>许闲心</td>
+          <td>2016-11-28</td>
+          <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+        </tr>
+        <tr>
+          <td>sentsin</td>
+          <td>2016-11-27</td>
+          <td> Life is either a daring adventure or nothing.</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div class="site-text">
+      <pre class="layui-code" lay-title="HTML">
+&lt;table class=&quot;layui-table&quot; <em>lay-skin="line"</em>&gt;
+  行边框表格（内部结构参见右侧目录“常规用法”）
+&lt;/table&gt;
+ 
+&lt;table class=&quot;layui-table&quot; <em>lay-skin="row"</em>&gt;
+  列边框表格（内部结构参见右侧目录“常规用法”）
+&lt;/table&gt;
+ 
+&lt;table class=&quot;layui-table&quot; lay-even <em>lay-skin="nob"</em>&gt;
+  无边框表格（内部结构参见右侧目录“常规用法”）
+&lt;/table&gt;
+      </pre>
+    </div>
+    
+    <fieldset class="layui-elem-field layui-field-title site-title">
+      <legend><a name="size">表格其它尺寸</a></legend>
+    </fieldset>
+    
+    <div class="site-text">
+      <p>除了默认的表格尺寸外，我们还提供了其它几种尺寸，你可以按照实际需求自由设定</p>
+    </div>
+    
+    <table class="layui-table" lay-size="sm">
+      <colgroup>
+        <col width="150">
+        <col width="200">
+        <col>
+      </colgroup>
+      <thead>
+        <tr>
+          <th>昵称</th>
+          <th>加入时间</th>
+          <th>签名</th>
+        </tr> 
+      </thead>
+      <tbody>
+        <tr>
+          <td>贤心</td>
+          <td>2016-11-29</td>
+          <td>人生就像是一场修行</td>
+        </tr>
+        <tr>
+          <td>许闲心</td>
+          <td>2016-11-28</td>
+          <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+        </tr>
+        <tr>
+          <td>sentsin</td>
+          <td>2016-11-27</td>
+          <td> Life is either a daring adventure or nothing.</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <table class="layui-table" lay-size="lg">
+      <colgroup>
+        <col width="150">
+        <col width="200">
+        <col>
+      </colgroup>
+      <thead>
+        <tr>
+          <th>昵称</th>
+          <th>加入时间</th>
+          <th>签名</th>
+        </tr> 
+      </thead>
+      <tbody>
+        <tr>
+          <td>贤心</td>
+          <td>2016-11-29</td>
+          <td>人生就像是一场修行</td>
+        </tr>
+        <tr>
+          <td>许闲心</td>
+          <td>2016-11-28</td>
+          <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+        </tr>
+        <tr>
+          <td>sentsin</td>
+          <td>2016-11-27</td>
+          <td> Life is either a daring adventure or nothing.</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div class="site-text">
+      <pre class="layui-code" lay-title="HTML">
+&lt;table class=&quot;layui-table&quot; <em>lay-size="sm"</em>&gt;
+  小尺寸表格（内部结构参见右侧目录“常规用法”）
+&lt;/table&gt;
+ 
+&lt;table class=&quot;layui-table&quot; <em>lay-size="lg"</em>&gt;
+  大尺寸表格（内部结构参见右侧目录“常规用法”）
+&lt;/table&gt;
+      </pre>
+    </div>
+    
+    <fieldset class="layui-elem-field layui-field-title site-title">
+      <legend>结语</legend>
+    </fieldset>
+    <div class="site-text">
+      <p>再次温馨提醒：如果你需要对表格进行排序、数据交互等一系列功能性操作，你需要进一步阅读 layui 的重要组成：<a href="/doc/modules/table.html">table模块</a></p>
+    </div>
+    
+    <div class="layui-elem-quote">
+  <p>Layui - 用心与你沟通</p>
+</div>
+    
+  </div>   
+  </div>
+  
+<div class="layui-footer footer footer-doc">
+  <div class="layui-main">
+    <p>&copy; 2018 <a href="../layui.html">layui.com</a> MIT license</p>
+    <p>
+      <a href="http://fly.layui.com/case/2018/" target="_blank">案例</a>
+      <a href="http://fly.layui.com/jie/3147/" target="_blank">众筹</a>
+      <a href="mailto:xianxin@layui-inc.com">联系</a>
+      <a href="https://github.com/sentsin/layui/" target="_blank" rel="nofollow">GitHub</a>
+      <a href="https://gitee.com/sentsin/layui" target="_blank" rel="nofollow">码云</a>
+      <a href="http://fly.layui.com/jie/2461/" target="_blank">微信公众号</a>
+    </p>
+    <p class="site-union">
+      <a href="https://www.upyun.com?from=layui" target="_blank" rel="nofollow" upyun><img src="../imgs/upyun.png?t=1"></a>
+      <span>提供 CDN 赞助</span>
+    </p>
+  </div>
+</div>
+<script async src="../js/adsbygoogle.js"></script>
+<div class="site-tree-mobile layui-hide">
+  <i class="layui-icon">&#xe602;</i>
+</div>
+<div class="site-mobile-shade"></div>
+<script src="../layui/layui.js?t=1515376178738" charset="utf-8"></script>
+<script>
+window.global = {
+  pageType: 'doc'
+  ,preview: function(){
+    var preview = document.getElementById('LAY_preview');
+    return preview ? preview.innerHTML : '';
+  }()
+};
+layui.config({
+	 base: '../js/'
+	 ,version: '1515376178709'
+}).use('global');
+
+layui.use("form",function(){
+	var form = layui.form;
+	
+  //搜索组件
+  form.on('select(component)', function(data){
+    var value = data.value;
+    location.href = value;
+  });
+
+  //切换版本
+  form.on('select(tabVersion)', function(data){
+    var value = data.value;
+    if(value=="new")
+	{
+		location.href="doc.html";
+	}else if(value=="v1")
+	{
+		location.href="v1.html";
+	}
+  });
+  
+});
+</script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_30088308'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D30088308' type='text/javascript'%3E%3C/script%3E"));</script>
+<script>
+layui.use('table', function(){
+  var table = layui.table;
+  
+  //第一个实例
+  table.render({
+    elem: '#demo'
+    ,height: 315
+    ,url: '/demo/table/user/' //数据接口
+    ,page: true //开启分页
+    ,cols: [[
+      {field:'id', title: 'ID', width:80, sort: true}
+      ,{field:'username', title: '用户名', width:80}
+      ,{field:'sex', title: '性别', width:80, sort: true}
+      ,{field:'city', title: '城市'} //如果未设定列宽，宽度将会自动分配（注：layui 2.2.0 新增功能，之前的版本一定要设置 width）
+      ,{field:'sign', title: '签名'}
+      ,{field:'experience', title: '积分', sort: true}
+      ,{field:'score', title: '评分', sort: true}
+      ,{field:'classify', title: '职业'}
+      ,{field:'wealth', title: '财富', sort: true}
+    ]]
+  });
+});
+</script>
+</body>
+</html>

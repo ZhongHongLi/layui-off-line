@@ -1,0 +1,528 @@
+﻿
+ 
+ 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>layui开发使用文档 - 入门指南</title>
+<meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  
+  <link rel="stylesheet" href="../layui/css/layui.css"  media="all">
+  <link rel="stylesheet" href="../css/global.css" media="all">
+</head>
+<body>
+<div class="layui-header header header-doc">
+  <div class="layui-main">
+    <a class="logo" href="../layui.html">
+      <img src="../imgs/logo.png" alt="layui">
+    </a>
+    <div class="layui-form component">
+      <select lay-search lay-filter="component">
+        <option value="">搜索组件或模块</option>
+        <option value="layout.html">grid 栅格布局</option>
+        <option value="layout.html#admin">admin 后台布局</option>
+        <option value="color.html">color 颜色</option>
+        <option value="icon.html">iconfont 字体图标</option>
+        <option value="anim.html">animation 动画</option>
+        <option value="button.html">button 按钮</option>
+        <option value="form.html">form 表单组</option>
+        <option value="form.html#input">input 输入框</option>
+        <option value="form.html#select">select 下拉选择框</option>
+        <option value="form.html#checkbox">checkbox 复选框</option>
+        <option value="form.html#switch">switch 开关</option>
+        <option value="form.html#radio">radio 单选框</option>
+        <option value="form.html#textarea">textarea 文本域</option>
+        <option value="nav.html">nav 导航菜单</option>
+        <option value="nav.html#breadcrumb">breadcrumb 面包屑</option>
+        <option value="tab.html">tabs 选项卡</option>
+        <option value="progress.html">progress 进度条</option>
+        <option value="collapse.html">collapse 折叠面板/手风琴</option>
+        <option value="table.html">table 表格元素</option>
+        <option value="badge.html">badge 徽章</option>
+        <option value="timeline.html">timeline 时间线</option>
+        <option value="auxiliar.html#blockquote">blockquote 引用块</option>
+        <option value="auxiliar.html#fieldset">fieldset 字段集</option>
+        <option value="auxiliar.html#hr">hr 分割线</option>
+        
+        <option value="layer.html">layer 弹出层/弹窗综合</option>
+        <option value="laydate.html">laydate 日期时间选择器</option>
+        <option value="layim.html">layim 即时通讯/聊天</option>
+        <option value="laypage.html">laypage 分页</option>
+        <option value="laytpl.html">laytpl 模板引擎</option>
+        <option value="form.html">form 表单模块</option>
+        <option value="table.html">table 数据表格</option>
+        <option value="upload.html">upload 文件/图片上传</option>
+        <option value="element.html">element 常用元素操作</option>
+        <option value="carousel.html">carousel 轮播/跑马灯</option>
+        <option value="layedit.html">layedit 富文本编辑器</option>
+        <option value="tree.html">tree 树形菜单</option>
+        <option value="flow.html">flow 信息流/图片懒加载</option>
+        <option value="util.html">util 工具集</option>
+        <option value="code.html">code 代码修饰</option>
+      </select>
+    </div>
+    <ul class="layui-nav">
+      <li class="layui-nav-item layui-this">
+        <a href="doc.html">文档<!--  --></a> 
+      </li>
+      <li class="layui-nav-item ">
+        <a href="../demo/demo.html">示例<!-- <span class="layui-badge-dot"></span> --></a>
+      </li> 
+      
+      <li class="layui-nav-item layui-hide-xs">
+        <a href="http://fly.layui.com/" target="_blank">社区</a>
+      </li>
+      
+      
+      <li class="layui-nav-item">
+        <!--<span class="layui-badge-dot" style="margin: -4px 3px 0;"></span>-->
+        <a href="javascript:;">周边</a>
+        <dl class="layui-nav-child">
+          <dd class="layui-hide-sm layui-show-xs"><a href="http://fly.layui.com/" target="_blank">社区交流</a><hr></dd>
+          <dd><a href="http://layim.layui.com/" target="_blank">即时聊天</a></dd>
+          <dd><a href="http://www.layui.com/template/fly/" target="_blank">社区模板<span class="layui-badge-dot"></span></a></dd>
+          <hr>
+          <dd><a href="http://www.layui.com/alone.html" target="_blank">独立组件</a></dd>
+          <dd><a href="http://fly.layui.com/jie/9842/" target="_blank">Axure组件</a></dd>
+        </dl>
+      </li>
+      
+      
+      <li class="layui-nav-item layui-hide-xs">
+        <a href="http://www.layui.com/admin/" target="_blank">后台方案<span class="layui-badge-dot"></span></a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+<!--[if lt IE 9]>
+  <script src="../js/html5.min.js"></script>
+  <script src="../js/respond.min.js"></script>
+<![endif]--> 
+<ul class="site-dir">
+  <li><a href="#blockquote"><cite>引用区块</cite></a></li>
+  <li><a href="#fieldset"><cite>字段集区块</cite></a></li>
+  <li><a href="#hr"><cite>横线/分割线</cite></a></li>
+</ul>
+<div class="layui-main site-inline">
+  <div class="site-tree">
+  <ul class="layui-tree">
+  
+    <li><h2>基础说明</h2></li>
+  
+    <li class="site-tree-noicon ">
+      <a href="doc.html">
+        <cite>开始使用</cite>
+        <em>Getting Started</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="infrastructure.html">
+        <cite>底层方法</cite>
+        <em>基础支撑</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="element.html">
+        <cite>页面元素</cite>
+        <em>规范 / 公共类 / 属性</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="modules.html">
+        <cite>模块规范</cite>
+        <em>使用 / 扩展</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="faq.html">
+        <cite>常见问题</cite>
+        <em>FAQ</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="changelog.html">
+        <cite>更新日志</cite>
+        
+        <span class="layui-badge-dot" style="position: relative; top: -3px; left: -3px;"></span>
+        
+      </a>
+    </li>
+    
+    <li><h2>页面元素</h2></li>
+    
+    
+    <li class="site-tree-noicon ">
+      <a href="layout.html">
+        <cite>布局</cite>
+        <em>栅格 / 后台布局</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="color.html">
+        <cite>颜色</cite>
+        <em>主题色设计感 / 内置背景色</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="icon.html">
+        <cite>图标</cite>
+        <em>字体图标</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="anim.html">
+        <cite>动画</cite>
+        <em>内置的CSS3动画类</em>
+      </a>
+    </li>
+    
+    <li class="site-tree-noicon ">
+      <a href="button.html">
+        <cite>按钮</cite>
+        <em>button组</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="form.html">
+        <cite>表单</cite>
+        <em>form元素集合</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="nav.html">
+        <cite>导航</cite>
+        <em>菜单 / 面包屑</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="tab.html">
+        <cite>选项卡</cite>
+        <em>Tabs 切换</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="progress.html">
+        <cite>进度条</cite>
+        <em>progress</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="panel.html">
+        <cite>面板</cite>
+        <em>折叠 / 手风琴</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="table.html">
+        <cite>表格</cite>
+        <em>静态table</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="badge.html">
+        <cite>徽章</cite>
+        <em>小圆点 / 小边框</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="timeline.html">
+        <cite>时间线</cite>
+        <em>timeline</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon layui-this">
+      <a href="auxiliar.html">
+        <cite>辅助</cite>
+        <em>引用 / 字段集 / 横线等</em>
+      </a>
+    </li>
+   
+    
+    <li><h2>内置模块</h2></li>
+    
+    <li class="">
+      <a href="layer.html">
+        <i class="layui-icon" style="top: 3px;">&#xe638;</i><cite>弹出层</cite>
+        <em>layer</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="laydate.html">
+        <i class="layui-icon" style="top: 1px;">&#xe637;</i><cite>日期与时间选择</cite>
+        <em>laydate</em>
+      </a>
+    </li>
+    <li >
+      <a href="layim.html">
+        <i class="layui-icon" style="position: relative; top: 3px;">&#xe63a;</i>
+        <cite>即时通讯</cite>
+        <em>layim</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="laypage.html">
+        <i class="layui-icon">&#xe633;</i><cite>分页</cite>
+        <em>laypage</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="laytpl.html">
+        <i class="layui-icon">&#xe628;</i><cite>模板引擎</cite>
+        <em>laytpl</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="dataTable.html">
+        <i class="layui-icon">&#xe62d;</i>
+        <cite>数据表格</cite>
+        <em>table</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="DataForm.html">
+        <i class="layui-icon" style="top: 2px;">&#xe63c;</i>
+        <cite>表单</cite>
+        <em>form</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="upload.html">
+        <i class="layui-icon">&#xe62f;</i>
+        <cite>文件上传</cite>
+        <em>upload</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="DataElement.html">
+        <i class="layui-icon" style="top: 1px; font-size: 18px;">&#xe62a;</i>
+        <cite>常用元素操作</cite>
+        <em>element</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="carousel.html">
+        <i class="layui-icon">&#xe634;</i>
+        <cite>轮播</cite>
+        <em>carousel</em>
+      </a>
+    </li>
+    
+    <li class="">
+      <a href="flow.html">
+        <i class="layui-icon">&#xe636;</i>
+        <cite>流加载</cite>
+        <em>flow</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="util.html">
+        <i class="layui-icon">&#xe631;</i>
+        <cite>工具集</cite>
+        <em>util</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="code.html">
+        <i class="layui-icon" style="top: 1px;">&#xe635;</i>
+        <cite>代码修饰器</cite>
+        <em>code</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="layedit.html">
+        <i class="layui-icon" style="top: 1px;">&#xe639;</i>
+        <cite><span style="font-size:1px;">1.0.9:</span>富文本编辑器</cite>
+        <em>layedit</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="tree.html">
+        <i class="layui-icon" style="top: 1px;">&#xe62e;</i>
+        <cite><span style="font-size:1px;">1.0.9:</span>树形菜单</cite>
+        <em>tree</em>
+      </a>
+    </li>
+  </ul>
+</div>
+
+  <div class="site-content">
+    <h1 class="site-h1">简单辅助元素 - 页面元素</h1>
+    <blockquote class="site-text layui-elem-quote">
+        本篇主要集中罗列页面中的一些简单辅助元素，如：引用块、字段集区块、横线等等，这些元素都无需依赖任何模块
+      </p>
+    </blockquote>
+    
+    
+    <div class="site-title">
+      <fieldset><legend><a name="blockquote">引用区块</a></legend></fieldset>
+    </div>    
+    <div class="site-text">
+      <blockquote class="layui-elem-quote">引用区域的文字</blockquote>
+      <blockquote class="layui-elem-quote layui-quote-nm">引用区域的文字</blockquote>
+      <p>目前内置了上述两种风格</p>
+      <pre class="layui-code" lay-title="HTML结构">
+&lt;blockquote class="layui-elem-quote">引用区域的文字&lt;/blockquote>
+&lt;blockquote class="layui-elem-quote layui-quote-nm">引用区域的文字&lt;/blockquote>
+      </pre>
+    </div>
+    
+    <div class="site-title">
+      <fieldset><legend><a name="fieldset">字段集区块</a></legend></fieldset>
+    </div>    
+    <div class="site-text">
+      <fieldset class="layui-elem-field">
+        <legend>字段集区块 - 默认风格</legend>
+        <div class="layui-field-box">
+          内容区域。
+        </div>
+      </fieldset>
+      <p>同样内置了两种风格，另一种风格即该文档的标题横线：字段集一行</p>
+      <pre class="layui-code" lay-title="HTML结构">
+&lt;fieldset class="layui-elem-field">
+  &lt;legend>字段集区块 - 默认风格&lt;/legend>
+  &lt;div class="layui-field-box">
+    内容区域
+  &lt;/div>
+&lt;/fieldset>
+ 
+&lt;fieldset class="layui-elem-field layui-field-title">
+  &lt;legend>字段集区块 - 横线风格&lt;/legend>
+  &lt;div class="layui-field-box">
+    内容区域
+  &lt;/div>
+&lt;/fieldset>
+你可以把它看作是一个有标题的横线
+      </pre>
+    </div>
+    
+    <div class="site-title">
+      <fieldset><legend><a name="hr">横线</a></legend></fieldset>
+    </div>    
+    <div class="site-text">
+      默认分割线
+      <hr>
+      
+      赤色分割线
+      <hr class="layui-bg-red">
+      
+      橙色分割线
+      <hr class="layui-bg-orange">
+      
+      墨绿分割线
+      <hr class="layui-bg-green">
+      
+      青色分割线
+      <hr class="layui-bg-cyan">
+      
+      蓝色分割线
+      <hr class="layui-bg-blue">
+      
+      黑色分割线
+      <hr class="layui-bg-black">
+      
+      灰色分割线
+      <hr class="layui-bg-gray">
+      <pre class="layui-code" lay-title="HTML结构">
+默认分割线
+&lt;hr>
+ 
+赤色分割线
+&lt;hr class="layui-bg-red">
+ 
+橙色分割线
+&lt;hr class="layui-bg-orange">
+ 
+墨绿分割线
+&lt;hr class="layui-bg-green">
+ 
+青色分割线
+&lt;hr class="layui-bg-cyan">
+ 
+蓝色分割线
+&lt;hr class="layui-bg-blue">
+ 
+黑色分割线
+&lt;hr class="layui-bg-black">
+ 
+灰色分割线
+&lt;hr class="layui-bg-gray">
+      </pre>
+    </div>
+    
+    <div class="layui-elem-quote">
+  <p>Layui - 用心与你沟通</p>
+</div>
+    
+  </div>
+  </div>
+  
+<div class="layui-footer footer footer-doc">
+  <div class="layui-main">
+    <p>&copy; 2018 <a href="../layui.html">layui.com</a> MIT license</p>
+    <p>
+      <a href="http://fly.layui.com/case/2018/" target="_blank">案例</a>
+      <a href="http://fly.layui.com/jie/3147/" target="_blank">众筹</a>
+      <a href="mailto:xianxin@layui-inc.com">联系</a>
+      <a href="https://github.com/sentsin/layui/" target="_blank" rel="nofollow">GitHub</a>
+      <a href="https://gitee.com/sentsin/layui" target="_blank" rel="nofollow">码云</a>
+      <a href="http://fly.layui.com/jie/2461/" target="_blank">微信公众号</a>
+    </p>
+    <p class="site-union">
+      <a href="https://www.upyun.com?from=layui" target="_blank" rel="nofollow" upyun><img src="../imgs/upyun.png?t=1"></a>
+      <span>提供 CDN 赞助</span>
+    </p>
+  </div>
+</div>
+<script async src="../js/adsbygoogle.js"></script>
+<div class="site-tree-mobile layui-hide">
+  <i class="layui-icon">&#xe602;</i>
+</div>
+<div class="site-mobile-shade"></div>
+<script src="../layui/layui.js?t=1515376178738" charset="utf-8"></script>
+<script>
+window.global = {
+  pageType: 'doc'
+  ,preview: function(){
+    var preview = document.getElementById('LAY_preview');
+    return preview ? preview.innerHTML : '';
+  }()
+};
+layui.config({
+	 base: '../js/'
+	 ,version: '1515376178709'
+}).use('global');
+
+layui.use("form",function(){
+	var form = layui.form;
+	
+  //搜索组件
+  form.on('select(component)', function(data){
+    var value = data.value;
+    location.href = value;
+  });
+
+  //切换版本
+  form.on('select(tabVersion)', function(data){
+    var value = data.value;
+    if(value=="new")
+	{
+		location.href="doc.html";
+	}else if(value=="v1")
+	{
+		location.href="v1.html";
+	}
+  });
+  
+});
+</script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_30088308'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D30088308' type='text/javascript'%3E%3C/script%3E"));</script>
+</body>
+</html>

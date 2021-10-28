@@ -1,0 +1,1171 @@
+﻿
+ 
+ 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>layui开发使用文档 - 入门指南</title>
+<meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  
+  <link rel="stylesheet" href="../layui/css/layui.css"  media="all">
+  <link rel="stylesheet" href="../css/global.css" media="all">
+</head>
+<body>
+<div class="layui-header header header-doc">
+  <div class="layui-main">
+    <a class="logo" href="../layui.html">
+      <img src="../imgs/logo.png" alt="layui">
+    </a>
+    <div class="layui-form component">
+      <select lay-search lay-filter="component">
+        <option value="">搜索组件或模块</option>
+        <option value="layout.html">grid 栅格布局</option>
+        <option value="layout.html#admin">admin 后台布局</option>
+        <option value="color.html">color 颜色</option>
+        <option value="icon.html">iconfont 字体图标</option>
+        <option value="anim.html">animation 动画</option>
+        <option value="button.html">button 按钮</option>
+        <option value="form.html">form 表单组</option>
+        <option value="form.html#input">input 输入框</option>
+        <option value="form.html#select">select 下拉选择框</option>
+        <option value="form.html#checkbox">checkbox 复选框</option>
+        <option value="form.html#switch">switch 开关</option>
+        <option value="form.html#radio">radio 单选框</option>
+        <option value="form.html#textarea">textarea 文本域</option>
+        <option value="nav.html">nav 导航菜单</option>
+        <option value="nav.html#breadcrumb">breadcrumb 面包屑</option>
+        <option value="tab.html">tabs 选项卡</option>
+        <option value="progress.html">progress 进度条</option>
+        <option value="collapse.html">collapse 折叠面板/手风琴</option>
+        <option value="table.html">table 表格元素</option>
+        <option value="badge.html">badge 徽章</option>
+        <option value="timeline.html">timeline 时间线</option>
+        <option value="auxiliar.html#blockquote">blockquote 引用块</option>
+        <option value="auxiliar.html#fieldset">fieldset 字段集</option>
+        <option value="auxiliar.html#hr">hr 分割线</option>
+        
+        <option value="layer.html">layer 弹出层/弹窗综合</option>
+        <option value="laydate.html">laydate 日期时间选择器</option>
+        <option value="layim.html">layim 即时通讯/聊天</option>
+        <option value="laypage.html">laypage 分页</option>
+        <option value="laytpl.html">laytpl 模板引擎</option>
+        <option value="form.html">form 表单模块</option>
+        <option value="table.html">table 数据表格</option>
+        <option value="upload.html">upload 文件/图片上传</option>
+        <option value="element.html">element 常用元素操作</option>
+        <option value="carousel.html">carousel 轮播/跑马灯</option>
+        <option value="layedit.html">layedit 富文本编辑器</option>
+        <option value="tree.html">tree 树形菜单</option>
+        <option value="flow.html">flow 信息流/图片懒加载</option>
+        <option value="util.html">util 工具集</option>
+        <option value="code.html">code 代码修饰</option>
+      </select>
+    </div>
+    <ul class="layui-nav">
+      <li class="layui-nav-item layui-this">
+        <a href="doc.html">文档<!--  --></a> 
+      </li>
+      <li class="layui-nav-item ">
+        <a href="../demo/demo.html">示例<!-- <span class="layui-badge-dot"></span> --></a>
+      </li> 
+      
+      <li class="layui-nav-item layui-hide-xs">
+        <a href="http://fly.layui.com/" target="_blank">社区</a>
+      </li>
+      
+      
+      <li class="layui-nav-item">
+        <!--<span class="layui-badge-dot" style="margin: -4px 3px 0;"></span>-->
+        <a href="javascript:;">周边</a>
+        <dl class="layui-nav-child">
+          <dd class="layui-hide-sm layui-show-xs"><a href="http://fly.layui.com/" target="_blank">社区交流</a><hr></dd>
+          <dd><a href="http://layim.layui.com/" target="_blank">即时聊天</a></dd>
+          <dd><a href="http://www.layui.com/template/fly/" target="_blank">社区模板<span class="layui-badge-dot"></span></a></dd>
+          <hr>
+          <dd><a href="http://www.layui.com/alone.html" target="_blank">独立组件</a></dd>
+          <dd><a href="http://fly.layui.com/jie/9842/" target="_blank">Axure组件</a></dd>
+        </dl>
+      </li>
+      
+      
+      <li class="layui-nav-item layui-hide-xs">
+        <a href="http://www.layui.com/admin/" target="_blank">后台方案<span class="layui-badge-dot"></span></a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+<!--[if lt IE 9]>
+  <script src="../js/html5.min.js"></script>
+  <script src="../js/respond.min.js"></script>
+<![endif]--> 
+<ul class="site-dir">
+  <li><a href="#use"><cite>使用方式</cite></a></li>
+  <li><a href="#table"><cite>内置图标一览表</cite></a></li>
+  <li><a href="#access"><cite>跨域问题的解决</cite></a></li>
+</ul>
+<div class="layui-main site-inline">
+  <div class="site-tree">
+  <ul class="layui-tree">
+  
+    <li><h2>基础说明</h2></li>
+  
+    <li class="site-tree-noicon ">
+      <a href="doc.html">
+        <cite>开始使用</cite>
+        <em>Getting Started</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="infrastructure.html">
+        <cite>底层方法</cite>
+        <em>基础支撑</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="element.html">
+        <cite>页面元素</cite>
+        <em>规范 / 公共类 / 属性</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="modules.html">
+        <cite>模块规范</cite>
+        <em>使用 / 扩展</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="faq.html">
+        <cite>常见问题</cite>
+        <em>FAQ</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="changelog.html">
+        <cite>更新日志</cite>
+        
+        <span class="layui-badge-dot" style="position: relative; top: -3px; left: -3px;"></span>
+        
+      </a>
+    </li>
+    
+    <li><h2>页面元素</h2></li>
+    
+    
+    <li class="site-tree-noicon ">
+      <a href="layout.html">
+        <cite>布局</cite>
+        <em>栅格 / 后台布局</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="color.html">
+        <cite>颜色</cite>
+        <em>主题色设计感 / 内置背景色</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon layui-this">
+      <a href="icon.html">
+        <cite>图标</cite>
+        <em>字体图标</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="anim.html">
+        <cite>动画</cite>
+        <em>内置的CSS3动画类</em>
+      </a>
+    </li>
+    
+    <li class="site-tree-noicon ">
+      <a href="button.html">
+        <cite>按钮</cite>
+        <em>button组</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="form.html">
+        <cite>表单</cite>
+        <em>form元素集合</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="nav.html">
+        <cite>导航</cite>
+        <em>菜单 / 面包屑</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="tab.html">
+        <cite>选项卡</cite>
+        <em>Tabs 切换</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="progress.html">
+        <cite>进度条</cite>
+        <em>progress</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="panel.html">
+        <cite>面板</cite>
+        <em>折叠 / 手风琴</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="table.html">
+        <cite>表格</cite>
+        <em>静态table</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="badge.html">
+        <cite>徽章</cite>
+        <em>小圆点 / 小边框</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="timeline.html">
+        <cite>时间线</cite>
+        <em>timeline</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="auxiliar.html">
+        <cite>辅助</cite>
+        <em>引用 / 字段集 / 横线等</em>
+      </a>
+    </li>
+   
+    
+    <li><h2>内置模块</h2></li>
+    
+    <li class="">
+      <a href="layer.html">
+        <i class="layui-icon" style="top: 3px;">&#xe638;</i><cite>弹出层</cite>
+        <em>layer</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="laydate.html">
+        <i class="layui-icon" style="top: 1px;">&#xe637;</i><cite>日期与时间选择</cite>
+        <em>laydate</em>
+      </a>
+    </li>
+    <li >
+      <a href="layim.html">
+        <i class="layui-icon" style="position: relative; top: 3px;">&#xe63a;</i>
+        <cite>即时通讯</cite>
+        <em>layim</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="laypage.html">
+        <i class="layui-icon">&#xe633;</i><cite>分页</cite>
+        <em>laypage</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="laytpl.html">
+        <i class="layui-icon">&#xe628;</i><cite>模板引擎</cite>
+        <em>laytpl</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="dataTable.html">
+        <i class="layui-icon">&#xe62d;</i>
+        <cite>数据表格</cite>
+        <em>table</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="DataForm.html">
+        <i class="layui-icon" style="top: 2px;">&#xe63c;</i>
+        <cite>表单</cite>
+        <em>form</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="upload.html">
+        <i class="layui-icon">&#xe62f;</i>
+        <cite>文件上传</cite>
+        <em>upload</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="DataElement.html">
+        <i class="layui-icon" style="top: 1px; font-size: 18px;">&#xe62a;</i>
+        <cite>常用元素操作</cite>
+        <em>element</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="carousel.html">
+        <i class="layui-icon">&#xe634;</i>
+        <cite>轮播</cite>
+        <em>carousel</em>
+      </a>
+    </li>
+    
+    <li class="">
+      <a href="flow.html">
+        <i class="layui-icon">&#xe636;</i>
+        <cite>流加载</cite>
+        <em>flow</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="util.html">
+        <i class="layui-icon">&#xe631;</i>
+        <cite>工具集</cite>
+        <em>util</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="code.html">
+        <i class="layui-icon" style="top: 1px;">&#xe635;</i>
+        <cite>代码修饰器</cite>
+        <em>code</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="layedit.html">
+        <i class="layui-icon" style="top: 1px;">&#xe639;</i>
+        <cite><span style="font-size:1px;">1.0.9:</span>富文本编辑器</cite>
+        <em>layedit</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="tree.html">
+        <i class="layui-icon" style="top: 1px;">&#xe62e;</i>
+        <cite><span style="font-size:1px;">1.0.9:</span>树形菜单</cite>
+        <em>tree</em>
+      </a>
+    </li>
+  </ul>
+</div>
+
+  <div class="site-content">
+    <h1 class="site-h1">字体图标</h1>
+    <div class="site-tips site-text">
+      <p>layui 的所有图标全部采用字体形式，取材于阿里巴巴矢量图标库（iconfont）。因此你可以把一个icon看作是一个普通的文字，这意味着你直接用css控制文字属性，如color、font-size，就可以改变图标的颜色和大小。而区分不同的图标，我们主要是采用 <em>Unicode</em> 字符</p>
+    </div>
+    
+    
+    <div class="site-title">
+      <fieldset><legend><a name="use">使用方式</a></legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>通过对一个内联元素（一般推荐用 <em>i</em>标签）设定 <em>class="layui-icon"</em>，来定义一个图标，然后对元素加上图标对应的  <em>Unicode</em> 字符，即可显示出你想要的图标，譬如：</p>
+      <pre class="layui-code">
+&lt;i class="layui-icon">&amp;#xe60c;&lt;/i>   
+其中的 &amp;#xe60c; 即是图标对应的Unicode字符
+ 
+你可以去定义它的颜色或者大小，如：<i class="layui-icon" style="font-size: 30px; color: #FF5722;">&#xe60c;</i>  
+&lt;i class="layui-icon" style="font-size: 30px; color: #1E9FFF;">&amp;#xe60c;&lt;/i>  
+      </pre>
+    </div>
+    
+    
+    <div class="site-title">
+      <fieldset><legend><a name="table">内置图标一览表（119个）</a></legend></fieldset>
+    </div>
+    <ul class="site-doc-icon">
+      <li>
+        <i class="layui-icon">&#xe68e;</i>
+        <div class="name">主页</div>
+        <div class="code">&amp;#xe68e;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe6c6;</i>
+        <div class="name">赞</div>
+        <div class="code">&amp;#xe6c6;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe6c5;</i>
+        <div class="name">踩</div>
+        <div class="code">&amp;#xe6c5;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe662;</i>
+        <div class="name">男</div>
+        <div class="code">&amp;#xe662;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe661;</i>
+        <div class="name">女</div>
+        <div class="code">&amp;#xe661;</div>
+      </li>
+    
+      <li>
+        <i class="layui-icon">&#xe660;</i>
+        <div class="name">相机-空心</div>
+        <div class="code">&amp;#xe660;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe65d;</i>
+        <div class="name">相机-实心</div>
+        <div class="code">&amp;#xe65d;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe65f;</i>
+        <div class="name">菜单-水平</div>
+        <div class="code">&amp;#xe65f;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe671;</i>
+        <div class="name">菜单-竖直</div>
+        <div class="code">&amp;#xe671;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe65c;</i>
+        <div class="name">返回</div>
+        <div class="code">&amp;#xe65c;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe756;</i>
+        <div class="name">Hot</div>
+        <div class="code">&amp;#xe756;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe735;</i>
+        <div class="name">等级</div>
+        <div class="code">&amp;#xe735;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe65e;</i>
+        <div class="name">金额-人民币</div>
+        <div class="code">&amp;#xe65e;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe659;</i>
+        <div class="name">金额-美元</div>
+        <div class="code">&amp;#xe659;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe715;</i>
+        <div class="name">位置</div>
+        <div class="code">&amp;#xe715;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe705;</i>
+        <div class="name">文档</div>
+        <div class="code">&amp;#xe705;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe6b2;</i>
+        <div class="name">检验</div>
+        <div class="code">&amp;#xe6b2;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe6af;</i>
+        <div class="name">笑脸</div>
+        <div class="code">&amp;#xe6af;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe69c;</i>
+        <div class="name">哭脸</div>
+        <div class="code">&amp;#xe69c;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe698;</i>
+        <div class="name">购物车1</div>
+        <div class="code">&amp;#xe698;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe657;</i>
+        <div class="name">购物车2</div>
+        <div class="code">&amp;#xe657;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe658;</i>
+        <div class="name">星级</div>
+        <div class="code">&amp;#xe658;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe65a;</i>
+        <div class="name">上一页</div>
+        <div class="code">&amp;#xe65a;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe65b;</i>
+        <div class="name">下一页</div>
+        <div class="code">&amp;#xe65b;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe681;</i>
+        <div class="name">上传-空心</div>
+        <div class="code">&amp;#xe681;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe67c;</i>
+        <div class="name">上传-实心</div>
+        <div class="code">&amp;#xe67c;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe7a0;</i>
+        <div class="name">文件夹</div>
+        <div class="code">&amp;#xe7a0;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe857;</i>
+        <div class="name">应用</div>
+        <div class="code">&amp;#xe857;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe652;</i>
+        <div class="name">播放</div>
+        <div class="code">&amp;#xe652;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe651;</i>
+        <div class="name">播放暂停</div>
+        <div class="code">&amp;#xe651;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe6fc;</i>
+        <div class="name">音乐</div>
+        <div class="code">&amp;#xe6fc;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe6ed;</i>
+        <div class="name">视频</div>
+        <div class="code">&amp;#xe6ed;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe688;</i>
+        <div class="name">语音</div>
+        <div class="code">&amp;#xe688;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe645;</i>
+        <div class="name">喇叭</div>
+        <div class="code">&amp;#xe645;</div>
+      </li>
+    
+      <li>
+        <i class="layui-icon">&#xe611;</i>
+        <div class="name">对话</div>
+        <div class="code">&amp;#xe611;</div>
+        <div class="fontclass">.duihua</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe614;</i>
+      <div class="name">设置</div>
+      <div class="code">&amp;#xe614;</div>
+      <div class="fontclass">.shezhi</div>
+      </li>
+      
+      <li>
+      <i class="layui-icon">&#xe60f;</i>
+      <div class="name">隐身-im</div>
+      <div class="code">&amp;#xe60f;</div>
+      <div class="fontclass">.yinshenim</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe615;</i>
+      <div class="name">搜索</div>
+      <div class="code">&amp;#xe615;</div>
+      <div class="fontclass">.search</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe641;</i>
+      <div class="name">分享</div>
+      <div class="code">&amp;#xe641;</div>
+      <div class="fontclass">.fenxiang1</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop">&#x1002;</i>
+        <div class="name">刷新</div>
+        <div class="code">&amp;#x1002;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop">&#xe63d;</i>
+        <div class="name">loading</div>
+        <div class="code">&amp;#xe63d;</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop">&#xe63e;</i>
+        <div class="name">loading</div>
+        <div class="code">&amp;#xe63e;</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe620;</i>
+      <div class="name">设置</div>
+      <div class="code">&amp;#xe620;</div>
+      <div class="fontclass">.shezhi1</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe628;</i>
+      <div class="name">引擎</div>
+      <div class="code">&amp;#xe628;</div>
+      <div class="fontclass">.yinqing</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#x1006;</i>
+      <div class="name">阅卷错号</div>
+      <div class="code">&amp;#x1006;</div>
+      <div class="fontclass">.yuejuancuohao</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#x1007;</i>
+      <div class="name">错-</div>
+      <div class="code">&amp;#x1007;</div>
+      <div class="fontclass">.cuo</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe629;</i>
+      <div class="name">报表</div>
+      <div class="code">&amp;#xe629;</div>
+      <div class="fontclass">.baobiao</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe600;</i>
+      <div class="name">star</div>
+      <div class="code">&amp;#xe600;</div>
+      <div class="fontclass">.star</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe617;</i>
+      <div class="name">圆点</div>
+      <div class="code">&amp;#xe617;</div>
+      <div class="fontclass">.yuandian</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe606;</i>
+      <div class="name">客服</div>
+      <div class="code">&amp;#xe606;</div>
+      <div class="fontclass">.kefu</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe609;</i>
+      <div class="name">发布</div>
+      <div class="code">&amp;#xe609;</div>
+      <div class="fontclass">.logo</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe60a;</i>
+      <div class="name">21cake_list</div>
+      <div class="code">&amp;#xe60a;</div>
+      <div class="fontclass">.list</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe62c;</i>
+      <div class="name">图表</div>
+      <div class="code">&amp;#xe62c;</div>
+      <div class="fontclass">.tubiao</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#x1005;</i>
+      <div class="name">正确</div>
+      <div class="code">&amp;#x1005;</div>
+      <div class="fontclass">.right</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe61b;</i>
+      <div class="name">换肤2</div>
+      <div class="code">&amp;#xe61b;</div>
+      <div class="fontclass">.huanfu2</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe610;</i>
+      <div class="name">在线</div>
+      <div class="code">&amp;#xe610;</div>
+      <div class="fontclass">.On-line</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe602;</i>
+      <div class="name">右右</div>
+      <div class="code">&amp;#xe602;</div>
+      <div class="fontclass">.youyou</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe603;</i>
+      <div class="name">左左</div>
+      <div class="code">&amp;#xe603;</div>
+      <div class="fontclass">.zuozuo</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe62d;</i>
+        <div class="name">表格</div>
+        <div class="code">&amp;#xe62d;</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe62e;</i>
+      <div class="name">icon_树</div>
+      <div class="code">&amp;#xe62e;</div>
+      <div class="fontclass">.icon5</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe62f;</i>
+      <div class="name">上传</div>
+      <div class="code">&amp;#xe62f;</div>
+      <div class="fontclass">.iconfont17</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe61f;</i>
+      <div class="name">添加</div>
+      <div class="code">&amp;#xe61f;</div>
+      <div class="fontclass">.tianjia</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe601;</i>
+      <div class="name">下载</div>
+      <div class="code">&amp;#xe601;</div>
+      <div class="fontclass">.xiazai</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe630;</i>
+      <div class="name">选择模版48</div>
+      <div class="code">&amp;#xe630;</div>
+      <div class="fontclass">.xuanzemoban48</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe631;</i>
+      <div class="name">工具</div>
+      <div class="code">&amp;#xe631;</div>
+      <div class="fontclass">.gongju</div>
+      </li>
+      
+      <li>
+        <i class="layui-icon">&#xe654;</i>
+        <div class="name">添加</div>
+        <div class="code">&amp;#xe654;</div>
+      </li>
+      <li>
+        <i class="layui-icon">&#xe642;</i>
+        <div class="name">编辑</div>
+        <div class="code">&amp;#xe642;</div>
+      </li>
+      <li>
+        <i class="layui-icon">&#xe640;</i>
+        <div class="name">删除</div>
+        <div class="code">&amp;#xe640;</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe61a;</i>
+      <div class="name">向下</div>
+      <div class="code">&amp;#xe61a;</div>
+      <div class="fontclass">.xiangxia</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe621;</i>
+      <div class="name">文件</div>
+      <div class="code">&amp;#xe621;</div>
+      <div class="fontclass">.wenjian</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe632;</i>
+      <div class="name">布局</div>
+      <div class="code">&amp;#xe632;</div>
+      <div class="fontclass">.layouts</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe618;</i>
+      <div class="name">对勾</div>
+      <div class="code">&amp;#xe618;</div>
+      <div class="fontclass">.duigou</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe608;</i>
+      <div class="name">添加</div>
+      <div class="code">&amp;#xe608;</div>
+      <div class="fontclass">.tianjia1</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe633;</i>
+      <div class="name">么么直播－翻页</div>
+      <div class="code">&amp;#xe633;</div>
+      <div class="fontclass">.yaoyaozhibofanye</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe61c;</i>
+      <div class="name">404</div>
+      <div class="code">&amp;#xe61c;</div>
+      <div class="fontclass">.404</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe634;</i>
+      <div class="name">轮播组图</div>
+      <div class="code">&amp;#xe634;</div>
+      <div class="fontclass">.lunbozutu</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe607;</i>
+      <div class="name">help</div>
+      <div class="code">&amp;#xe607;</div>
+      <div class="fontclass">.help</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe635;</i>
+      <div class="name">代码1</div>
+      <div class="code">&amp;#xe635;</div>
+      <div class="fontclass">.daima1</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe636;</i>
+      <div class="name">进水</div>
+      <div class="code">&amp;#xe636;</div>
+      <div class="fontclass">.jinshui</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe60b;</i>
+      <div class="name">关于</div>
+      <div class="code">&amp;#xe60b;</div>
+      <div class="fontclass">.guanyu</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe619;</i>
+      <div class="name">向上</div>
+      <div class="code">&amp;#xe619;</div>
+      <div class="fontclass">.xiangshang</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe637;</i>
+      <div class="name">日期</div>
+      <div class="code">&amp;#xe637;</div>
+      <div class="fontclass">.riqi</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe61d;</i>
+      <div class="name">文件</div>
+      <div class="code">&amp;#xe61d;</div>
+      <div class="fontclass">.wenjian1</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe604;</i>
+      <div class="name">top</div>
+      <div class="code">&amp;#xe604;</div>
+      <div class="fontclass">.top</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe612;</i>
+      <div class="name">好友请求</div>
+      <div class="code">&amp;#xe612;</div>
+      <div class="fontclass">.haoyouqingqiu</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe605;</i>
+      <div class="name">对</div>
+      <div class="code">&amp;#xe605;</div>
+      <div class="fontclass">.weibiaoti1</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe638;</i>
+      <div class="name">窗口</div>
+      <div class="code">&amp;#xe638;</div>
+      <div class="fontclass">.chuangkou</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe60c;</i>
+      <div class="name">表情</div>
+      <div class="code">&amp;#xe60c;</div>
+      <div class="fontclass">.comiisbiaoqing</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe616;</i>
+      <div class="name">正确</div>
+      <div class="code">&amp;#xe616;</div>
+      <div class="fontclass">.zhengque</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe613;</i>
+      <div class="name">我的好友</div>
+      <div class="code">&amp;#xe613;</div>
+      <div class="fontclass">.iconfontwodehaoyou</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe61e;</i>
+      <div class="name">文件下载</div>
+      <div class="code">&amp;#xe61e;</div>
+      <div class="fontclass">.wenjianxiazai</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe60d;</i>
+      <div class="name">图片</div>
+      <div class="code">&amp;#xe60d;</div>
+      <div class="fontclass">.tupian</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe64c;</i>
+      <div class="name">链接</div>
+      <div class="code">&amp;#xe64c;</div>
+      <div class="fontclass">.lianjie</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe60e;</i>
+      <div class="name">记录</div>
+      <div class="code">&amp;#xe60e;</div>
+      <div class="fontclass">.jilu</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe622;</i>
+      <div class="name">文件夹</div>
+      <div class="code">&amp;#xe622;</div>
+      <div class="fontclass">.liucheng</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe64f;</i>
+      <div class="name">font-strikethrough</div>
+      <div class="code">&amp;#xe64f;</div>
+      <div class="fontclass">.fontstrikethrough</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe64d;</i>
+      <div class="name">unlink</div>
+      <div class="code">&amp;#xe64d;</div>
+      <div class="fontclass">.unlink</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe639;</i>
+      <div class="name">编辑_文字</div>
+      <div class="code">&amp;#xe639;</div>
+      <div class="fontclass">.bianjiwenzi</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe623;</i>
+      <div class="name">三角</div>
+      <div class="code">&amp;#xe623;</div>
+      <div class="fontclass">.sanjiao</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe63f;</i>
+      <div class="name">单选框-候选</div>
+      <div class="code">&amp;#xe63f;</div>
+      <div class="fontclass">.danxuankuanghouxuan</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe643;</i>
+      <div class="name">单选框-选中</div>
+      <div class="code">&amp;#xe643;</div>
+      <div class="fontclass">.danxuankuangxuanzhong</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe647;</i>
+      <div class="name">居中对齐</div>
+      <div class="code">&amp;#xe647;</div>
+      <div class="fontclass">.juzhongduiqi</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe648;</i>
+      <div class="name">右对齐</div>
+      <div class="code">&amp;#xe648;</div>
+      <div class="fontclass">.youduiqi</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe649;</i>
+      <div class="name">左对齐</div>
+      <div class="code">&amp;#xe649;</div>
+      <div class="fontclass">.zuoduiqi</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe626;</i>
+      <div class="name">勾选框（未打勾）</div>
+      <div class="code">&amp;#xe626;</div>
+      <div class="fontclass">.gongsisvgtubiaozongji22</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe627;</i>
+      <div class="name">勾选框（已打勾）</div>
+      <div class="code">&amp;#xe627;</div>
+      <div class="fontclass">.gongsisvgtubiaozongji23</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe62b;</i>
+      <div class="name">加粗</div>
+      <div class="code">&amp;#xe62b;</div>
+      <div class="fontclass">.jiacu</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe63a;</i>
+      <div class="name">聊天 对话 IM 沟通</div>
+      <div class="code">&amp;#xe63a;</div>
+      <div class="fontclass">.liaotianduihuaimgoutong</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe624;</i>
+      <div class="name">文件夹_反</div>
+      <div class="code">&amp;#xe624;</div>
+      <div class="fontclass">.wenjianjiafan</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe63b;</i>
+      <div class="name">手机</div>
+      <div class="code">&amp;#xe63b;</div>
+      <div class="fontclass">.shouji</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe650;</i>
+      <div class="name">表情</div>
+      <div class="code">&amp;#xe650;</div>
+      <div class="fontclass">.biaoqing</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe64b;</i>
+      <div class="name">html</div>
+      <div class="code">&amp;#xe64b;</div>
+      <div class="fontclass">.html</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe63c;</i>
+      <div class="name">表单</div>
+      <div class="code">&amp;#xe63c;</div>
+      <div class="fontclass">.biaodan</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe62a;</i>
+      <div class="name">tab</div>
+      <div class="code">&amp;#xe62a;</div>
+      <div class="fontclass">.25</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe64e;</i>
+      <div class="name">emw_代码</div>
+      <div class="code">&amp;#xe64e;</div>
+      <div class="fontclass">.emwdaima</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe646;</i>
+      <div class="name">字体-下划线</div>
+      <div class="code">&amp;#xe646;</div>
+      <div class="fontclass">.zitixiahuaxian</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe625;</i>
+      <div class="name">三角</div>
+      <div class="code">&amp;#xe625;</div>
+      <div class="fontclass">.sanjiao1</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe64a;</i>
+      <div class="name">图片</div>
+      <div class="code">&amp;#xe64a;</div>
+      <div class="fontclass">.tupian-copy-copy</div>
+      </li>
+      <li>
+      <i class="layui-icon">&#xe644;</i>
+      <div class="name">斜体</div>
+      <div class="code">&amp;#xe644;</div>
+      <div class="fontclass">.xieti</div>
+      </li>
+    </ul>
+    
+    <div class="site-title">
+      <fieldset><legend><a name="access">跨域问题的解决</a></legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>由于浏览器存在同源策略，所以如果layui（里面含图标字体文件）所在的地址与你当前的页面地址<em>不在同一个域下</em>，即会出现图标跨域问题。所以要么你就把Layui与网站放在同一服务器，要么就对Layui所在的资源服务器的Response Headers加上属性：<em>Access-Control-Allow-Origin: *</em> </p>
+    </div>
+    
+    <div class="layui-elem-quote">
+  <p>Layui - 用心与你沟通</p>
+</div>
+    
+  </div>  </div>
+  
+<div class="layui-footer footer footer-doc">
+  <div class="layui-main">
+    <p>&copy; 2018 <a href="../layui.html">layui.com</a> MIT license</p>
+    <p>
+      <a href="http://fly.layui.com/case/2018/" target="_blank">案例</a>
+      <a href="http://fly.layui.com/jie/3147/" target="_blank">众筹</a>
+      <a href="mailto:xianxin@layui-inc.com">联系</a>
+      <a href="https://github.com/sentsin/layui/" target="_blank" rel="nofollow">GitHub</a>
+      <a href="https://gitee.com/sentsin/layui" target="_blank" rel="nofollow">码云</a>
+      <a href="http://fly.layui.com/jie/2461/" target="_blank">微信公众号</a>
+    </p>
+    <p class="site-union">
+      <a href="https://www.upyun.com?from=layui" target="_blank" rel="nofollow" upyun><img src="../imgs/upyun.png?t=1"></a>
+      <span>提供 CDN 赞助</span>
+    </p>
+  </div>
+</div>
+<script async src="../js/adsbygoogle.js"></script>
+<div class="site-tree-mobile layui-hide">
+  <i class="layui-icon">&#xe602;</i>
+</div>
+<div class="site-mobile-shade"></div>
+<script src="../layui/layui.js?t=1515376178738" charset="utf-8"></script>
+<script>
+window.global = {
+  pageType: 'doc'
+  ,preview: function(){
+    var preview = document.getElementById('LAY_preview');
+    return preview ? preview.innerHTML : '';
+  }()
+};
+layui.config({
+	 base: '../js/'
+	 ,version: '1515376178709'
+}).use('global');
+
+layui.use("form",function(){
+	var form = layui.form;
+	
+  //搜索组件
+  form.on('select(component)', function(data){
+    var value = data.value;
+    location.href = value;
+  });
+
+  //切换版本
+  form.on('select(tabVersion)', function(data){
+    var value = data.value;
+    if(value=="new")
+	{
+		location.href="doc.html";
+	}else if(value=="v1")
+	{
+		location.href="v1.html";
+	}
+  });
+  
+});
+</script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_30088308'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D30088308' type='text/javascript'%3E%3C/script%3E"));</script>
+</body>
+</html>

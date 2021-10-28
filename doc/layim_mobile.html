@@ -1,0 +1,1166 @@
+﻿
+ 
+ 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>layui开发使用文档 - 入门指南</title>
+<meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  
+  <link rel="stylesheet" href="../layui/css/layui.css"  media="all">
+  <link rel="stylesheet" href="../css/global.css" media="all">
+</head>
+<body>
+<div class="layui-header header header-doc">
+  <div class="layui-main">
+    <a class="logo" href="../layui.html">
+      <img src="../imgs/logo.png" alt="layui">
+    </a>
+    <div class="layui-form component">
+      <select lay-search lay-filter="component">
+        <option value="">搜索组件或模块</option>
+        <option value="layout.html">grid 栅格布局</option>
+        <option value="layout.html#admin">admin 后台布局</option>
+        <option value="color.html">color 颜色</option>
+        <option value="icon.html">iconfont 字体图标</option>
+        <option value="anim.html">animation 动画</option>
+        <option value="button.html">button 按钮</option>
+        <option value="form.html">form 表单组</option>
+        <option value="form.html#input">input 输入框</option>
+        <option value="form.html#select">select 下拉选择框</option>
+        <option value="form.html#checkbox">checkbox 复选框</option>
+        <option value="form.html#switch">switch 开关</option>
+        <option value="form.html#radio">radio 单选框</option>
+        <option value="form.html#textarea">textarea 文本域</option>
+        <option value="nav.html">nav 导航菜单</option>
+        <option value="nav.html#breadcrumb">breadcrumb 面包屑</option>
+        <option value="tab.html">tabs 选项卡</option>
+        <option value="progress.html">progress 进度条</option>
+        <option value="collapse.html">collapse 折叠面板/手风琴</option>
+        <option value="table.html">table 表格元素</option>
+        <option value="badge.html">badge 徽章</option>
+        <option value="timeline.html">timeline 时间线</option>
+        <option value="auxiliar.html#blockquote">blockquote 引用块</option>
+        <option value="auxiliar.html#fieldset">fieldset 字段集</option>
+        <option value="auxiliar.html#hr">hr 分割线</option>
+        
+        <option value="layer.html">layer 弹出层/弹窗综合</option>
+        <option value="laydate.html">laydate 日期时间选择器</option>
+        <option value="layim.html">layim 即时通讯/聊天</option>
+        <option value="laypage.html">laypage 分页</option>
+        <option value="laytpl.html">laytpl 模板引擎</option>
+        <option value="form.html">form 表单模块</option>
+        <option value="table.html">table 数据表格</option>
+        <option value="upload.html">upload 文件/图片上传</option>
+        <option value="element.html">element 常用元素操作</option>
+        <option value="carousel.html">carousel 轮播/跑马灯</option>
+        <option value="layedit.html">layedit 富文本编辑器</option>
+        <option value="tree.html">tree 树形菜单</option>
+        <option value="flow.html">flow 信息流/图片懒加载</option>
+        <option value="util.html">util 工具集</option>
+        <option value="code.html">code 代码修饰</option>
+      </select>
+    </div>
+    <ul class="layui-nav">
+      <li class="layui-nav-item layui-this">
+        <a href="doc.html">文档<!--  --></a> 
+      </li>
+      <li class="layui-nav-item ">
+        <a href="../demo/demo.html">示例<!-- <span class="layui-badge-dot"></span> --></a>
+      </li> 
+      
+      <li class="layui-nav-item layui-hide-xs">
+        <a href="http://fly.layui.com/" target="_blank">社区</a>
+      </li>
+      
+      
+      <li class="layui-nav-item">
+        <!--<span class="layui-badge-dot" style="margin: -4px 3px 0;"></span>-->
+        <a href="javascript:;">周边</a>
+        <dl class="layui-nav-child">
+          <dd class="layui-hide-sm layui-show-xs"><a href="http://fly.layui.com/" target="_blank">社区交流</a><hr></dd>
+          <dd><a href="http://layim.layui.com/" target="_blank">即时聊天</a></dd>
+          <dd><a href="http://www.layui.com/template/fly/" target="_blank">社区模板<span class="layui-badge-dot"></span></a></dd>
+          <hr>
+          <dd><a href="http://www.layui.com/alone.html" target="_blank">独立组件</a></dd>
+          <dd><a href="http://fly.layui.com/jie/9842/" target="_blank">Axure组件</a></dd>
+        </dl>
+      </li>
+      
+      
+      <li class="layui-nav-item layui-hide-xs">
+        <a href="http://www.layui.com/admin/" target="_blank">后台方案<span class="layui-badge-dot"></span></a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+<!--[if lt IE 9]>
+  <script src="../js/html5.min.js"></script>
+  <script src="../js/respond.min.js"></script>
+<![endif]--> 
+<ul class="site-dir">
+  <li><a href="#start"><cite>开始使用</cite></a></li>
+  <li><a href="#config"><cite>初始化配置</cite></a></li>
+  <li><a href="#init"><cite>init数据格式</cite></a></li>
+  <li><a href="#uploadImage"><cite>上传图片/文件</cite></a></li>
+  <li><a href="#moreList"><cite>扩展更多列表</cite></a></li>
+  <li><a href="#tool"><cite>扩展工具栏</cite></a></li>
+  <li><a href="#log"><cite>更多聊天记录</cite></a></li>
+  <li><a href="/doc/modules/layim.html#WebSocket" target="_blank"><cite>接入WebSocket</cite></a></li>
+  <li><a href="#onsendMessage"><cite>监听发送的消息</cite></a></li>
+  <li><a href="#ongetMessage"><cite>监听接受的消息</cite></a></li>
+  <li><a href="#onchatChange"><cite>监听聊天窗口切换</cite></a></li>
+  <li><a href="#onnewFriend"><cite>监听点击新的朋友</cite></a></li>
+  <li><a href="#onback"><cite>监听面板返回</cite></a></li>
+  <li><a href="#ondetail"><cite>监听查看聊天信息</cite></a></li>
+  <li><a href="#chat"><cite>自定义聊天窗口</cite></a></li>
+  <li><a href="#panel"><cite>弹出一个新面板</cite></a></li>
+  <li><a href="#showNew"><cite>标注和隐藏新动态</cite></a></li>
+  <li><a href="#setChatStatus"><cite>更新当前会话状态</cite></a></li>
+  <li><a href="#addList"><cite>添加好友/群到主面板</cite></a></li>
+  <li><a href="#removeList"><cite>移除主面板的好友/群</cite></a></li>
+  <li><a href="#setFriendStatus"><cite>好友置灰和取消</cite></a></li>
+  <li><a href="#cache"><cite>获取cache数据</cite></a></li>
+  <li><a href="#removeHeader"><cite>剔除头部栏</cite></a></li>
+</ul>
+<div class="layui-main site-inline">
+  <div class="site-tree">
+  <ul class="layui-tree">
+  
+    <li><h2>基础说明</h2></li>
+  
+    <li class="site-tree-noicon layui-this">
+      <a href="doc.html">
+        <cite>开始使用</cite>
+        <em>Getting Started</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="infrastructure.html">
+        <cite>底层方法</cite>
+        <em>基础支撑</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="element.html">
+        <cite>页面元素</cite>
+        <em>规范 / 公共类 / 属性</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="modules.html">
+        <cite>模块规范</cite>
+        <em>使用 / 扩展</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="faq.html">
+        <cite>常见问题</cite>
+        <em>FAQ</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="changelog.html">
+        <cite>更新日志</cite>
+        
+        <span class="layui-badge-dot" style="position: relative; top: -3px; left: -3px;"></span>
+        
+      </a>
+    </li>
+    
+    <li><h2>页面元素</h2></li>
+    
+    
+    <li class="site-tree-noicon ">
+      <a href="layout.html">
+        <cite>布局</cite>
+        <em>栅格 / 后台布局</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="color.html">
+        <cite>颜色</cite>
+        <em>主题色设计感 / 内置背景色</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="icon.html">
+        <cite>图标</cite>
+        <em>字体图标</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="anim.html">
+        <cite>动画</cite>
+        <em>内置的CSS3动画类</em>
+      </a>
+    </li>
+    
+    <li class="site-tree-noicon ">
+      <a href="button.html">
+        <cite>按钮</cite>
+        <em>button组</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="form.html">
+        <cite>表单</cite>
+        <em>form元素集合</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="nav.html">
+        <cite>导航</cite>
+        <em>菜单 / 面包屑</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="tab.html">
+        <cite>选项卡</cite>
+        <em>Tabs 切换</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="progress.html">
+        <cite>进度条</cite>
+        <em>progress</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="panel.html">
+        <cite>面板</cite>
+        <em>折叠 / 手风琴</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="table.html">
+        <cite>表格</cite>
+        <em>静态table</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="badge.html">
+        <cite>徽章</cite>
+        <em>小圆点 / 小边框</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="timeline.html">
+        <cite>时间线</cite>
+        <em>timeline</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="auxiliar.html">
+        <cite>辅助</cite>
+        <em>引用 / 字段集 / 横线等</em>
+      </a>
+    </li>
+   
+    
+    <li><h2>内置模块</h2></li>
+    
+    <li class="">
+      <a href="layer.html">
+        <i class="layui-icon" style="top: 3px;">&#xe638;</i><cite>弹出层</cite>
+        <em>layer</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="laydate.html">
+        <i class="layui-icon" style="top: 1px;">&#xe637;</i><cite>日期与时间选择</cite>
+        <em>laydate</em>
+      </a>
+    </li>
+    <li  class="layui-this">
+      <a href="layim.html">
+        <i class="layui-icon" style="position: relative; top: 3px;">&#xe63a;</i>
+        <cite>即时通讯</cite>
+        <em>layim</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="laypage.html">
+        <i class="layui-icon">&#xe633;</i><cite>分页</cite>
+        <em>laypage</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="laytpl.html">
+        <i class="layui-icon">&#xe628;</i><cite>模板引擎</cite>
+        <em>laytpl</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="dataTable.html">
+        <i class="layui-icon">&#xe62d;</i>
+        <cite>数据表格</cite>
+        <em>table</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="DataForm.html">
+        <i class="layui-icon" style="top: 2px;">&#xe63c;</i>
+        <cite>表单</cite>
+        <em>form</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="upload.html">
+        <i class="layui-icon">&#xe62f;</i>
+        <cite>文件上传</cite>
+        <em>upload</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="DataElement.html">
+        <i class="layui-icon" style="top: 1px; font-size: 18px;">&#xe62a;</i>
+        <cite>常用元素操作</cite>
+        <em>element</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="carousel.html">
+        <i class="layui-icon">&#xe634;</i>
+        <cite>轮播</cite>
+        <em>carousel</em>
+      </a>
+    </li>
+    
+    <li class="">
+      <a href="flow.html">
+        <i class="layui-icon">&#xe636;</i>
+        <cite>流加载</cite>
+        <em>flow</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="util.html">
+        <i class="layui-icon">&#xe631;</i>
+        <cite>工具集</cite>
+        <em>util</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="code.html">
+        <i class="layui-icon" style="top: 1px;">&#xe635;</i>
+        <cite>代码修饰器</cite>
+        <em>code</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="layedit.html">
+        <i class="layui-icon" style="top: 1px;">&#xe639;</i>
+        <cite><span style="font-size:1px;">1.0.9:</span>富文本编辑器</cite>
+        <em>layedit</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="tree.html">
+        <i class="layui-icon" style="top: 1px;">&#xe62e;</i>
+        <cite><span style="font-size:1px;">1.0.9:</span>树形菜单</cite>
+        <em>tree</em>
+      </a>
+    </li>
+  </ul>
+</div>
+
+  <div class="site-content">
+    <h1 class="site-h1"><i class="layui-icon">&#xe63a;</i>LayIM 移动版 开发者文档</h1>
+    
+    <div class="site-tips">
+      <p>当前文档适用于 <em>LayIM 移动端</em> ，如果你正在了解的并非该版本，你可以前往其它版本阅览：<a href="layim.html" class="layui-btn">LayIM PC版文档</a>
+    </div>
+    
+    <div class="site-tips site-text">
+      <p>所需加载模块名：<a>mobile</a></p>
+    </div>
+    
+
+    <div class="site-title">
+      <a name="start"></a>
+      <fieldset><legend>开始使用</legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>文件引入方面，和PC版大体类似，只是引入的不再是 layui.css，而是：</p>
+      <pre class="layui-code">
+./build/css/layui.mobile.css
+./build/layui.js</pre>
+      <p><br>假如你将layui放入你的/static/目录中，并且你的html页面在根目录，那么一个最直接的例子是：</p>
+      <pre class="layui-code">
+&lt;!doctype html>
+&lt;html>
+&lt;head>
+&lt;meta charset="utf-8">
+&lt;title>LayIM移动版测试&lt;/title>
+&lt;link rel="stylesheet" href="/static/build/css/layui.mobile.css" media="all">
+&lt;/head>
+&lt;body>
+&lt;script src="/static/build/layui.js">&lt;/script>
+&lt;script>
+layui.use('mobile', function(){
+  var mobile = layui.mobile
+  ,layim = mobile.layim; 
+  //基础配置
+  layim.config({
+    init: {
+      //设置我的基础信息
+      mine: {
+        "username": "佟丽娅" //我的昵称
+        ,"id": 123 //我的ID
+        ,"avatar": "http://tp4.sinaimg.cn/1345566427/180/5730976522/0" //我的头像
+      }
+      //好友列表数据
+      ,friend: [] //见下文：init数据格式
+    }
+  });
+  //创建一个会话
+  layim.chat({
+    id: 111111
+    ,name: '许闲心'
+    ,type: 'kefu' //friend、group等字符，如果是group，则创建的是群聊
+    ,avatar: 'http://tp1.sinaimg.cn/1571889140/180/40030060651/1'
+  });
+});
+&lt;/script>
+&lt;/body>
+&lt;/html>
+      </pre>
+      <p>除了模块加载有所不同外，LayIM本身的接口书写方式与PC版完全一致，但没有PC版那么丰富。下文进一步讲解</p>
+    </div>
+    
+    <div class="site-title">
+      <a name="config"></a>
+      <fieldset><legend>初始化配置</legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>一个你必须认识的方法：<a>layim.config(options)</a><br>控制着许多重要的配置，基本上一个完整LayIM实例的构成由它而开始，它允许你自由设定以下参数：</p>
+      <pre class="layui-code">
+layui.use('layim', function(layim){
+  //基础配置
+  layim.config({
+ 
+    init: {} //获取主面板列表信息，下文会做进一步介绍
+    
+    //上传图片接口（返回的数据格式见下文）
+    ,uploadImage: {
+      url: '' //接口地址
+      ,type: 'post' //默认post
+    } 
+    
+    //上传文件接口（返回的数据格式见下文）
+    ,uploadFile: {
+      url: '' //接口地址
+      ,type: 'post' //默认post
+    } 
+    
+    //扩展“更多”的自定义列表，下文会做进一步介绍（如果无需扩展，剔除该项即可）
+    ,moreList: [{
+      alias: 'find'
+      ,title: '发现'
+      ,iconUnicode: '&amp;#xe628;' //图标字体的unicode，可不填
+      ,iconClass: '' //图标字体的class类名
+    }]
+    
+    //扩展工具栏，下文会做进一步介绍（如果无需扩展，剔除该项即可）
+    ,tool: [{
+      alias: 'code' //工具别名
+      ,title: '代码' //工具名称
+      ,iconUnicode: '&amp;#xe64e;' //工具图标，参考图标文档，可不填
+      ,iconClass: '' //图标字体的class类名
+    }]
+  });
+});      
+      </pre>
+      <p>layim.config(options)的更多可选配置项见下表：</p>
+      <table class="layui-table">
+        <colgroup>
+          <col width="100">
+          <col width="100">
+          <col width="100">
+          <col>
+        </colgroup>
+        <thead>
+          <tr>
+            <th>可选项</th>
+            <th>默认值</th>
+            <th>类型</th>
+            <th>用途</th>
+          </tr> 
+        </thead>
+        <tbody>
+          <tr>
+            <td>brief</td>
+            <td>false</td>
+            <td>boolean</td>
+            <td>是否简约模式，如果设为 true，则主面板不会显示。一般可用于客服</td>
+          </tr>
+          <tr>
+            <td>title</td>
+            <td>我的IM</td>
+            <td>string</td>
+            <td>设置主面板头部名称</td>
+          </tr>
+          <tr>
+            <td>chatTitleColor</td>
+            <td>#36373C</td>
+            <td>string</td>
+            <td>设置会话顶部标题的颜色</td>
+          </tr>
+          <tr>
+            <td>isNewFriend</td>
+            <td>true</td>
+            <td>boolean</td>
+            <td>是否在联系人面板开启新的朋友</td>
+          </tr>
+          <tr>
+            <td>tabIndex</td>
+            <td>0</td>
+            <td>number</td>
+            <td>用户设定初始打开的Tab项下标</td>
+          </tr>
+          <tr>
+            <td>isgroup</td>
+            <td>false</td>
+            <td>boolean</td>
+            <td>是否在联系人面板开启群聊</td>
+          </tr>
+          <tr>
+            <td>notice</td>
+            <td>false</td>
+            <td>boolean</td>
+            <td>是否开启桌面消息提醒，即在浏览器之外的提醒</td>
+          </tr>
+          <tr>
+            <td>voice</td>
+            <td>default.wav</td>
+            <td>string/boolean</td>
+            <td>设定消息提醒的声音文件（所在目录：./layui/css/modules/layim/voice/）<br>若不开启，设置 false 即可</td>
+          </tr>
+          <tr>
+            <td>maxLength</td>
+            <td>3000</td>
+            <td>number</td>
+            <td>可允许的消息最大字符长度</td>
+          </tr>
+          <tr>
+            <td>copyright</td>
+            <td>false</td>
+            <td>boolean</td>
+            <td>是否授权。如果非授权获得，或将LayIM应用在第三方，建议保留，即不设置。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="site-title">
+      <a name="init"></a>
+      <fieldset><legend>init数据格式</legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>较之PC版，实在要简单太多了，如：</p>
+      <pre class="layui-code" lay-title="直接赋值列表数据">
+//里面的字段格式 同 上文的 data 中的格式
+init: {
+  //设置我的基础信息
+  mine: {
+    "username": "佟丽娅" //我的昵称
+    ,"id": 123 //我的ID
+    ,"avatar": "http://tp4.sinaimg.cn/1345566427/180/5730976522/0" //我的头像
+    ,"sign": "我的签名"
+  }
+  
+  //好友列表，同PC版本
+  ,"friend": [{
+    "groupname": "前端码屌" //好友分组名
+    ,"id": 1 //分组ID
+    ,"list": [{ //分组下的好友列表
+      "username": "贤心" //好友昵称
+      ,"id": "100001" //好友ID
+      ,"avatar": "a.jpg" //好友头像
+      ,"sign": "这些都是测试数据，实际使用请严格按照该格式返回" //好友签名
+      ,"status": "online" //若值为offline代表离线，online或者不填为在线
+    }, …… ]
+  }, …… ]
+}
+      </pre>
+    </div>
+    
+    <div class="site-title">
+      <a name="uploadImage"></a>
+      <fieldset><legend>上传图片</legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>通过layim.config来设定uploadImage参数可进行图片上传，假设你进行了下述配置</p>
+      <pre class="layui-code">
+,uploadImage: {
+  url: ''
+}     
+      </pre>
+      </p>那么当点击聊天面板上传图片时，将会向uploadImage的url发送HTTP请求，进行图片上传。我们会给你传递一个name="file"的文件表单域，你接受即可。该接口所返回的信息（response）应该严格按照下述的JSON格式：</p>
+      <pre class="layui-code" lay-skin="notepad">
+{
+  "code": 0 //0表示成功，其它表示失败
+  ,"msg": "" //失败信息
+  ,"data": {
+    "src": "http://cdn.xxx.com/upload/images/a.jpg" //图片url
+  }
+}      
+      </pre>
+    </div>
+    
+    <div class="site-title">
+      <a name="uploadFile"></a>
+      <fieldset><legend>上传文件</legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>通过layim.config来设定uploadImage参数可进行文件上传，事实上跟图片上传非常类似有木有？假设你进行了下述配置</p>
+      <pre class="layui-code">
+,uploadFile: {
+  url: ' ''
+}     
+      </pre>
+      </p>那么当点击聊天面板上传文件时，将会向uploadFile的url发送HTTP请求，进行文件上传。我们会给你传递一个name="file"的文件表单域，你接受即可。该接口所返回的信息（response）应该严格按照下述的JSON格式：</p>
+      <pre class="layui-code" lay-skin="notepad">
+{
+  "code": 0 //0表示成功，其它表示失败
+  ,"msg": "" //失败信息
+  ,"data": {
+    "src": "http://cdn.xxx.com/upload/file/LayIM.zip" //文件url
+    ,"name": 'LayIM.zip' //文件名
+  }
+}      
+      </pre>
+    </div>
+    
+    <div class="site-title">
+      <a name="moreList"> </a>
+      <fieldset><legend>扩展更多列表</legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>你可以对底部导航“更多”中的列表做任意扩展，已便丰富IM的操作以及跳转到其它页面。首先在你layim.config中设定好要扩展的图标、名等信息，如：</p>
+      <pre class="layui-code">
+layim.config({
+  //可同时配置多个
+ moreList: [{
+    alias: 'find'
+    ,title: '发现'
+    ,iconUnicode: '&amp;#xe628;' //图标字体的unicode，可不填
+    ,iconClass: '' //图标字体的class类名
+  },{
+    alias: 'share'
+    ,title: '分享'
+    ,iconUnicode: '&#xe641;' //图标字体的unicode，可不填
+    ,iconClass: '' //图标字体的class类名
+  }]
+})
+      </pre>
+      </p>上述配置只是显示更多列表，点击列表时所触发的动作还需要监听 <em>moreList</em>事件来实现：</p>
+      <pre class="layui-code">
+//监听点击更多列表
+layim.on('moreList', function(obj){
+  switch(obj.alias){ //alias即为上述配置对应的alias
+    case 'find': //发现
+      layer.msg('自定义发现动作');
+    break;
+    case 'share':
+      layim.panel({
+        title: 'share' //分享
+        ,tpl: '&lt;div style="padding: 10px;"&gt;自定义模版，{{d.data.test}}&lt;/div&gt;' //模版
+        ,data: { //数据
+          test: '123'
+        }
+      });
+    break;
+  }
+});  
+      </pre>
+    </div>
+    
+    <div class="site-title">
+      <a name="tool"> </a>
+      <fieldset><legend>扩展工具栏</legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>你可以对聊天面板的工具栏区域进行扩展，以便实现更丰富的聊天内容。首先在你layim.config中设定好要扩展的图标、名称等信息，如：</p>
+      <pre class="layui-code">
+layim.config({
+  //可同时配置多个
+  tool: [{
+    alias: 'code' //工具别名
+    ,title: '代码' //工具名称
+    ,iconUnicode: '&amp;#xe64e;' //图标字体的unicode，可不填
+    ,iconClass: '' //图标字体的class类名
+  }] 
+})
+      </pre>
+      </p>那么在工具栏中将会出现一个代码的图标，如何在点击它时实现你想要的功能呢？很简单，你只需要：</p>
+      <pre class="layui-code">
+//监听自定义工具栏点击，以上述扩展的工具为例
+layim.on('tool(code)', function(insert, send, obj){ //事件中的tool为固定字符，而code则为过滤器，对应的是工具别名（alias）
+  layer.prompt({
+    title: '插入代码'
+    ,formType: 2
+    ,shade: 0
+  }, function(text, index){
+    layer.close(index);
+    insert(text); //将内容插入到编辑器，主要由insert完成
+    //send(); //自动发送
+    console.log(this); //获取当前工具的DOM对象
+    console.log(obj); //获得当前会话窗口的DOM对象、基础信息
+  });
+});   
+      </pre>
+    </div>
+    
+    <div class="site-title">
+      <a name="log"></a>
+      <fieldset><legend>查看更多聊天记录</legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>LayIM会在本地存储每个会话的最新 20 条记录。但一般服务端也要存储存储一份，为了避免联调的复杂性，我们并不内置更多聊天记录的展示。但你可以通过监听方法来实现：</p>
+
+      <pre class="layui-code">
+//监听查看更多记录
+layim.on('chatlog', function(data, ul){
+  console.log(data); //得到当前会话对象的基本信息
+  console.log(ul); //得到当前聊天列表所在的ul容器，比如可以借助他来实现往上插入更多记录
+  
+  //弹出一个更多聊天记录面板
+  layim.panel({
+    title: '与 '+ data.username +' 的聊天记录' //标题
+    ,tpl: '这里是模版，{{d.data.test}}' //模版
+    ,data: { //数据
+      test: 'Hello'
+    }
+  });
+});
+    
+      </pre>
+    </div>
+    
+    <div class="site-title">
+      <a name="on"></a>
+      <fieldset><legend>事件监听</legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>方法：<a>layim.on(event, callback)</a><br>用于LayIM事件监听。接受两个参数。第一个参数event即事件名，第二个参数callback即事件回调。</p>
+    </div>
+    
+    
+    <div class="site-title">
+      <a name="onsendMessage"></a>
+      <fieldset><legend>监听发送的消息</legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>事件名：<a>sendMessage</a>，每当你发送一个消息，都可以通过该事件监听到。回调参数接受一个object类型的值，携带发送的聊天信息。如：</p>
+      <pre class="layui-code">
+layim.on('sendMessage', function(res){
+  var mine = res.mine; //包含我发送的消息及我的信息
+<pre class="layui-code">//mine的结构如下：
+{
+  avatar: "avatar.jpg" //我的头像
+  ,content: "你好吗" //消息内容
+  ,id: "100000" //我的id
+  ,mine: true //是否我发送的消息
+  ,username: "纸飞机" //我的昵称
+}</pre>
+  var to = res.to; //对方的信息
+<pre class="layui-code">//to的结构如下：
+{
+  avatar: "avatar.jpg"
+  ,id: "100001"
+  ,name: "贤心"
+  ,sign: "这些都是测试数据，实际使用请严格按照该格式返回"
+  ,type: "friend" //聊天类型，一般分friend和group两种，group即群聊
+  ,username: "贤心"
+}</pre>
+  //监听到上述消息后，就可以轻松地发送socket了，如：
+  socket.send({
+    type: 'chatMessage' //随便定义，用于在服务端区分消息类型
+    ,data: res
+  }); 
+  
+});
+      </pre>
+    </div>
+    
+    <div class="site-title">
+      <a name="ongetMessage"></a>
+      <fieldset><legend>监听接受的消息</legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>事件的监听并非layim提供，而是WebSocket提供。<br>检测到WebSocket事件后，执行layim的内置方法：<a>layim.getMessage(options)</a> <br>即可显示消息到聊天面板（如果消息所指定的聊天面板没有打开，则会进入本地的消息队列中，直到指定的聊天面板被打开，方可显示。），这是一个对你有用的例子：</p>
+      <pre class="layui-code">
+//监听收到的聊天消息，假设你服务端emit的事件名为：chatMessage
+socket.onmessage = function(res){
+  res = JSON.parse(res);
+  if(res.emit === 'chatMessage'){
+    layim.getMessage(res.data); //res.data即你发送消息传递的数据（阅读：<a href="#onsendMessage">监听发送的消息</a>）
+  }
+};
+ 
+//如果是来自于用户的聊天消息，它必须接受以下字段
+<pre class="layui-code">
+layim.getMessage({
+  username: "纸飞机" //消息来源用户名
+  ,avatar: "http://tp1.sinaimg.cn/1571889140/180/40030060651/1" //消息来源用户头像
+  ,id: "100000" //聊天窗口来源ID（如果是私聊，则是用户id，如果是群聊，则是群组id）
+  ,type: "friend" //聊天窗口来源类型，从发送消息传递的to里面获取
+  ,content: "嗨，你好！本消息系离线消息。" //消息内容
+  ,mine: false //是否我发送的消息，如果为true，则会显示在右方
+  ,timestamp: 1467475443306 //服务端动态时间戳
+});
+</pre>
+ 
+//如果是来自于系统的聊天面板的消息
+<pre class="layui-code">
+layim.getMessage({
+  system: true //系统消息
+  ,id: 1111111 //聊天窗口ID
+  ,type: "friend" //聊天窗口类型
+  ,content: '对方已掉线'
+});
+</pre>
+    </pre>
+    </div>
+    
+    <div class="site-title">
+      <a name="onchatChange"></a>
+      <fieldset><legend>监听聊天窗口的切换</legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>事件名：<a>chatChange</a>，坦白而言，似乎没什么卵用。不过有总比没有好。该事件返回一个object类型的参数，携带当前聊天面板的容器、基础信息等。</p>
+      <pre class="layui-code">
+layim.on('chatChange', function(data){
+  console.log(data);
+});
+      </pre>
+    </div>
+    
+    <div class="site-title">
+      <a name="onnewFriend"></a>
+      <fieldset><legend>监听点击新的朋友</legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>事件名：<a>newFriend</a></p>
+      <p>LayIM并不内置新朋友界面，所以这需要你自己来实现这一套功能，你可以选择跳转或者弹出界面</p>
+      <pre class="layui-code">
+//监听点击“新的朋友”
+layim.on('newFriend', function(){
+  //弹出面板
+  layim.panel({
+    title: '新的朋友' //标题
+    ,tpl: '&lt;div style="padding: 10px;"&gt;自定义模版，{{d.data.test}}&lt;/div&gt;' //模版，基于<a href="laytpl.html" target="_blank">laytpl</a>语法
+    ,data: { //数据
+      test: '么么哒'
+    }
+  });
+  
+  //也可以直接跳转页面，如：
+  //location.href = './newfriend'
+});
+      </pre>
+    </div>
+    
+    <div class="site-title">
+      <a name="onback"></a>
+      <fieldset><legend>监听面板返回</legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>事件名：<a>back</a></p>
+      <p>如果你只是弹出一个会话界面（不显示主面板），那么可通过监听返回，跳转到上一页面</p>
+      <pre class="layui-code">
+//监听返回
+layim.on('back', function(){
+  //比如返回到上一页面（而不是界面）：
+  history.back();
+  
+  //或者做一些其他的事
+});
+      </pre>
+    </div>
+    
+    <div class="site-title">
+      <a name="ondetail"></a>
+      <fieldset><legend>监听查看聊天信息</legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>事件名：<a>detail</a></p>
+      <p>LayIM并不内置“聊天信息”界面，但你可以通过接口很轻松地自定义一个，一般适用于查看群组成员或者对方的个人信息</p>
+      <pre class="layui-code">
+//监听点击“新的朋友”
+layim.on('detail', function(data){
+  //console.log(data); //获取当前会话对象，包含了很多所需要的信息
+  //以查看群组信息（如成员）为例
+  $.get('abc.com/detail/', {id: data.id}, function(res){
+    //弹出面板
+    layim.panel({
+      title: data.name + ' 聊天信息' //标题
+      ,tpl: '&lt;div style="padding: 10px;"&gt;自定义模版，{{d.data.test}}&lt;/div&gt;' //模版，基于<a href="laytpl.html" target="_blank">laytpl</a>语法
+      ,data: { //数据
+        rows: res.rows //假设rows为群组成员
+      }
+    });
+  });
+});
+      </pre>
+    </div>
+    
+    <div class="site-title">
+      <a name="chat"></a>
+      <fieldset><legend>自定义一个聊天窗口</legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>方法名：<a>layim.chat(options)</a>，是否似曾相识，没错，我们见过文档最开始的“客服姐姐”用的就是该方法。它允许你自定义任意模式的聊天窗口，先看例子吧：</p>
+      <p></p>
+      <pre class="layui-code">
+//自定义私聊类型
+layim.chat({
+  name: '在线客服一' //名称
+  ,type: 'friend' //聊天类型
+  ,avatar: 'http://tp1.sinaimg.cn/5619439268/180/40030060651/1' //头像
+  ,id: 111 //定义唯一的id方便你处理信息
+});
+ 
+//自定义群聊类型
+layim.chat({
+  name: '我的群' //名称
+  ,type: 'group' //聊天类型
+  ,avatar: 'http://tp1.sinaimg.cn/5619439268/180/40030060651/1' //头像
+  ,id: 222 //定义唯一的id方便你处理信息
+});
+      </pre>
+      <p>该方法结合brief: true（简约模式），可以免去较为复杂的数据配置。轻量地建立一个聊天面板。拥有较大的平台实用性。可以预见的是，它应该会成为LayIM一个露脸率最高的存在。想象一下吧，对你而言是否如此？</p>
+    </div>
+    
+    <div class="site-title">
+      <a name="panel"></a>
+      <fieldset><legend>弹出一个新面板</legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>方法名：<a>layim.panel(options)</a></p>
+      <p>一个相当实用的存在。你可以借助它像原生客户端一样弹出新的界面，而不是跳页。它提供了强大的模板引擎机制，使得你在编写模版时，可以更自由灵活。该方法可接受以下参数：</p>
+      <pre class="layui-code">
+layim.panel({
+  title: '界面标题'
+  ,tpl: '&lt;div style="padding: 10px;"&gt;自定义模版，{{d.data.rows}}&lt;/div&gt;'
+  ,data: { //数据
+    test: '么么哒'
+  }
+});
+      </pre>
+    </div>
+    
+    <div class="site-title">
+      <a name="showNew"></a>
+      <fieldset><legend>标注和隐藏新动态</legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>方法名：<a>layim.showNew(alias, status)</a></p>
+      <p>用于主动显示和销毁导航以及列表的动态标志，参数 <em>alias</em> 表示：导航或者列表的别名，<em>status</em>表示：显示或隐藏（true or false）</p>
+      <pre class="layui-code">
+layim.showNew('List', true); //标注“联系人”新动态
+layim.showNew('More', true); //标注“更多”新动态
+layim.showNew('Friend', true); //标注“新的朋友”新动态
+layim.showNew('Group', true); //标注“群聊”新动态
+layim.showNew('alias', true); //标注“自定义列表”的新动态，alias对应的是你layim.config时拓展的moreList参数中的alias值
+      </pre>
+      <p>另外，底部导航的“消息”的新动态标志，由LayIM自动控制，无需你手工操作。</p>
+    </div>
+    <div class="site-title">
+      <a name="setChatStatus"></a>
+      <fieldset><legend>更新当前会话状态</legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>方法名：<a>layim.setChatStatus(str)</a>，可用于显示：对方输入状态、在线离线状态等，如：</p>
+      <pre class="layui-code">
+//每次窗口打开或切换，即更新对方的状态
+layim.on('chatChange', function(res){
+  var type = res.data.type;
+  if(type === 'friend'){
+    layim.setChatStatus('在线'); //模拟标注好友在线状态
+  }
+});
+      </pre>
+    </div>
+    
+    <div class="site-title">
+      <a name="addList"></a>
+      <fieldset><legend>添加好友/群到主面板</legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>方法名：<a>layim.addList(options)</a>，当你的WebSocket监听到有好友或者群新增时，需让LayIM的主面板同步添加的信息，可用该方法。先看看例子：</p>
+      <pre class="layui-code">
+//监听添加列表的socket事件，假设你服务端emit的事件名为：addList
+socket.onmessage = function(res){
+  if(res.emit === 'addList'){
+    layim.addList(res.data); //如果是在iframe页，如LayIM设定的add面板，则为 parent.layui.layim.addList(data);
+  }
+};
+//需要特别注意的是回调返回的<a>res</a>
+//如果添加的是好友，res的结构必须是这样的
+<pre class="layui-code">
+{
+  type: 'friend' //列表类型，只支持friend和group两种
+  ,avatar: "a.jpg" //好友头像
+  ,username: '冲田杏梨' //好友昵称
+  ,groupid: 2 //所在的分组id
+  ,id: "1233333312121212" //好友id
+  ,sign: "本人冲田杏梨将结束AV女优的工作" //好友签名
+}
+</pre>
+//如果添加的是群组，res的结构必须是这样的
+<pre class="layui-code">
+{
+  type: 'group' //列表类型，只支持friend和group两种
+  ,avatar: "a.jpg" //群组头像
+  ,groupname: 'Angular开发' //群组名称
+  ,id: "12333333" //群组id
+}
+</pre>
+      </pre>
+    </div>
+    
+    <div class="site-title">
+      <a name="removeList"></a>
+      <fieldset><legend>从主面板移除好友/群</legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>方法名：<a>layim.removeList(options)</a>
+      <br>当你的WebSocket监听到有好友或者群删除时，需让LayIM的主面板同步删除的信息，可用该方法。它的调用非常简单，只需要传两个key：</p>
+      <pre class="layui-code">
+layim.removeList({
+  type: 'friend' //或者group
+  ,id: 1238668 //好友或者群组ID
+});
+//如果是在iframe页，如LayIM设定的add面板，则为：
+parent.layui.layim.removeList({
+  type: 'friend' //或者group
+  ,id: 1238668 //好友或者群组ID
+});
+      </pre>
+    </div>
+    
+    <div class="site-title">
+      <a name="setFriendStatus"></a>
+      <fieldset><legend>实时更新好友列表离线状态</legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>方法名：<a>layim.setFriendStatus(id, type)</p>
+      <pre class="layui-code">
+layim.setFriendStatus(11111, 'online'); //设置指定好友在线，即头像取消置灰
+layim.setFriendStatus(11111, 'offline'); //设置指定好友在线，即头像置灰
+      </pre>
+    </div>
+    
+    <div class="site-title">
+      <a name="cache"></a>
+      <fieldset><legend>获取cache数据</legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>方法名：<a>layim.cache()</a>，获取LayIM的cache信息，包含一些基础配置信息、我的用户信息、好友/群列表信息、本地数据库信息等。该方法始终会获取到最新的cache，可以打印</p>
+      <pre class="layui-code">
+//输出的信息不妨在你的Chrome控制台看看（需在引有LayIM的页面中），在此就不做列举了
+console.log(layim.cache()) </pre>
+    </div>
+    
+    <div class="site-title">
+      <a name="removeHeader"></a>
+      <fieldset><legend>剔除头部栏</legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>将下面的样式，放入你的页面或公共CSS文件即可：</p>
+      <pre class="layui-code">
+body .layim-title{display: none;}
+body .layim-chat-main, body .layim-content, body .layui-layim{top: 0}
+      </pre>
+    </div>
+    
+    <div class="site-title">
+      <a name="copyright"></a>
+      <fieldset><legend>关于版权</legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>LayIM目前并非开源产品，因此如果你是通过官网捐赠渠道获得LayIM，你可以将其应用在任意正规平台。如果你通过非捐赠渠道获得LayIM，我们并不会进行追究，<a>但是请勿对 LayIM 本身二次出售</a>。版权最终解释权为：layui.com 所有</p>
+     
+      <p></p>
+    </div>
+    
+    <div class="layui-elem-quote">
+  <p>Layui - 用心与你沟通</p>
+</div>
+    
+  </div>
+  </div>
+  
+<div class="layui-footer footer footer-doc">
+  <div class="layui-main">
+    <p>&copy; 2018 <a href="../layui.html">layui.com</a> MIT license</p>
+    <p>
+      <a href="http://fly.layui.com/case/2018/" target="_blank">案例</a>
+      <a href="http://fly.layui.com/jie/3147/" target="_blank">众筹</a>
+      <a href="mailto:xianxin@layui-inc.com">联系</a>
+      <a href="https://github.com/sentsin/layui/" target="_blank" rel="nofollow">GitHub</a>
+      <a href="https://gitee.com/sentsin/layui" target="_blank" rel="nofollow">码云</a>
+      <a href="http://fly.layui.com/jie/2461/" target="_blank">微信公众号</a>
+    </p>
+    <p class="site-union">
+      <a href="https://www.upyun.com?from=layui" target="_blank" rel="nofollow" upyun><img src="../imgs/upyun.png?t=1"></a>
+      <span>提供 CDN 赞助</span>
+    </p>
+  </div>
+</div>
+<script async src="../js/adsbygoogle.js"></script>
+<div class="site-tree-mobile layui-hide">
+  <i class="layui-icon">&#xe602;</i>
+</div>
+<div class="site-mobile-shade"></div>
+<script src="../layui/layui.js?t=1515376178738" charset="utf-8"></script>
+<script>
+window.global = {
+  pageType: 'doc'
+  ,preview: function(){
+    var preview = document.getElementById('LAY_preview');
+    return preview ? preview.innerHTML : '';
+  }()
+};
+layui.config({
+	 base: '../js/'
+	 ,version: '1515376178709'
+}).use('global');
+
+layui.use("form",function(){
+	var form = layui.form;
+	
+  //搜索组件
+  form.on('select(component)', function(data){
+    var value = data.value;
+    location.href = value;
+  });
+
+  //切换版本
+  form.on('select(tabVersion)', function(data){
+    var value = data.value;
+    if(value=="new")
+	{
+		location.href="doc.html";
+	}else if(value=="v1")
+	{
+		location.href="v1.html";
+	}
+  });
+  
+});
+</script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_30088308'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D30088308' type='text/javascript'%3E%3C/script%3E"));</script>
+</body>
+</html>

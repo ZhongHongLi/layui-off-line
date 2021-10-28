@@ -1,0 +1,777 @@
+﻿
+ 
+ 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>在线示例 - layui</title>
+<meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  
+  <link rel="stylesheet" href="../layui/css/layui.css"  media="all">
+  <link rel="stylesheet" href="../css/global.css" media="all">
+</head>
+<body>
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header header header-demo">
+  <div class="layui-main">
+    <a class="logo" href="../layui.html">
+      <img src="../imgs/logo.png" alt="layui">
+    </a>
+    <div class="layui-form component">
+      <select lay-search lay-filter="component">
+        <option value="">搜索组件或模块</option>
+        <option value="../doc/layout.html">grid 栅格布局</option>
+        <option value="../doc/layout.html#admin">admin 后台布局</option>
+        <option value="../doc/color.html">color 颜色</option>
+        <option value="../doc/icon.html">iconfont 字体图标</option>
+        <option value="../doc/anim.html">animation 动画</option>
+        <option value="../doc/button.html">button 按钮</option>
+        <option value="../doc/form.html">form 表单组</option>
+        <option value="../doc/form.html#input">input 输入框</option>
+        <option value="../doc/form.html#select">select 下拉选择框</option>
+        <option value="../doc/form.html#checkbox">checkbox 复选框</option>
+        <option value="../doc/form.html#switch">switch 开关</option>
+        <option value="../doc/form.html#radio">radio 单选框</option>
+        <option value="../doc/form.html#textarea">textarea 文本域</option>
+        <option value="../doc/nav.html">nav 导航菜单</option>
+        <option value="../doc/nav.html#breadcrumb">breadcrumb 面包屑</option>
+        <option value="../doc/tab.html">tabs 选项卡</option>
+        <option value="../doc/progress.html">progress 进度条</option>
+        <option value="../doc/collapse.html">collapse 折叠面板/手风琴</option>
+        <option value="../doc/table.html">table 表格元素</option>
+        <option value="../doc/badge.html">badge 徽章</option>
+        <option value="../doc/timeline.html">timeline 时间线</option>
+        <option value="../doc/auxiliar.html#blockquote">blockquote 引用块</option>
+        <option value="../doc/auxiliar.html#fieldset">fieldset 字段集</option>
+        <option value="../doc/auxiliar.html#hr">hr 分割线</option>
+        
+        <option value="../doc/layer.html">layer 弹出层/弹窗综合</option>
+        <option value="../doc/laydate.html">laydate 日期时间选择器</option>
+        <option value="../doc/layim.html">layim 即时通讯/聊天</option>
+        <option value="../doc/laypage.html">laypage 分页</option>
+        <option value="../doc/laytpl.html">laytpl 模板引擎</option>
+        <option value="../doc/form.html">form 表单模块</option>
+        <option value="../doc/dataTable.html">table 数据表格</option>
+        <option value="../doc/upload.html">upload 文件/图片上传</option>
+        <option value="../doc/element.html">element 常用元素操作</option>
+        <option value="../doc/carousel.html">carousel 轮播/跑马灯</option>
+        <option value="../doc/layedit.html">layedit 富文本编辑器</option>
+        <option value="../doc/tree.html">tree 树形菜单</option>
+        <option value="../doc/flow.html">flow 信息流/图片懒加载</option>
+        <option value="../doc/util.html">util 工具集</option>
+        <option value="../doc/code.html">code 代码修饰</option>
+      </select>
+    </div>
+    <ul class="layui-nav">
+      <li class="layui-nav-item ">
+        <a href="../doc/doc.html">文档<!--  --></a> 
+      </li>
+      <li class="layui-nav-item layui-this">
+        <a href="demo.html">示例<!-- <span class="layui-badge-dot"></span> --></a>
+      </li> 
+      
+      <li class="layui-nav-item layui-hide-xs">
+        <a href="http://fly.layui.com/" target="_blank">社区</a>
+      </li>
+      
+      
+      <li class="layui-nav-item">
+        <!--<span class="layui-badge-dot" style="margin: -4px 3px 0;"></span>-->
+        <a href="javascript:;">周边</a>
+        <dl class="layui-nav-child">
+          <dd class="layui-hide-sm layui-show-xs"><a href="http://fly.layui.com/" target="_blank">社区交流</a><hr></dd>
+          <dd><a href="http://layim.layui.com/" target="_blank">即时聊天</a></dd>
+          <dd><a href="http://www.layui.com/template/fly/" target="_blank">社区模板<span class="layui-badge-dot"></span></a></dd>
+          <hr>
+          <dd><a href="http://www.layui.com/alone.html" target="_blank">独立组件</a></dd>
+          <dd><a href="http://fly.layui.com/jie/9842/" target="_blank">Axure组件</a></dd>
+        </dl>
+      </li>
+      
+      
+      <li class="layui-nav-item layui-hide-xs">
+        <a href="http://www.layui.com/admin/" target="_blank">后台方案<span class="layui-badge-dot"></span></a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+<!--[if lt IE 9]>
+  <script src="../js/html5.min.js"></script>
+  <script src="../js/respond.min.js"></script>
+<![endif]--> 
+  <div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      
+<ul class="layui-nav layui-nav-tree site-demo-nav">
+  
+  <li class="layui-nav-item layui-nav-itemed">
+    <a class="javascript:;" href="javascript:;">开发工具</a>
+    <dl class="layui-nav-child">
+      <dd>
+        <a href="demo.html">调试预览</a>
+      </dd>
+    </dl>
+  </li>
+  
+  <li class="layui-nav-item layui-nav-itemed">
+    <a class="javascript:;" href="javascript:;">布局</a>
+    <dl class="layui-nav-child">
+      <dd class="">
+        <a href="grid.html">栅格</a>
+      </dd>
+      <dd class="">
+        <a href="admin.html">后台布局</a>
+      </dd>
+    </dl>
+  </li>
+  
+  <li class="layui-nav-item layui-nav-itemed">
+    <a class="javascript:;" href="javascript:;">基本元素</a>
+    <dl class="layui-nav-child">
+      <dd class="">
+        <a href="button.html">按钮</a>
+      </dd>
+      <dd class="">
+        <a href="form.html">表单</a>
+      </dd>
+      <dd class="">
+        <a href="nav.html">导航/面包屑</a>
+      </dd>
+      <dd class="">
+        <a href="tab.html">选项卡</a>
+      </dd>
+      <dd class="">
+        <a href="progress.html">进度条</a>
+      </dd>
+      <dd class="">
+        <a href="panel.html">面板</a>
+      </dd>
+      <dd class="">
+        <a href="badge.html">徽章</a>
+      </dd>
+      <dd class="">
+        <a href="timeline.html">时间线</a>
+      </dd>
+      <dd class="">
+        <a href="table-element.html">静态表格</a>
+      </dd>
+      <dd class="">
+        <a href="anim.html">动画</a>
+      </dd>
+      <dd class="">
+        <a href="auxiliar.html">辅助元素</a>
+      </dd>
+    </dl>
+  </li>
+  
+  <li class="layui-nav-item layui-nav-itemed">
+    <a class="javascript:;" href="javascript:;">组件示例</a>
+    <dl class="layui-nav-child">
+      <dd class="">
+        <a href="layer.html">
+          弹出层
+        </a>
+      </dd>
+      <dd class="">
+        <a href="laydate.html">
+          日期与时间选择
+        </a>
+      </dd>
+      <dd class="layui-this">
+        <a href="layim.html">
+          即时通讯
+        </a>
+      </dd>
+      <dd class="">
+        <a href="table.html">
+          数据表格
+        </a>
+      </dd>
+       <dd class="">
+        <a href="laypage.html">
+          分页
+        </a>
+      </dd>
+      <dd class="">
+        <a href="upload.html">
+          文件上传
+        </a>
+      </dd>
+      <dd class="">
+        <a href="carousel.html">
+          轮播
+        </a>
+      </dd>
+      <dd class="">
+        <a href="laytpl.html">
+          模板引擎
+        </a>
+      </dd>
+      
+      <dd class="">
+        <a href="flow.html">
+          流加载
+        </a>
+      </dd>
+      <dd class="">
+        <a href="util.html">
+          工具集
+        </a>
+      </dd>
+      <dd class="">
+        <a href="code.html">
+          代码修饰器
+        </a>
+      </dd>
+      <dd class="">
+        <a href="layedit.html">
+          <span style="font-size:1px;">1.0.9:</span>富文本编辑器
+        </a>
+      </dd>
+      <dd class="">
+        <a href="tree.html">
+          <span style="font-size:1px;">1.0.9:</span>树形菜单
+        </a>
+      </dd>
+    </dl>
+  </li>
+  
+  <li class="layui-nav-item" style="height: 30px; text-align: center"></li>
+</ul>
+
+    </div>
+  </div>
+  
+  <div name="site-content">
+	<div class="layui-tab layui-tab-brief" lay-filter="demoTitle">
+    <ul class="layui-tab-title site-demo-title">
+      <li class="layui-this">预览</li>
+      <li>查看代码</li>
+      <li>帮助</li>
+    </ul>
+    <div class="layui-body layui-tab-content site-demo site-demo-body">
+    
+    
+      <div class="layui-tab-item layui-show">
+        <div class="layui-main">
+          <div id="LAY_preview">
+            
+<blockquote class="layui-elem-quote">由于LayIM是我们目前唯一的付费组件，所以在你下载的layui包里，并不包含LayIM。如果你觉得Layui对你有所帮助，并且你希望Layui能够持续发展下去，那么我们很欢迎你能捐赠Layui，成为我们的VIP2+，这对我们的促进将会极大！</blockquote>
+ 
+<a class="layui-btn layui-btn-normal" href="http://layim.layui.com/" target="_blank">前去LayIM官网</a>
+ 
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+  <legend>面板外的操作示例</legend>
+</fieldset>
+ 
+<div class="site-demo-button">
+  <button class="layui-btn site-demo-layim" data-type="chat">自定义会话</button>
+  <button class="layui-btn site-demo-layim" data-type="message">接受好友的消息</button>
+  <button class="layui-btn site-demo-layim" data-type="messageAudio">接受音频消息</button>
+  <button class="layui-btn site-demo-layim" data-type="messageVideo">接受视频消息</button>
+  <button class="layui-btn site-demo-layim" data-type="messageTemp">接受临时会话消息</button>
+  
+  <br>
+  
+  <button class="layui-btn site-demo-layim" data-type="add">申请好友</button>
+  <button class="layui-btn site-demo-layim" data-type="addqun">申请加群</button>
+  <button class="layui-btn site-demo-layim" data-type="addFriend">同意好友</button>
+  <button class="layui-btn site-demo-layim" data-type="addGroup">增加群组到主面板</button>
+  <button class="layui-btn site-demo-layim" data-type="removeFriend">删除主面板好友</button>
+  <button class="layui-btn site-demo-layim" data-type="removeGroup">删除主面板群组</button>
+  
+  <br>
+  <button class="layui-btn site-demo-layim" data-type="setGray">置灰离线好友</button>
+  <button class="layui-btn site-demo-layim" data-type="unGray">取消好友置灰</button>
+  <a href="http://layim.layui.com/kefu.html" class="layui-btn site-demo-layim" target="_blank">客服模式</a>
+  <button class="layui-btn site-demo-layim" data-type="mobile">移动端版本</button>
+  
+  <br>
+   
+</div> 
+              
+          </div>
+          
+          
+          <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+            <legend>其它</legend>
+          </fieldset>
+          
+          <a href="http://layim.layui.com/#getAuth" target="_blank" class="layui-btn layui-btn-warm">LayIM授权</a>
+          <a href="http://fly.layui.com/jie/3244.html" target="_blank" class="layui-btn layui-btn-normal">接入案例</a>
+          
+          
+        </div>
+      </div>
+      
+      
+      <div class="layui-tab-item">
+<textarea class="layui-border-box site-demo-text site-demo-code" id="LAY_democode" spellcheck="false" readonly>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>layui</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="//res.layui.com/layui/dist/css/layui.css"  media="all">
+  <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+</textarea>
+      </div>
+      
+      
+      <div class="layui-tab-item">
+        <div class="layui-main">
+          <p>我们更希望您能授权获得LayIM。扣码防不住，君子不用防。</p>
+          
+          <fieldset class="layui-elem-field layui-field-title">
+            <legend>相关</legend>
+          </fieldset>
+          
+          <a class="layui-btn layui-btn-normal" href="../doc/layim.html" >LayIM文档</a>
+        </div>
+      </div>
+      
+        
+    </div>
+  </div>
+  </div>
+  
+  
+  
+  <div class="layui-footer footer footer-demo">
+  <div class="layui-main">
+    <p>&copy; 2018 <a href="../layui.html">layui.com</a> MIT license</p>
+    <p>
+      <a href="http://fly.layui.com/case/2018/" target="_blank">案例</a>
+      <a href="http://fly.layui.com/jie/3147/" target="_blank">众筹</a>
+      <a href="mailto:xianxin@layui-inc.com">联系</a>
+      <a href="https://github.com/sentsin/layui/" target="_blank" rel="nofollow">GitHub</a>
+      <a href="https://gitee.com/sentsin/layui" target="_blank" rel="nofollow">码云</a>
+      <a href="http://fly.layui.com/jie/2461/" target="_blank">微信公众号</a>
+    </p>
+    <p class="site-union">
+      <a href="https://www.upyun.com?from=layui" target="_blank" rel="nofollow" upyun><img src="../imgs/upyun.png?t=1"></a>
+      <span>提供 CDN 赞助</span>
+    </p>
+  </div>
+</div>
+<script async src="../js/adsbygoogle.js"></script>
+<div class="site-tree-mobile layui-hide">
+  <i class="layui-icon">&#xe602;</i>
+</div>
+<div class="site-mobile-shade"></div>
+<script src="../layui/layui.js?t=1515376178738" charset="utf-8"></script>
+<script>
+window.global = {
+  pageType: 'demo'
+  ,preview: function(){
+    var preview = document.getElementById('LAY_preview');
+    return preview ? preview.innerHTML : '';
+  }()
+};
+layui.config({
+	 base: '../js/'
+	 ,version: '1515376178709'
+}).use('global');
+</script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_30088308'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D30088308' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+<div id="LAY_democodejs">
+<script>
+layui.use('layim', function(){
+  var layim = layui.layim;
+  
+  //演示自动回复
+  var autoReplay = [
+    '您好，我现在有事不在，一会再和您联系。', 
+    '你没发错吧？face[微笑] ',
+    '洗澡中，请勿打扰，偷窥请购票，个体四十，团体八折，订票电话：一般人我不告诉他！face[哈哈] ',
+    '你好，我是主人的美女秘书，有什么事就跟我说吧，等他回来我会转告他的。face[心] face[心] face[心] ',
+    'face[威武] face[威武] face[威武] face[威武] ',
+    '<（@￣︶￣@）>',
+    '你要和我说话？你真的要和我说话？你确定自己想说吗？你一定非说不可吗？那你说吧，这是自动回复。',
+    'face[黑线]  你慢慢说，别急……',
+    '(*^__^*) face[嘻嘻] ，是贤心吗？'
+  ];
+  
+  //基础配置
+  layim.config({
+    //初始化接口
+    init: {
+      url: '/layim/json/getList.json'
+      ,data: {}
+    }
+    //查看群员接口
+    ,members: {
+      url: '/layim/json/getMembers.json'
+      ,data: {}
+    }
+    
+    ,uploadImage: {
+      url: '' //（返回的数据格式见下文）
+      ,type: '' //默认post
+    }
+    ,uploadFile: {
+      url: '' //（返回的数据格式见下文）
+      ,type: '' //默认post
+    }
+    
+    ,isAudio: true //开启聊天工具栏音频
+    ,isVideo: true //开启聊天工具栏视频
+    
+    //扩展工具栏
+    ,tool: [{
+      alias: 'code'
+      ,title: '代码'
+      ,icon: '&#xe64e;'
+    }]
+    
+    //,brief: true //是否简约模式（若开启则不显示主面板）
+    
+    //,title: 'WebIM' //自定义主面板最小化时的标题
+    //,right: '100px' //主面板相对浏览器右侧距离
+    //,minRight: '90px' //聊天面板最小化时相对浏览器右侧距离
+    ,initSkin: '3.jpg' //1-5 设置初始背景
+    //,skin: ['aaa.jpg'] //新增皮肤
+    //,isfriend: false //是否开启好友
+    //,isgroup: false //是否开启群组
+    //,min: true //是否始终最小化主面板，默认false
+    //,notice: true //是否开启桌面消息提醒，默认false
+    //,voice: false //声音提醒，默认开启，声音文件为：default.mp3
+    
+    ,msgbox: '/layim/demo/msgbox.html' //消息盒子页面地址，若不开启，剔除该项即可
+    ,find: '/layim/demo/find.html' //发现页面地址，若不开启，剔除该项即可
+    ,chatLog: '/layim/demo/chatlog.html' //聊天记录页面地址，若不开启，剔除该项即可
+    
+  });
+  //监听在线状态的切换事件
+  layim.on('online', function(status){
+    layer.msg(status);
+  });
+  
+  //监听签名修改
+  layim.on('sign', function(value){
+    layer.msg(value);
+  });
+  //监听自定义工具栏点击，以添加代码为例
+  layim.on('tool(code)', function(insert){
+    layer.prompt({
+      title: '插入代码 - 工具栏扩展示例'
+      ,formType: 2
+      ,shade: 0
+    }, function(text, index){
+      layer.close(index);
+      insert('[pre class=layui-code]' + text + '[/pre]'); //将内容插入到编辑器
+    });
+  });
+  
+  //监听layim建立就绪
+  layim.on('ready', function(res){
+    //console.log(res.mine);
+    layim.msgbox(5); //模拟消息盒子有新消息，实际使用时，一般是动态获得
+  });
+  //监听发送消息
+  layim.on('sendMessage', function(data){
+    var To = data.to;
+    //console.log(data);
+    
+    if(To.type === 'friend'){
+      layim.setChatStatus('<span style="color:#FF5722;">对方正在输入。。。</span>');
+    }
+    
+    //演示自动回复
+    setTimeout(function(){
+      var obj = {};
+      if(To.type === 'group'){
+        obj = {
+          username: '模拟群员'+(Math.random()*100|0)
+          ,avatar: layui.cache.dir + 'images/face/'+ (Math.random()*72|0) + '.gif'
+          ,id: To.id
+          ,type: To.type
+          ,content: autoReplay[Math.random()*9|0]
+        }
+      } else {
+        obj = {
+          username: To.name
+          ,avatar: To.avatar
+          ,id: To.id
+          ,type: To.type
+          ,content: autoReplay[Math.random()*9|0]
+        }
+        layim.setChatStatus('<span style="color:#FF5722;">在线</span>');
+      }
+      layim.getMessage(obj);
+    }, 1000);
+  });
+  //监听查看群员
+  layim.on('members', function(data){
+    //console.log(data);
+  });
+  
+  //监听聊天窗口的切换
+  layim.on('chatChange', function(res){
+    var type = res.data.type;
+    console.log(res.data.id)
+    if(type === 'friend'){
+      //模拟标注好友状态
+      //layim.setChatStatus('<span style="color:#FF5722;">在线</span>');
+    } else if(type === 'group'){
+      //模拟系统消息
+      layim.getMessage({
+        system: true
+        ,id: res.data.id
+        ,type: "group"
+        ,content: '模拟群员'+(Math.random()*100|0) + '加入群聊'
+      });
+    }
+  });
+  
+  
+  //面板外的操作
+  var $ = layui.jquery, active = {
+    chat: function(){
+      //自定义会话
+      layim.chat({
+        name: '小闲'
+        ,type: 'friend'
+        ,avatar: '//tva3.sinaimg.cn/crop.0.0.180.180.180/7f5f6861jw1e8qgp5bmzyj2050050aa8.jpg'
+        ,id: 1008612
+      });
+      layer.msg('也就是说，此人可以不在好友面板里');
+    }
+    ,message: function(){
+      //制造好友消息
+      layim.getMessage({
+        username: "贤心"
+        ,avatar: "//tp1.sinaimg.cn/1571889140/180/40030060651/1"
+        ,id: "100001"
+        ,type: "friend"
+        ,content: "嗨，你好！欢迎体验LayIM。演示标记："+ new Date().getTime()
+        ,timestamp: new Date().getTime()
+      });
+    }
+    ,messageAudio: function(){
+      //接受音频消息
+      layim.getMessage({
+        username: "林心如"
+        ,avatar: "//tp3.sinaimg.cn/1223762662/180/5741707953/0"
+        ,id: "76543"
+        ,type: "friend"
+        ,content: "audio[http://gddx.sc.chinaz.com/Files/DownLoad/sound1/201510/6473.mp3]"
+        ,timestamp: new Date().getTime()
+      });
+    }
+    ,messageVideo: function(){
+      //接受视频消息
+      layim.getMessage({
+        username: "林心如"
+        ,avatar: "//tp3.sinaimg.cn/1223762662/180/5741707953/0"
+        ,id: "76543"
+        ,type: "friend"
+        ,content: "video[http://www.w3school.com.cn//i/movie.ogg]"
+        ,timestamp: new Date().getTime()
+      });
+    }
+    ,messageTemp: function(){
+      //接受临时会话消息
+      layim.getMessage({
+        username: "小酱"
+        ,avatar: "//tva1.sinaimg.cn/crop.7.0.736.736.50/bd986d61jw8f5x8bqtp00j20ku0kgabx.jpg"
+        ,id: "198909151014"
+        ,type: "friend"
+        ,content: "临时："+ new Date().getTime()
+      });
+    }
+    ,add: function(){
+      //实际使用时数据由动态获得
+      layim.add({
+        type: 'friend'
+        ,username: '麻花疼'
+        ,avatar: '//tva1.sinaimg.cn/crop.0.0.720.720.180/005JKVuPjw8ers4osyzhaj30k00k075e.jpg'
+        ,submit: function(group, remark, index){
+          layer.msg('好友申请已发送，请等待对方确认', {
+            icon: 1
+            ,shade: 0.5
+          }, function(){
+            layer.close(index);
+          });
+          
+          //通知对方
+          /*
+          $.post('/im-applyFriend/', {
+            uid: info.uid
+            ,from_group: group
+            ,remark: remark
+          }, function(res){
+            if(res.status != 0){
+              return layer.msg(res.msg);
+            }
+            layer.msg('好友申请已发送，请等待对方确认', {
+              icon: 1
+              ,shade: 0.5
+            }, function(){
+              layer.close(index);
+            });
+          });
+          */
+        }
+      });
+    }
+    ,addqun: function(){
+      layim.add({
+        type: 'group'
+        ,username: 'LayIM会员群'
+        ,avatar: '//tva2.sinaimg.cn/crop.0.0.180.180.50/6ddfa27bjw1e8qgp5bmzyj2050050aa8.jpg'
+        ,submit: function(group, remark, index){
+          layer.msg('申请已发送，请等待管理员确认', {
+            icon: 1
+            ,shade: 0.5
+          }, function(){
+            layer.close(index);
+          });
+          
+          //通知对方
+          /*
+          $.post('/im-applyGroup/', {
+            uid: info.uid
+            ,from_group: group
+            ,remark: remark
+          }, function(res){
+          
+          });
+          */
+        }
+      });
+    }
+    ,addFriend: function(){
+      var user = {
+        type: 'friend'
+        ,id: 1234560
+        ,username: '李彦宏' //好友昵称，若申请加群，参数为：groupname
+        ,avatar: '//tva4.sinaimg.cn/crop.0.0.996.996.180/8b2b4e23jw8f14vkwwrmjj20ro0rpjsq.jpg' //头像
+        ,sign: '全球最大的中文搜索引擎'
+      }
+      layim.setFriendGroup({
+        type: user.type
+        ,username: user.username
+        ,avatar: user.avatar
+        ,group: layim.cache().friend //获取好友列表数据
+        ,submit: function(group, index){
+          //一般在此执行Ajax和WS，以通知对方已经同意申请
+          //……
+          
+          //同意后，将好友追加到主面板
+          layim.addList({
+            type: user.type
+            ,username: user.username
+            ,avatar: user.avatar
+            ,groupid: group //所在的分组id
+            ,id: user.id //好友ID
+            ,sign: user.sign //好友签名
+          });
+          
+          layer.close(index);
+        }
+      });
+    }
+    ,addGroup: function(){
+      layer.msg('已成功把[Angular开发]添加到群组里', {
+        icon: 1
+      });
+      //增加一个群组
+      layim.addList({
+        type: 'group'
+        ,avatar: "//tva3.sinaimg.cn/crop.64.106.361.361.50/7181dbb3jw8evfbtem8edj20ci0dpq3a.jpg"
+        ,groupname: 'Angular开发'
+        ,id: "12333333"
+        ,members: 0
+      });
+    }
+    ,removeFriend: function(){
+      layer.msg('已成功删除[凤姐]', {
+        icon: 1
+      });
+      //删除一个好友
+      layim.removeList({
+        id: 121286
+        ,type: 'friend'
+      });
+    }
+    ,removeGroup: function(){
+      layer.msg('已成功删除[前端群]', {
+        icon: 1
+      });
+      //删除一个群组
+      layim.removeList({
+        id: 101
+        ,type: 'group'
+      });
+    }
+    //置灰离线好友
+    ,setGray: function(){
+      layim.setFriendStatus(168168, 'offline');
+      
+      layer.msg('已成功将好友[马小云]置灰', {
+        icon: 1
+      });
+    }
+    //取消好友置灰
+    ,unGray: function(){
+      layim.setFriendStatus(168168, 'online');
+      
+      layer.msg('成功取消好友[马小云]置灰状态', {
+        icon: 1
+      });
+    }
+    //移动端版本
+    ,mobile: function(){
+      var device = layui.device();
+      var mobileHome = '/layim/demo/mobile.html';
+      if(device.android || device.ios){
+        return location.href = mobileHome;
+      }
+      var index = layer.open({
+        type: 2
+        ,title: '移动版演示 （或手机扫右侧二维码预览）'
+        ,content: mobileHome
+        ,area: ['375px', '667px']
+        ,shadeClose: true
+        ,shade: 0.8
+        ,end: function(){
+          layer.close(index + 2);
+        }
+      });
+      layer.photos({
+        photos: {
+          "data": [{
+            "src": "http://cdn.layui.com/upload/2016_12/168_1481056358469_50288.png",
+          }]
+        }
+        ,anim: 0
+        ,shade: false
+        ,success: function(layero){
+          layero.css('margin-left', '350px');
+        }
+      });
+    }
+  };
+  $('.site-demo-layim').on('click', function(){
+    var type = $(this).data('type');
+    active[type] ? active[type].call(this) : '';
+  });
+});
+</script>
+</div>
+</body>
+</html>

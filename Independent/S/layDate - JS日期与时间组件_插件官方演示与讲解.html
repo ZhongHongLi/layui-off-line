@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)http://www.layui.com/laydate/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>layDate - JS日期与时间组件/插件官方演示与讲解</title>
+<meta name="keywords" content="laydete,日期插件,日历插件,时间插件">
+<meta name="description" content="layDate 全新的 5.0 版本包含了大量的更新，其中主要以：年选择器、年月选择器、日期选择器、时间选择器、日期时间选择器 五种类型的选择方式为基本核心，并且均支持范围选择（即双控件）。内置强劲的自定义日期格式解析和合法校正机制，含中文版和国际版，主题简约却又不失灵活多样。由于内部采用的是零依赖的原生 JavaScript 编写，因此可作为独立组件使用。">
+
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+
+<link rel="stylesheet" href="./layDate - JS日期与时间组件_插件官方演示与讲解_files/layui.css" media="all">
+<link rel="stylesheet" href="./layDate - JS日期与时间组件_插件官方演示与讲解_files/global.css" media="all">
+<link rel="stylesheet" href="./layDate - JS日期与时间组件_插件官方演示与讲解_files/independents.css" media="all">
+
+<link rel="stylesheet" href="./layDate - JS日期与时间组件_插件官方演示与讲解_files/laydate.css" id="layuicss-laydate"><script src="./layDate - JS日期与时间组件_插件官方演示与讲解_files/ca-pub-6111334333458862.js.下载"></script><script type="text/javascript" async="" charset="utf-8" src="./layDate - JS日期与时间组件_插件官方演示与讲解_files/core.php"></script><link rel="preload" href="./layDate - JS日期与时间组件_插件官方演示与讲解_files/integrator.js.下载" as="script"><script type="text/javascript" src="./layDate - JS日期与时间组件_插件官方演示与讲解_files/integrator.js.下载"></script><link id="layuicss-skincodecss" rel="stylesheet" href="./layDate - JS日期与时间组件_插件官方演示与讲解_files/code.css" media="all"></head>
+<body>
+
+
+<div class="header">
+  <div class="layui-main">
+    <a class="logo" href="http://www.layui.com/">
+      <img src="./layDate - JS日期与时间组件_插件官方演示与讲解_files/logo.png" alt="layui">
+    </a>
+    <ul class="layui-nav">
+      <li class="layui-nav-item">
+        <a href="http://www.layui.com/" target="_blank">UI主页</a>
+      </li>
+      <li class="layui-nav-item layui-this">
+        <a href="http://www.layui.com/alone.html">layDate 独立版</a>
+      </li>
+      <li class="layui-nav-item">
+        <a href="http://fly.layui.com/" target="_blank">社区</a>
+      </li>
+    <span class="layui-nav-bar"></span></ul>
+  </div>
+</div>
+
+<div class="alone-banner">
+  <div class="layui-main">
+    <h1>layDate 日期与时间组件</h1>
+    <p>layDate 是 layui 独立维护的三大组件之一，我们在 5.0 的版本对其进行了一次全面的重写</p>
+  </div>
+</div>
+
+<div class="layui-main alone-nav">
+  <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+    <ul class="layui-tab-title">
+      <li class="layui-this">
+        <a href="http://www.layui.com/laydate/">快速使用</a>
+      </li>
+      <li>
+        <a href="http://www.layui.com/doc/modules/laydate.html" target="_blank">文档</a>
+      </li>
+      <li>
+        <a href="http://www.layui.com/laydate/changelog.html">更新日志</a>
+      </li>
+      <li>
+        <a href="https://github.com/sentsin/laydate/" target="_blank" rel="nofollow">GitHub</a>
+      </li>
+      <li>
+        <a href="https://gitee.com/sentsin/laydate" target="_blank" rel="nofollow">码云</a>
+      </li>      
+    </ul>
+  </div>
+  
+  <div class="alone-download">
+    <a href="http://res.layui.com/download/laydate/layDate-v5.0.9.zip?v=1" target="_blank" class="layui-btn layui-btn-big alone-get">
+      下载 layDate-v5.0.9
+    </a>
+    <span>下载量：<em class="alone-downs">40302</em></span>
+  </div>
+  
+  <blockquote class="layui-elem-quote layui-quote-nm layui-text">
+    获得 layDate 文件包后，解压并将 <em>laydate 整个文件夹</em>（不要拆分结构） 存放到你项目的任意目录，使用时，<em>只需引入 laydate.js 即可。</em> 下面是一个入门示例：
+  </blockquote>
+  <pre class="layui-code layui-box layui-code-view"><h3 class="layui-code-h3">code<a href="http://www.layui.com/doc/modules/code.html" target="_blank">layui.code</a></h3><ol class="layui-code-ol"><li>&lt;!DOCTYPE html&gt;</li><li>&lt;html&gt;</li><li>&lt;head&gt;</li><li>  &lt;meta charset="utf-8"&gt;</li><li>  &lt;title&gt;使用 layDate 独立版&lt;/title&gt;</li><li>&lt;/head&gt;</li><li>&lt;body&gt;</li><li>&lt;input type="text" id="test1"&gt;</li><li>&lt;script src="/laydate/laydate.js"&gt;&lt;/script&gt; &lt;!-- 改成你的路径 --&gt;</li><li>&lt;script&gt;</li><li>//执行一个laydate实例</li><li>laydate.render({</li><li>  elem: '#test1' //指定元素</li><li>});</li><li>&lt;/script&gt;</li><li>&lt;/body&gt;</li><li>&lt;/html&gt;</li><li>  </li></ol></pre>
+  
+  <blockquote class="layui-elem-quote layui-text">
+    <ul>
+      <li>请注意：如果你的页面已经使用了 layui，我们强烈推荐你直接采用 layui 内置的 layDate 模块，请勿再重复引用独立版的 laydate.js</li>
+      <li>layDate 采用原生 JavaScript 编写，不依赖任何第三方库，兼容所有浏览器（IE6/7除外）</li>
+      <li>npm安装：npm install layui-laydate</li>
+    </ul>
+  </blockquote>
+  
+  <script async="" src="./layDate - JS日期与时间组件_插件官方演示与讲解_files/adsbygoogle.js.下载"></script>
+  <div style="text-align: center;">
+    <!-- 通用-970*90 -->
+    <ins class="adsbygoogle" style="display:inline-block;width:970px;height:90px" data-ad-client="ca-pub-6111334333458862" data-ad-slot="6835627838" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:970px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:970px;background-color:transparent;"><iframe width="970" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;width:970px;height:90px;" src="./layDate - JS日期与时间组件_插件官方演示与讲解_files/saved_resource.html"></iframe></ins></ins></ins>
+  </div>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+  
+  <fieldset class="layui-elem-field layui-field-title alone-title">
+    <legend>示例</legend>
+  </fieldset>
+
+  <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+    <ul class="layui-tab-title">
+      <li class="layui-this">常规用法</li>
+      <li>查看代码</li>
+    </ul>
+    <div class="layui-tab-content">
+      <div class="layui-tab-item layui-show">
+        <div class="layui-form">
+          <div class="layui-form-item">
+            <div class="layui-inline">
+              <label class="layui-form-label">中文版</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test1" placeholder="yyyy-MM-dd" lay-key="1">
+              </div>
+            </div>
+            <div class="layui-inline">
+              <label class="layui-form-label">国际版</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test1-1" placeholder="yyyy-MM-dd" lay-key="2">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="layui-tab-item">
+        <pre class="layui-code layui-box layui-code-view"><h3 class="layui-code-h3">code<a href="http://www.layui.com/doc/modules/code.html" target="_blank">layui.code</a></h3><ol class="layui-code-ol"><li>//常规用法</li><li>laydate.render({</li><li>  elem: '#test1'</li><li>});</li><li>//国际版</li><li>laydate.render({</li><li>  elem: '#test1-1'</li><li>  ,lang: 'en'</li><li>}); </li><li>        </li></ol></pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+    <ul class="layui-tab-title">
+      <li class="layui-this">其它选择器</li>
+      <li>查看代码</li>
+    </ul>
+    <div class="layui-tab-content">
+      <div class="layui-tab-item layui-show">
+        <div class="layui-form">
+          <div class="layui-form-item">
+            <div class="layui-inline">
+              <label class="layui-form-label">年选择器</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test2" placeholder="yyyy" lay-key="3">
+              </div>
+            </div>
+            <div class="layui-inline">
+              <label class="layui-form-label">年月选择器</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test3" placeholder="yyyy-MM" lay-key="4">
+              </div>
+            </div>
+            <div class="layui-inline">
+              <label class="layui-form-label">时间选择器</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test4" placeholder="HH:mm:ss" lay-key="5">
+              </div>
+            </div>
+            <div class="layui-inline">
+              <label class="layui-form-label">日期时间选择器</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test5" placeholder="yyyy-MM-dd HH:mm:ss" lay-key="6">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="layui-tab-item">
+        <pre class="layui-code layui-box layui-code-view"><h3 class="layui-code-h3">code<a href="http://www.layui.com/doc/modules/code.html" target="_blank">layui.code</a></h3><ol class="layui-code-ol"><li>//年选择器</li><li>laydate.render({</li><li>  elem: '#test2'</li><li>  ,type: 'year'</li><li>});</li><li>//年月选择器</li><li>laydate.render({</li><li>  elem: '#test3'</li><li>  ,type: 'month'</li><li>});</li><li>//时间选择器</li><li>laydate.render({</li><li>  elem: '#test4'</li><li>  ,type: 'time'</li><li>});</li><li>//时间选择器</li><li>laydate.render({</li><li>  elem: '#test5'</li><li>  ,type: 'datetime'</li><li>});</li><li>        </li></ol></pre>
+      </div>
+    </div>
+  </div>
+  
+  <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+    <ul class="layui-tab-title">
+      <li class="layui-this">范围选择</li>
+      <li>查看代码</li>
+    </ul>
+    <div class="layui-tab-content">
+      <div class="layui-tab-item layui-show">
+        <div class="layui-form">
+          <div class="layui-form-item">
+            <div class="layui-inline">
+              <label class="layui-form-label">日期范围</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test6" placeholder=" - " lay-key="7">
+              </div>
+            </div>
+            <div class="layui-inline">
+              <label class="layui-form-label">年范围</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test7" placeholder=" - " lay-key="8">
+              </div>
+            </div>
+            <div class="layui-inline">
+              <label class="layui-form-label">年月范围</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test8" placeholder=" - " lay-key="9">
+              </div>
+            </div>
+            <div class="layui-inline">
+              <label class="layui-form-label">时间范围</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test9" placeholder=" - " lay-key="10">
+              </div>
+            </div>
+            <div class="layui-inline">
+              <label class="layui-form-label">日期时间范围</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test10" placeholder=" - " lay-key="11">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="layui-tab-item">
+        <pre class="layui-code layui-box layui-code-view"><h3 class="layui-code-h3">code<a href="http://www.layui.com/doc/modules/code.html" target="_blank">layui.code</a></h3><ol class="layui-code-ol"><li>//日期范围</li><li>laydate.render({</li><li>  elem: '#test6'</li><li>  ,range: true</li><li>});</li><li>//年范围</li><li>laydate.render({</li><li>  elem: '#test7'</li><li>  ,type: 'year'</li><li>  ,range: true</li><li>});</li><li>//年月范围</li><li>laydate.render({</li><li>  elem: '#test8'</li><li>  ,type: 'month'</li><li>  ,range: true</li><li>});</li><li>//时间范围</li><li>laydate.render({</li><li>  elem: '#test9'</li><li>  ,type: 'time'</li><li>  ,range: true</li><li>});</li><li>//日期时间范围</li><li>laydate.render({</li><li>  elem: '#test10'</li><li>  ,type: 'datetime'</li><li>  ,range: true</li><li>}); </li><li>        </li></ol></pre>
+      </div>
+    </div>
+  </div>
+  
+  <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+    <ul class="layui-tab-title">
+      <li class="layui-this">自定义格式</li>
+      <li>查看代码</li>
+    </ul>
+    <div class="layui-tab-content">
+      <div class="layui-tab-item layui-show">
+        <div class="layui-form">
+          <div class="layui-form-item">
+            <div class="layui-inline">
+              <label class="layui-form-label">请选择日期</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test11" placeholder="yyyy年MM月dd日" lay-key="12">
+              </div>
+            </div>
+            <div class="layui-inline">
+              <label class="layui-form-label">请选择日期</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test12" placeholder="dd/MM/yyyy" lay-key="13">
+              </div>
+            </div>
+            <div class="layui-inline">
+              <label class="layui-form-label">请选择月份</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test13" placeholder="yyyyMM" lay-key="14">
+              </div>
+            </div>
+            <div class="layui-inline">
+              <label class="layui-form-label">请选择时间</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test14" placeholder="H点m分" lay-key="15">
+              </div>
+            </div>
+            <div class="layui-inline">
+              <label class="layui-form-label">请选择范围</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test15" placeholder=" ~ " lay-key="16">
+              </div>
+            </div>
+            <div class="layui-inline">
+              <label class="layui-form-label">请选择范围</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test16" placeholder="开始 到 结束" lay-key="17">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="layui-tab-item">
+        <pre class="layui-code layui-box layui-code-view"><h3 class="layui-code-h3">code<a href="http://www.layui.com/doc/modules/code.html" target="_blank">layui.code</a></h3><ol class="layui-code-ol"><li>//自定义格式</li><li>laydate.render({</li><li>  elem: '#test11'</li><li>  ,format: 'yyyy年MM月dd日'</li><li>});</li><li>laydate.render({</li><li>  elem: '#test12'</li><li>  ,format: 'dd/MM/yyyy'</li><li>});</li><li>laydate.render({</li><li>  elem: '#test13'</li><li>  ,format: 'yyyyMM'</li><li>});</li><li>laydate.render({</li><li>  elem: '#test14'</li><li>  ,type: 'time'</li><li>  ,format: 'H点M分'</li><li>});</li><li>laydate.render({</li><li>  elem: '#test15'</li><li>  ,type: 'month'</li><li>  ,range: '→'</li><li>  ,format: 'yyyy-MM'</li><li>});</li><li>laydate.render({</li><li>  elem: '#test16'</li><li>  ,type: 'datetime'</li><li>  ,range: '到'</li><li>  ,format: 'yyyy年M月d日H时m分s秒'</li><li>}); </li><li>        </li></ol></pre>
+      </div>
+    </div>
+  </div>
+  
+  <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+    <ul class="layui-tab-title">
+      <li class="layui-this">公历节日和自定义重要日子</li>
+      <li>查看代码</li>
+    </ul>
+    <div class="layui-tab-content">
+      <div class="layui-tab-item layui-show">
+        <div class="layui-form">
+          <div class="layui-form-item">
+            <div class="layui-inline">
+              <label class="layui-form-label">开启公历节日</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test17" placeholder="yyyy-MM-dd" lay-key="18">
+              </div>
+            </div>
+            <div class="layui-inline">
+              <label class="layui-form-label">自定义重要日</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test18" placeholder="yyyy-MM-dd" lay-key="19">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="layui-tab-item">
+        <pre class="layui-code layui-box layui-code-view"><h3 class="layui-code-h3">code<a href="http://www.layui.com/doc/modules/code.html" target="_blank">layui.code</a></h3><ol class="layui-code-ol"><li>//开启公历节日</li><li>laydate.render({</li><li>  elem: '#test17'</li><li>  ,calendar: true</li><li>});</li><li>//自定义重要日</li><li>laydate.render({</li><li>  elem: '#test18'</li><li>  ,mark: {</li><li>    '0-10-14': '生日'</li><li>    ,'0-12-31': '跨年' //每年的日期</li><li>    ,'0-0-10': '工资' //每月某天</li><li>    ,'0-0-15': '月中'</li><li>    ,'2017-8-15': '' //如果为空字符，则默认显示数字+徽章</li><li>    ,'2099-10-14': '呵呵'</li><li>  }</li><li>  ,done: function(value, date){</li><li>    if(date.year === 2017 &amp;&amp; date.month === 8 &amp;&amp; date.date === 15){ //点击2017年8月15日，弹出提示语</li><li>      alert('这一天是：中国人民抗日战争胜利72周年');</li><li>    }</li><li>  }</li><li>}); </li><li>        </li></ol></pre>
+      </div>
+    </div>
+  </div>
+  
+  <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+    <ul class="layui-tab-title">
+      <li class="layui-this">控制可选的日期与时间</li>
+      <li>查看代码</li>
+    </ul>
+    <div class="layui-tab-content">
+      <div class="layui-tab-item layui-show">
+        <div class="layui-form">
+          <div class="layui-form-item">
+            <div class="layui-inline">
+              <label class="layui-form-label">限定可选日期</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test-limit1" placeholder="yyyy-MM-dd" lay-key="20">
+              </div>
+            </div>
+            <div class="layui-inline">
+              <label class="layui-form-label">前后若干天可选</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test-limit2" placeholder="yyyy-MM-dd" lay-key="21">
+              </div>
+            </div>
+            <div class="layui-inline">
+              <label class="layui-form-label">限定可选时间</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test-limit3" placeholder="HH:mm:ss" lay-key="22">
+              </div>
+              <div class="layui-form-mid layui-word-aux">
+                以9:30-17:30为例
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="layui-tab-item">
+        <pre class="layui-code layui-box layui-code-view"><h3 class="layui-code-h3">code<a href="http://www.layui.com/doc/modules/code.html" target="_blank">layui.code</a></h3><ol class="layui-code-ol"><li>//限定可选日期</li><li>var ins22 = laydate.render({</li><li>  elem: '#test-limit1'</li><li>  ,min: '2016-10-14'</li><li>  ,max: '2080-10-14'</li><li>  ,ready: function(){</li><li>    ins22.hint('日期可选值设定在 &lt;br&gt; 2016-10-14 到 2080-10-14');</li><li>  }</li><li>});</li><li>//前后若干天可选，这里以7天为例</li><li>laydate.render({</li><li>  elem: '#test-limit2'</li><li>  ,min: -7</li><li>  ,max: 7</li><li>});</li><li>//限定可选时间</li><li>laydate.render({</li><li>  elem: '#test-limit3'</li><li>  ,type: 'time'</li><li>  ,min: '09:30:00'</li><li>  ,max: '17:30:00'</li><li>  ,btns: ['clear', 'confirm']</li><li>}); </li><li>        </li></ol></pre>
+      </div>
+    </div>
+  </div>
+  
+  <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+    <ul class="layui-tab-title">
+      <li class="layui-this">同时绑定多个</li>
+      <li>查看代码</li>
+    </ul>
+    <div class="layui-tab-content">
+      <div class="layui-tab-item layui-show">
+        <div class="layui-form">
+          <div class="layui-form-item">
+            <div class="layui-inline">
+              <input type="text" class="layui-input test-item" placeholder="yyyy-MM-dd" lay-key="23">
+            </div>
+            <div class="layui-inline">
+              <input type="text" class="layui-input test-item" placeholder="yyyy-MM-dd" lay-key="24">
+            </div>
+            <div class="layui-inline">
+              <input type="text" class="layui-input test-item" placeholder="yyyy-MM-dd" lay-key="25">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="layui-tab-item">
+        <pre class="layui-code layui-box layui-code-view"><h3 class="layui-code-h3">code<a href="http://www.layui.com/doc/modules/code.html" target="_blank">layui.code</a></h3><ol class="layui-code-ol"><li>//同时绑定多个</li><li>lay('.test-item').each(function(){</li><li>  laydate.render({</li><li>    elem: this</li><li>    ,trigger: 'click'</li><li>  });</li><li>}); </li><li>        </li></ol></pre>
+      </div>
+    </div>
+  </div>
+  
+  <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+    <ul class="layui-tab-title">
+      <li class="layui-this">其它功能示例</li>
+      <li>查看代码</li>
+    </ul>
+    <div class="layui-tab-content">
+      <div class="layui-tab-item layui-show">
+        <div class="layui-form">
+          <div class="layui-form-item">
+            <div class="layui-inline">
+              <label class="layui-form-label">初始赋值</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test19" placeholder="yyyy-MM-dd" lay-key="26">
+              </div>
+            </div>
+            <div class="layui-inline">
+              <label class="layui-form-label">选中后的回调</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test20" placeholder="yyyy-MM-dd" lay-key="27">
+              </div>
+            </div>
+            <div class="layui-inline">
+              <label class="layui-form-label">日期切换的回调</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test21" placeholder="yyyy-MM-dd" lay-key="28">
+              </div>
+            </div>
+            
+            <div class="layui-inline">
+              <label class="layui-form-label">不出现底部栏</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test22" placeholder="yyyy-MM-dd" lay-key="29">
+              </div>
+            </div>
+            <div class="layui-inline">
+              <label class="layui-form-label">只出现确定按钮</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test23" placeholder="yyyy-MM-dd" lay-key="30">
+              </div>
+            </div>
+            <div class="layui-inline">
+              <label class="layui-form-label">自定义事件</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test24" placeholder="yyyy-MM-dd" lay-key="31">
+              </div>
+            </div>
+            <div class="layui-inline">
+              <label class="layui-form-label" id="test25-1" lay-key="32">点我触发</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test25" placeholder="yyyy-MM-dd" lay-key="32">
+              </div>
+            </div>
+            <div class="layui-inline">
+              <label class="layui-form-label" id="test26-1">双击我触发</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test26" placeholder="yyyy-MM-dd">
+              </div>
+            </div>
+            
+            <div class="layui-inline">
+              <label class="layui-form-label">日期只读</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test27" readonly="" placeholder="yyyy-MM-dd" lay-key="33">
+              </div>
+            </div>
+            <div class="layui-inline">
+              <label class="layui-form-label">非input元素</label>
+              <div class="layui-input-inline">
+                <div id="test28" style="height: 38px; line-height: 38px; cursor: pointer; border-bottom: 1px solid #e2e2e2;" lay-key="34"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="layui-tab-item">
+        <pre class="layui-code layui-box layui-code-view"><h3 class="layui-code-h3">code<a href="http://www.layui.com/doc/modules/code.html" target="_blank">layui.code</a></h3><ol class="layui-code-ol"><li>//初始赋值</li><li>laydate.render({</li><li>  elem: '#test19'</li><li>  ,value: '1989-10-14'</li><li>});</li><li>//选中后的回调</li><li>laydate.render({</li><li>  elem: '#test20'</li><li>  ,done: function(value, date){</li><li>    alert('你选择的日期是：' + value + '\n获得的对象是' + JSON.stringify(date));</li><li>  }</li><li>});</li><li>//日期切换的回调</li><li>laydate.render({</li><li>  elem: '#test21'</li><li>  ,change: function(value, date){</li><li>    alert('你选择的日期是：' + value + '\n\n获得的对象是' + JSON.stringify(date));</li><li>  }</li><li>});</li><li>//不出现底部栏</li><li>laydate.render({</li><li>  elem: '#test22'</li><li>  ,showBottom: false</li><li>});</li><li>//只出现确定按钮</li><li>laydate.render({</li><li>  elem: '#test23'</li><li>  ,btns: ['confirm']</li><li>});</li><li>//自定义事件</li><li>laydate.render({</li><li>  elem: '#test24'</li><li>  ,trigger: 'mousedown'</li><li>});</li><li>//点我触发</li><li>laydate.render({</li><li>  elem: '#test25'</li><li>  ,eventElem: '#test25-1'</li><li>  ,trigger: 'click'</li><li>});</li><li>//双击我触发</li><li>lay('#test26-1').on('dblclick', function(){</li><li>  laydate.render({</li><li>    elem: '#test26'</li><li>    ,show: true</li><li>    ,closeStop: '#test26-1'</li><li>  });</li><li>});</li><li>//日期只读</li><li>laydate.render({</li><li>  elem: '#test27'</li><li>  ,trigger: 'click'</li><li>});</li><li>//非input元素</li><li>laydate.render({</li><li>  elem: '#test28'</li><li>}); </li><li>        </li></ol></pre>
+      </div>
+    </div>
+  </div>
+  
+  <a name="theme"></a>
+  <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+    <ul class="layui-tab-title">
+      <li class="layui-this">其它主题</li>
+      <li>查看代码</li>
+    </ul>
+    <div class="layui-tab-content">
+      <div class="layui-tab-item layui-show">
+        <div class="layui-form">
+          <div class="layui-form-item">
+            <div class="layui-inline">
+              <label class="layui-form-label">墨绿主题</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test29" placeholder="yyyy-MM-dd" lay-key="35">
+              </div>
+            </div>
+            <div class="layui-inline">
+              <label class="layui-form-label">自定义颜色主题</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test30" placeholder="yyyy-MM-dd" lay-key="36">
+              </div>
+            </div>
+            <div class="layui-inline">
+              <label class="layui-form-label">格子主题</label>
+              <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="test31" placeholder="yyyy-MM-dd" lay-key="37">
+              </div>
+            </div>
+          </div>
+        </div>  
+      </div>
+      <div class="layui-tab-item">
+        <pre class="layui-code layui-box layui-code-view"><h3 class="layui-code-h3">code<a href="http://www.layui.com/doc/modules/code.html" target="_blank">layui.code</a></h3><ol class="layui-code-ol"><li>//墨绿主题</li><li>laydate.render({</li><li>  elem: '#test29'</li><li>  ,theme: 'molv'</li><li>});</li><li>//自定义颜色</li><li>laydate.render({</li><li>  elem: '#test30'</li><li>  ,theme: '#393D49'</li><li>});</li><li>//格子主题</li><li>laydate.render({</li><li>  elem: '#test31'</li><li>  ,theme: 'grid'</li><li>});</li><li>        </li></ol></pre>
+      </div>
+    </div>
+  </div>
+  
+  <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+    <ul class="layui-tab-title">
+      <li class="layui-this">直接嵌套显示</li>
+      <li>查看代码</li>
+    </ul>
+    <div class="layui-tab-content">
+      <div class="layui-tab-item layui-show">
+        <div style="padding: 15px 0;">
+          <div class="layui-inline" id="test-n1" lay-key="38"><div id="layui-laydate38" class="layui-laydate layui-laydate-static"><div class="layui-laydate-main laydate-main-list-0"><div class="layui-laydate-header"><i class="layui-icon laydate-icon laydate-prev-y"></i><i class="layui-icon laydate-icon laydate-prev-m"></i><div class="laydate-set-ym"><span lay-ym="2018-2" lay-type="year">2018年</span><span lay-ym="2018-2" lay-type="month">2月</span></div><i class="layui-icon laydate-icon laydate-next-m"></i><i class="layui-icon laydate-icon laydate-next-y"></i></div><div class="layui-laydate-content"><table><thead><tr><th>日</th><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th></tr></thead><tbody><tr><td class="laydate-day-prev" lay-ymd="2018-1-28">28</td><td class="laydate-day-prev" lay-ymd="2018-1-29">29</td><td class="laydate-day-prev" lay-ymd="2018-1-30">30</td><td class="laydate-day-prev" lay-ymd="2018-1-31">31</td><td lay-ymd="2018-2-1" class="">1</td><td lay-ymd="2018-2-2" class="">2</td><td lay-ymd="2018-2-3" class="">3</td></tr><tr><td lay-ymd="2018-2-4" class="">4</td><td lay-ymd="2018-2-5" class="">5</td><td lay-ymd="2018-2-6" class="">6</td><td lay-ymd="2018-2-7" class="">7</td><td lay-ymd="2018-2-8" class="">8</td><td lay-ymd="2018-2-9" class="">9</td><td lay-ymd="2018-2-10" class="">10</td></tr><tr><td lay-ymd="2018-2-11" class="">11</td><td lay-ymd="2018-2-12" class="">12</td><td class="layui-this" lay-ymd="2018-2-13">13</td><td lay-ymd="2018-2-14" class="">14</td><td lay-ymd="2018-2-15" class="">15</td><td lay-ymd="2018-2-16" class="">16</td><td lay-ymd="2018-2-17" class="">17</td></tr><tr><td lay-ymd="2018-2-18" class="">18</td><td lay-ymd="2018-2-19" class="">19</td><td lay-ymd="2018-2-20" class="">20</td><td lay-ymd="2018-2-21" class="">21</td><td lay-ymd="2018-2-22" class="">22</td><td lay-ymd="2018-2-23" class="">23</td><td lay-ymd="2018-2-24" class="">24</td></tr><tr><td lay-ymd="2018-2-25" class="">25</td><td lay-ymd="2018-2-26" class="">26</td><td lay-ymd="2018-2-27" class="">27</td><td lay-ymd="2018-2-28" class="">28</td><td class="laydate-day-next" lay-ymd="2018-3-1">1</td><td class="laydate-day-next" lay-ymd="2018-3-2">2</td><td class="laydate-day-next" lay-ymd="2018-3-3">3</td></tr><tr><td class="laydate-day-next" lay-ymd="2018-3-4">4</td><td class="laydate-day-next" lay-ymd="2018-3-5">5</td><td class="laydate-day-next" lay-ymd="2018-3-6">6</td><td class="laydate-day-next" lay-ymd="2018-3-7">7</td><td class="laydate-day-next" lay-ymd="2018-3-8">8</td><td class="laydate-day-next" lay-ymd="2018-3-9">9</td><td class="laydate-day-next" lay-ymd="2018-3-10">10</td></tr></tbody></table></div></div><div class="layui-laydate-footer"><div class="laydate-footer-btns"><span lay-type="clear" class="laydate-btns-clear">重置</span><span lay-type="now" class="laydate-btns-now">现在</span><span lay-type="confirm" class="laydate-btns-confirm">确定</span></div></div></div></div>
+          <div class="layui-inline" id="test-n2" lay-key="39"><div id="layui-laydate39" class="layui-laydate layui-laydate-static"><div class="layui-laydate-main laydate-main-list-0"><div class="layui-laydate-header"><i class="layui-icon laydate-icon laydate-prev-y"></i><i class="layui-icon laydate-icon laydate-prev-m"></i><div class="laydate-set-ym"><span lay-ym="2018-2" lay-type="month">Feb</span><span lay-ym="2018-2" lay-type="year">2018</span></div><i class="layui-icon laydate-icon laydate-next-m"></i><i class="layui-icon laydate-icon laydate-next-y"></i></div><div class="layui-laydate-content"><table><thead><tr><th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th></tr></thead><tbody><tr><td class="laydate-day-prev" lay-ymd="2018-1-28">28</td><td class="laydate-day-prev" lay-ymd="2018-1-29">29</td><td class="laydate-day-prev" lay-ymd="2018-1-30">30</td><td class="laydate-day-prev" lay-ymd="2018-1-31">31</td><td lay-ymd="2018-2-1" class="">1</td><td lay-ymd="2018-2-2" class="">2</td><td lay-ymd="2018-2-3" class="">3</td></tr><tr><td lay-ymd="2018-2-4" class="">4</td><td lay-ymd="2018-2-5" class="">5</td><td lay-ymd="2018-2-6" class="">6</td><td lay-ymd="2018-2-7" class="">7</td><td lay-ymd="2018-2-8" class="">8</td><td lay-ymd="2018-2-9" class="">9</td><td lay-ymd="2018-2-10" class="">10</td></tr><tr><td lay-ymd="2018-2-11" class="">11</td><td lay-ymd="2018-2-12" class="">12</td><td class="layui-this" lay-ymd="2018-2-13">13</td><td lay-ymd="2018-2-14" class="">14</td><td lay-ymd="2018-2-15" class="">15</td><td lay-ymd="2018-2-16" class="">16</td><td lay-ymd="2018-2-17" class="">17</td></tr><tr><td lay-ymd="2018-2-18" class="">18</td><td lay-ymd="2018-2-19" class="">19</td><td lay-ymd="2018-2-20" class="">20</td><td lay-ymd="2018-2-21" class="">21</td><td lay-ymd="2018-2-22" class="">22</td><td lay-ymd="2018-2-23" class="">23</td><td lay-ymd="2018-2-24" class="">24</td></tr><tr><td lay-ymd="2018-2-25" class="">25</td><td lay-ymd="2018-2-26" class="">26</td><td lay-ymd="2018-2-27" class="">27</td><td lay-ymd="2018-2-28" class="">28</td><td class="laydate-day-next" lay-ymd="2018-3-1">1</td><td class="laydate-day-next" lay-ymd="2018-3-2">2</td><td class="laydate-day-next" lay-ymd="2018-3-3">3</td></tr><tr><td class="laydate-day-next" lay-ymd="2018-3-4">4</td><td class="laydate-day-next" lay-ymd="2018-3-5">5</td><td class="laydate-day-next" lay-ymd="2018-3-6">6</td><td class="laydate-day-next" lay-ymd="2018-3-7">7</td><td class="laydate-day-next" lay-ymd="2018-3-8">8</td><td class="laydate-day-next" lay-ymd="2018-3-9">9</td><td class="laydate-day-next" lay-ymd="2018-3-10">10</td></tr></tbody></table></div></div><div class="layui-laydate-footer"><div class="laydate-footer-btns"><span lay-type="clear" class="laydate-btns-clear">Reset</span><span lay-type="now" class="laydate-btns-now">Now</span><span lay-type="confirm" class="laydate-btns-confirm">Confirm</span></div></div></div></div>
+          <div class="layui-inline" id="test-n3" lay-key="40"><div id="layui-laydate40" class="layui-laydate layui-laydate-static"><div class="layui-laydate-main laydate-main-list-0 laydate-ym-show"><div class="layui-laydate-header"><i class="layui-icon laydate-icon laydate-prev-y"></i><i class="layui-icon laydate-icon laydate-prev-m"></i><div class="laydate-set-ym"><span lay-ym="2018-2" lay-type="year">2018年</span><span lay-ym="2018-2" lay-type="month">2月</span></div><i class="layui-icon laydate-icon laydate-next-m"></i><i class="layui-icon laydate-icon laydate-next-y"></i></div><div class="layui-laydate-content"><table><thead><tr><th>日</th><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th></tr></thead><tbody><tr><td class="laydate-day-prev" lay-ymd="2018-1-28">28</td><td class="laydate-day-prev" lay-ymd="2018-1-29">29</td><td class="laydate-day-prev" lay-ymd="2018-1-30">30</td><td class="laydate-day-prev" lay-ymd="2018-1-31">31</td><td lay-ymd="2018-2-1" class="">1</td><td lay-ymd="2018-2-2" class="">2</td><td lay-ymd="2018-2-3" class="">3</td></tr><tr><td lay-ymd="2018-2-4" class="">4</td><td lay-ymd="2018-2-5" class="">5</td><td lay-ymd="2018-2-6" class="">6</td><td lay-ymd="2018-2-7" class="">7</td><td lay-ymd="2018-2-8" class="">8</td><td lay-ymd="2018-2-9" class="">9</td><td lay-ymd="2018-2-10" class="">10</td></tr><tr><td lay-ymd="2018-2-11" class="">11</td><td lay-ymd="2018-2-12" class="">12</td><td class="layui-this" lay-ymd="2018-2-13">13</td><td lay-ymd="2018-2-14" class="">14</td><td lay-ymd="2018-2-15" class="">15</td><td lay-ymd="2018-2-16" class="">16</td><td lay-ymd="2018-2-17" class="">17</td></tr><tr><td lay-ymd="2018-2-18" class="">18</td><td lay-ymd="2018-2-19" class="">19</td><td lay-ymd="2018-2-20" class="">20</td><td lay-ymd="2018-2-21" class="">21</td><td lay-ymd="2018-2-22" class="">22</td><td lay-ymd="2018-2-23" class="">23</td><td lay-ymd="2018-2-24" class="">24</td></tr><tr><td lay-ymd="2018-2-25" class="">25</td><td lay-ymd="2018-2-26" class="">26</td><td lay-ymd="2018-2-27" class="">27</td><td lay-ymd="2018-2-28" class="">28</td><td class="laydate-day-next" lay-ymd="2018-3-1">1</td><td class="laydate-day-next" lay-ymd="2018-3-2">2</td><td class="laydate-day-next" lay-ymd="2018-3-3">3</td></tr><tr><td class="laydate-day-next" lay-ymd="2018-3-4">4</td><td class="laydate-day-next" lay-ymd="2018-3-5">5</td><td class="laydate-day-next" lay-ymd="2018-3-6">6</td><td class="laydate-day-next" lay-ymd="2018-3-7">7</td><td class="laydate-day-next" lay-ymd="2018-3-8">8</td><td class="laydate-day-next" lay-ymd="2018-3-9">9</td><td class="laydate-day-next" lay-ymd="2018-3-10">10</td></tr></tbody></table><ul class="layui-laydate-list laydate-month-list"><li lay-ym="0" class="">一月</li><li lay-ym="1" class="layui-this">二月</li><li lay-ym="2" class="">三月</li><li lay-ym="3" class="">四月</li><li lay-ym="4" class="">五月</li><li lay-ym="5" class="">六月</li><li lay-ym="6" class="">七月</li><li lay-ym="7" class="">八月</li><li lay-ym="8" class="">九月</li><li lay-ym="9" class="">十月</li><li lay-ym="10" class="">十一月</li><li lay-ym="11" class="">十二月</li></ul></div></div><div class="layui-laydate-footer"><div class="laydate-footer-btns"><span lay-type="clear" class="laydate-btns-clear">重置</span><span lay-type="now" class="laydate-btns-now">现在</span><span lay-type="confirm" class="laydate-btns-confirm">确定</span></div></div></div></div>
+          <div class="layui-inline" id="test-n4" lay-key="41"><div id="layui-laydate41" class="layui-laydate layui-laydate-static"><div class="layui-laydate-main laydate-main-list-0 laydate-time-show"><div class="layui-laydate-header"><i class="layui-icon laydate-icon laydate-prev-y"></i><i class="layui-icon laydate-icon laydate-prev-m"></i><div class="laydate-set-ym"><span lay-ym="2018-2" lay-type="year">2018年</span><span lay-ym="2018-2" lay-type="month">2月</span><span class="laydate-time-text">选择时间</span></div><i class="layui-icon laydate-icon laydate-next-m"></i><i class="layui-icon laydate-icon laydate-next-y"></i></div><div class="layui-laydate-content"><table><thead><tr><th>日</th><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th></tr></thead><tbody><tr><td class="laydate-day-prev" lay-ymd="2018-1-28">28</td><td class="laydate-day-prev" lay-ymd="2018-1-29">29</td><td class="laydate-day-prev" lay-ymd="2018-1-30">30</td><td class="laydate-day-prev" lay-ymd="2018-1-31">31</td><td lay-ymd="2018-2-1" class="">1</td><td lay-ymd="2018-2-2" class="">2</td><td lay-ymd="2018-2-3" class="">3</td></tr><tr><td lay-ymd="2018-2-4" class="">4</td><td lay-ymd="2018-2-5" class="">5</td><td lay-ymd="2018-2-6" class="">6</td><td lay-ymd="2018-2-7" class="">7</td><td lay-ymd="2018-2-8" class="">8</td><td lay-ymd="2018-2-9" class="">9</td><td lay-ymd="2018-2-10" class="">10</td></tr><tr><td lay-ymd="2018-2-11" class="">11</td><td lay-ymd="2018-2-12" class="">12</td><td class="layui-this" lay-ymd="2018-2-13">13</td><td lay-ymd="2018-2-14" class="">14</td><td lay-ymd="2018-2-15" class="">15</td><td lay-ymd="2018-2-16" class="">16</td><td lay-ymd="2018-2-17" class="">17</td></tr><tr><td lay-ymd="2018-2-18" class="">18</td><td lay-ymd="2018-2-19" class="">19</td><td lay-ymd="2018-2-20" class="">20</td><td lay-ymd="2018-2-21" class="">21</td><td lay-ymd="2018-2-22" class="">22</td><td lay-ymd="2018-2-23" class="">23</td><td lay-ymd="2018-2-24" class="">24</td></tr><tr><td lay-ymd="2018-2-25" class="">25</td><td lay-ymd="2018-2-26" class="">26</td><td lay-ymd="2018-2-27" class="">27</td><td lay-ymd="2018-2-28" class="">28</td><td class="laydate-day-next" lay-ymd="2018-3-1">1</td><td class="laydate-day-next" lay-ymd="2018-3-2">2</td><td class="laydate-day-next" lay-ymd="2018-3-3">3</td></tr><tr><td class="laydate-day-next" lay-ymd="2018-3-4">4</td><td class="laydate-day-next" lay-ymd="2018-3-5">5</td><td class="laydate-day-next" lay-ymd="2018-3-6">6</td><td class="laydate-day-next" lay-ymd="2018-3-7">7</td><td class="laydate-day-next" lay-ymd="2018-3-8">8</td><td class="laydate-day-next" lay-ymd="2018-3-9">9</td><td class="laydate-day-next" lay-ymd="2018-3-10">10</td></tr></tbody></table><ul class="layui-laydate-list laydate-time-list"><li><p>时</p><ol><li class="layui-this">00</li><li class="">01</li><li class="">02</li><li class="">03</li><li class="">04</li><li class="">05</li><li class="">06</li><li class="">07</li><li class="">08</li><li class="">09</li><li class="">10</li><li class="">11</li><li class="">12</li><li class="">13</li><li class="">14</li><li class="">15</li><li class="">16</li><li class="">17</li><li class="">18</li><li class="">19</li><li class="">20</li><li class="">21</li><li class="">22</li><li class="">23</li></ol></li><li><p>分</p><ol><li class="layui-this">00</li><li class="">01</li><li class="">02</li><li class="">03</li><li class="">04</li><li class="">05</li><li class="">06</li><li class="">07</li><li class="">08</li><li class="">09</li><li class="">10</li><li class="">11</li><li class="">12</li><li class="">13</li><li class="">14</li><li class="">15</li><li class="">16</li><li class="">17</li><li class="">18</li><li class="">19</li><li class="">20</li><li class="">21</li><li class="">22</li><li class="">23</li><li class="">24</li><li class="">25</li><li class="">26</li><li class="">27</li><li class="">28</li><li class="">29</li><li class="">30</li><li class="">31</li><li class="">32</li><li class="">33</li><li class="">34</li><li class="">35</li><li class="">36</li><li class="">37</li><li class="">38</li><li class="">39</li><li class="">40</li><li class="">41</li><li class="">42</li><li class="">43</li><li class="">44</li><li class="">45</li><li class="">46</li><li class="">47</li><li class="">48</li><li class="">49</li><li class="">50</li><li class="">51</li><li class="">52</li><li class="">53</li><li class="">54</li><li class="">55</li><li class="">56</li><li class="">57</li><li class="">58</li><li class="">59</li></ol></li><li><p>秒</p><ol><li class="layui-this">00</li><li class="">01</li><li class="">02</li><li class="">03</li><li class="">04</li><li class="">05</li><li class="">06</li><li class="">07</li><li class="">08</li><li class="">09</li><li class="">10</li><li class="">11</li><li class="">12</li><li class="">13</li><li class="">14</li><li class="">15</li><li class="">16</li><li class="">17</li><li class="">18</li><li class="">19</li><li class="">20</li><li class="">21</li><li class="">22</li><li class="">23</li><li class="">24</li><li class="">25</li><li class="">26</li><li class="">27</li><li class="">28</li><li class="">29</li><li class="">30</li><li class="">31</li><li class="">32</li><li class="">33</li><li class="">34</li><li class="">35</li><li class="">36</li><li class="">37</li><li class="">38</li><li class="">39</li><li class="">40</li><li class="">41</li><li class="">42</li><li class="">43</li><li class="">44</li><li class="">45</li><li class="">46</li><li class="">47</li><li class="">48</li><li class="">49</li><li class="">50</li><li class="">51</li><li class="">52</li><li class="">53</li><li class="">54</li><li class="">55</li><li class="">56</li><li class="">57</li><li class="">58</li><li class="">59</li></ol></li></ul></div></div><div class="layui-laydate-footer"><div class="laydate-footer-btns"><span lay-type="clear" class="laydate-btns-clear">重置</span><span lay-type="now" class="laydate-btns-now">现在</span><span lay-type="confirm" class="laydate-btns-confirm">确定</span></div></div></div></div>
+        </div>
+      </div>
+      <div class="layui-tab-item">
+        <pre class="layui-code layui-box layui-code-view"><h3 class="layui-code-h3">code<a href="http://www.layui.com/doc/modules/code.html" target="_blank">layui.code</a></h3><ol class="layui-code-ol"><li>//直接嵌套显示</li><li>laydate.render({</li><li>  elem: '#test-n1'</li><li>  ,position: 'static'</li><li>});</li><li>laydate.render({</li><li>  elem: '#test-n2'</li><li>  ,position: 'static'</li><li>  ,lang: 'en'</li><li>});</li><li>laydate.render({</li><li>  elem: '#test-n3'</li><li>  ,type: 'month'</li><li>  ,position: 'static'</li><li>});</li><li>laydate.render({</li><li>  elem: '#test-n4'</li><li>  ,type: 'time'</li><li>  ,position: 'static'</li><li>}); </li><li>        </li></ol></pre>
+      </div>
+    </div>
+  </div>
+  
+  <div style="margin-top: 20px; text-align: center;">
+    <p style=" font-weight: 300;">倘若 layDate 于你有益，欢迎：</p>
+    <a href="http://fly.layui.com/sponsors/" target="_blank" class="layui-btn layui-btn-danger" style="margin-top: 10px;">小额赞赏</a>
+  </div>
+
+</div>
+
+<div class="layui-footer footer footer-index">
+  <div class="layui-main">
+    <p>© 2017 <a href="http://www.layui.com/">layui.com</a> MIT license</p>
+    <p>
+      <a href="http://fly.layui.com/jie/3147/" target="_blank">付费计划</a>
+      <a href="http://fly.layui.com/jie/2461/" target="_blank">微信公众号</a>
+    </p>
+  </div>
+</div>  
+
+<script src="./layDate - JS日期与时间组件_插件官方演示与讲解_files/laydate.js.下载"></script>
+<script src="./layDate - JS日期与时间组件_插件官方演示与讲解_files/layui.js.下载"></script>
+<script>
+layui.config({
+  version: 20171105
+});
+</script>
+<script src="./layDate - JS日期与时间组件_插件官方演示与讲解_files/demo.js.下载"></script>
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_30088308'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D30088308' type='text/javascript'%3E%3C/script%3E"));</script><span id="cnzz_stat_icon_30088308"></span><script src="./layDate - JS日期与时间组件_插件官方演示与讲解_files/c.php" type="text/javascript"></script>
+
+
+
+
+<div style="position: static; display: none; width: 0px; height: 0px; border: none; padding: 0px; margin: 0px;"><div id="trans-tooltip"><div id="tip-left-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left-top.png&quot;);"></div><div id="tip-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-top.png&quot;) repeat-x;"></div><div id="tip-right-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right-top.png&quot;);"></div><div id="tip-right" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right.png&quot;) repeat-y;"></div><div id="tip-right-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right-bottom.png&quot;);"></div><div id="tip-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-bottom.png&quot;) repeat-x;"></div><div id="tip-left-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left-bottom.png&quot;);"></div><div id="tip-left" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left.png&quot;);"></div><div id="trans-content"></div></div><div id="tip-arrow-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-arrow-bottom.png&quot;);"></div><div id="tip-arrow-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-arrow-top.png&quot;);"></div></div><ul class="layui-fixbar"><li class="layui-icon" lay-type="bar1" style=""></li><li class="layui-icon layui-fixbar-top" lay-type="top" style=""></li></ul></body></html>

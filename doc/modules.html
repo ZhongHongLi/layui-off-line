@@ -1,0 +1,575 @@
+﻿
+ 
+ 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>layui开发使用文档 - 入门指南</title>
+<meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  
+  <link rel="stylesheet" href="../layui/css/layui.css"  media="all">
+  <link rel="stylesheet" href="../css/global.css" media="all">
+</head>
+<body>
+<div class="layui-header header header-doc">
+  <div class="layui-main">
+    <a class="logo" href="../layui.html">
+      <img src="../imgs/logo.png" alt="layui">
+    </a>
+    <div class="layui-form component">
+      <select lay-search lay-filter="component">
+        <option value="">搜索组件或模块</option>
+        <option value="layout.html">grid 栅格布局</option>
+        <option value="layout.html#admin">admin 后台布局</option>
+        <option value="color.html">color 颜色</option>
+        <option value="icon.html">iconfont 字体图标</option>
+        <option value="anim.html">animation 动画</option>
+        <option value="button.html">button 按钮</option>
+        <option value="form.html">form 表单组</option>
+        <option value="form.html#input">input 输入框</option>
+        <option value="form.html#select">select 下拉选择框</option>
+        <option value="form.html#checkbox">checkbox 复选框</option>
+        <option value="form.html#switch">switch 开关</option>
+        <option value="form.html#radio">radio 单选框</option>
+        <option value="form.html#textarea">textarea 文本域</option>
+        <option value="nav.html">nav 导航菜单</option>
+        <option value="nav.html#breadcrumb">breadcrumb 面包屑</option>
+        <option value="tab.html">tabs 选项卡</option>
+        <option value="progress.html">progress 进度条</option>
+        <option value="collapse.html">collapse 折叠面板/手风琴</option>
+        <option value="table.html">table 表格元素</option>
+        <option value="badge.html">badge 徽章</option>
+        <option value="timeline.html">timeline 时间线</option>
+        <option value="auxiliar.html#blockquote">blockquote 引用块</option>
+        <option value="auxiliar.html#fieldset">fieldset 字段集</option>
+        <option value="auxiliar.html#hr">hr 分割线</option>
+        
+        <option value="layer.html">layer 弹出层/弹窗综合</option>
+        <option value="laydate.html">laydate 日期时间选择器</option>
+        <option value="layim.html">layim 即时通讯/聊天</option>
+        <option value="laypage.html">laypage 分页</option>
+        <option value="laytpl.html">laytpl 模板引擎</option>
+        <option value="form.html">form 表单模块</option>
+        <option value="table.html">table 数据表格</option>
+        <option value="upload.html">upload 文件/图片上传</option>
+        <option value="element.html">element 常用元素操作</option>
+        <option value="carousel.html">carousel 轮播/跑马灯</option>
+        <option value="layedit.html">layedit 富文本编辑器</option>
+        <option value="tree.html">tree 树形菜单</option>
+        <option value="flow.html">flow 信息流/图片懒加载</option>
+        <option value="util.html">util 工具集</option>
+        <option value="code.html">code 代码修饰</option>
+      </select>
+    </div>
+    <ul class="layui-nav">
+      <li class="layui-nav-item layui-this">
+        <a href="doc.html">文档<!--  --></a> 
+      </li>
+      <li class="layui-nav-item ">
+        <a href="../demo/demo.html">示例<!-- <span class="layui-badge-dot"></span> --></a>
+      </li> 
+      
+      <li class="layui-nav-item layui-hide-xs">
+        <a href="http://fly.layui.com/" target="_blank">社区</a>
+      </li>
+      
+      
+      <li class="layui-nav-item">
+        <!--<span class="layui-badge-dot" style="margin: -4px 3px 0;"></span>-->
+        <a href="javascript:;">周边</a>
+        <dl class="layui-nav-child">
+          <dd class="layui-hide-sm layui-show-xs"><a href="http://fly.layui.com/" target="_blank">社区交流</a><hr></dd>
+          <dd><a href="http://layim.layui.com/" target="_blank">即时聊天</a></dd>
+          <dd><a href="http://www.layui.com/template/fly/" target="_blank">社区模板<span class="layui-badge-dot"></span></a></dd>
+          <hr>
+          <dd><a href="http://www.layui.com/alone.html" target="_blank">独立组件</a></dd>
+          <dd><a href="http://fly.layui.com/jie/9842/" target="_blank">Axure组件</a></dd>
+        </dl>
+      </li>
+      
+      
+      <li class="layui-nav-item layui-hide-xs">
+        <a href="http://www.layui.com/admin/" target="_blank">后台方案<span class="layui-badge-dot"></span></a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+<!--[if lt IE 9]>
+  <script src="../js/html5.min.js"></script>
+  <script src="../js/respond.min.js"></script>
+<![endif]--> 
+<ul class="site-dir">
+  <li><a href="#before"><cite>预先加载</cite></a></li>
+  <li><a href="#trigger"><cite>按需加载</cite></a></li>
+  <li><a href="#space"><cite>模块命名空间</cite></a></li>
+  <li><a href="#extend"><cite>扩展一个 layui 模块</cite></a></li>
+</ul>
+<div class="layui-main site-inline">
+  <div class="site-tree">
+  <ul class="layui-tree">
+  
+    <li><h2>基础说明</h2></li>
+  
+    <li class="site-tree-noicon ">
+      <a href="doc.html">
+        <cite>开始使用</cite>
+        <em>Getting Started</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="infrastructure.html">
+        <cite>底层方法</cite>
+        <em>基础支撑</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="element.html">
+        <cite>页面元素</cite>
+        <em>规范 / 公共类 / 属性</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon layui-this">
+      <a href="modules.html">
+        <cite>模块规范</cite>
+        <em>使用 / 扩展</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="faq.html">
+        <cite>常见问题</cite>
+        <em>FAQ</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="changelog.html">
+        <cite>更新日志</cite>
+        
+        <span class="layui-badge-dot" style="position: relative; top: -3px; left: -3px;"></span>
+        
+      </a>
+    </li>
+    
+    <li><h2>页面元素</h2></li>
+    
+    
+    <li class="site-tree-noicon ">
+      <a href="layout.html">
+        <cite>布局</cite>
+        <em>栅格 / 后台布局</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="color.html">
+        <cite>颜色</cite>
+        <em>主题色设计感 / 内置背景色</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="icon.html">
+        <cite>图标</cite>
+        <em>字体图标</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="anim.html">
+        <cite>动画</cite>
+        <em>内置的CSS3动画类</em>
+      </a>
+    </li>
+    
+    <li class="site-tree-noicon ">
+      <a href="button.html">
+        <cite>按钮</cite>
+        <em>button组</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="form.html">
+        <cite>表单</cite>
+        <em>form元素集合</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="nav.html">
+        <cite>导航</cite>
+        <em>菜单 / 面包屑</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="tab.html">
+        <cite>选项卡</cite>
+        <em>Tabs 切换</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="progress.html">
+        <cite>进度条</cite>
+        <em>progress</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="panel.html">
+        <cite>面板</cite>
+        <em>折叠 / 手风琴</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="table.html">
+        <cite>表格</cite>
+        <em>静态table</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="badge.html">
+        <cite>徽章</cite>
+        <em>小圆点 / 小边框</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="timeline.html">
+        <cite>时间线</cite>
+        <em>timeline</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="auxiliar.html">
+        <cite>辅助</cite>
+        <em>引用 / 字段集 / 横线等</em>
+      </a>
+    </li>
+   
+    
+    <li><h2>内置模块</h2></li>
+    
+    <li class="">
+      <a href="layer.html">
+        <i class="layui-icon" style="top: 3px;">&#xe638;</i><cite>弹出层</cite>
+        <em>layer</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="laydate.html">
+        <i class="layui-icon" style="top: 1px;">&#xe637;</i><cite>日期与时间选择</cite>
+        <em>laydate</em>
+      </a>
+    </li>
+    <li >
+      <a href="layim.html">
+        <i class="layui-icon" style="position: relative; top: 3px;">&#xe63a;</i>
+        <cite>即时通讯</cite>
+        <em>layim</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="laypage.html">
+        <i class="layui-icon">&#xe633;</i><cite>分页</cite>
+        <em>laypage</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="laytpl.html">
+        <i class="layui-icon">&#xe628;</i><cite>模板引擎</cite>
+        <em>laytpl</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="dataTable.html">
+        <i class="layui-icon">&#xe62d;</i>
+        <cite>数据表格</cite>
+        <em>table</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="DataForm.html">
+        <i class="layui-icon" style="top: 2px;">&#xe63c;</i>
+        <cite>表单</cite>
+        <em>form</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="upload.html">
+        <i class="layui-icon">&#xe62f;</i>
+        <cite>文件上传</cite>
+        <em>upload</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="DataElement.html">
+        <i class="layui-icon" style="top: 1px; font-size: 18px;">&#xe62a;</i>
+        <cite>常用元素操作</cite>
+        <em>element</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="carousel.html">
+        <i class="layui-icon">&#xe634;</i>
+        <cite>轮播</cite>
+        <em>carousel</em>
+      </a>
+    </li>
+    
+    <li class="">
+      <a href="flow.html">
+        <i class="layui-icon">&#xe636;</i>
+        <cite>流加载</cite>
+        <em>flow</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="util.html">
+        <i class="layui-icon">&#xe631;</i>
+        <cite>工具集</cite>
+        <em>util</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="code.html">
+        <i class="layui-icon" style="top: 1px;">&#xe635;</i>
+        <cite>代码修饰器</cite>
+        <em>code</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="layedit.html">
+        <i class="layui-icon" style="top: 1px;">&#xe639;</i>
+        <cite><span style="font-size:1px;">1.0.9:</span>富文本编辑器</cite>
+        <em>layedit</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="tree.html">
+        <i class="layui-icon" style="top: 1px;">&#xe62e;</i>
+        <cite><span style="font-size:1px;">1.0.9:</span>树形菜单</cite>
+        <em>tree</em>
+      </a>
+    </li>
+  </ul>
+</div>
+
+  <div class="site-content">
+    <h1 class="site-h1">模块规范</h1>
+    <blockquote class="layui-elem-quote">
+      layui 的模块是基于 <em>layui.js</em> 内部实现的异步模块加载方式，它并不遵循于AMD（没有为什么，毕竟任性呀！），而是自己定义了一套更轻量的模块规范。并且这种方式在经过了大量的实践后，成为 layui 最核心的模块加载引擎。
+    </blockquote>
+    
+
+    <div class="site-title">
+      <fieldset><legend><a name="before">预先加载</a></legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>开门见山，还是直接说使用比较妥当。Layui的模块加载采用核心的 <em>layui.use(mods, callback)</em>方法，当你的JS
+      需要用到Layui模块的时候，我们更推荐你采用预先加载，因为这样可以避免到处写layui.use的麻烦。你应该在最外层如此定义： </p>
+      <pre class="layui-code" lay-title="demo.js">
+/*
+  Demo1.js
+  使用Layui的form和upload模块
+*/
+layui.use(['form', 'upload'], function(){  //如果只加载一个模块，可以不填数组。如：<em>layui.use('form')</em>
+  var form = layui.form //获取form模块
+  ,upload = layui.upload; //获取upload模块
+  
+  //监听提交按钮
+  form.on('submit(test)', function(data){
+    console.log(data);
+  });
+  
+  //实例化一个上传控件
+  upload({
+    url: '上传接口url'
+    ,success: function(data){
+      console.log(data);
+    }
+  })
+});
+      </pre>
+    </div>
+    
+    <div class="site-title">
+      <fieldset><legend><a name="trigger">按需加载</a>（不推荐）</legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>如果你有强迫症，你对网站的性能有极致的要求，你并不想预先加载所需要的模块，而是在触发一个动作的时候，才去加载模块，那么，这是允许的。你不用在你的JS最外层去包裹一个大大的 layui.use，你只需要：</p>
+      <pre class="layui-code" lay-title="demo.js">
+/*
+  Demo2.js
+  按需加载一个Layui模块
+*/
+ 
+//……
+//你的各种JS代码什么的
+//……
+ 
+//下面是在一个事件回调里去加载一个Layui模块
+button.addEventListener('click', function(){
+  layui.use('laytpl', function(laytpl){ //温馨提示：多次调用use并不会重复加载laytpl.js，Layui内部有做模块cache处理。
+    var html = laytpl('').render({});
+    console.log(html);
+  });
+});
+      </pre>
+      <p style="color: #FF5722"> 
+        注意：如果你的 JS 中需要大量用到模块，我们并不推荐你采用这种加载方式，因为这意味着你要写很多 layui.use()，代码可维护性不高。
+        <br>建议还是采用：预先加载。即一个JS文件中，写一个use即可。
+      </p>
+    </div>
+    
+    <div class="site-title">
+      <fieldset><legend><a name="space">模块命名空间</a></legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>layui 的模块接口会绑定在 layui 对象下，内部由 layui.define() 方法来完成。每一个模块都会一个特有的名字，并且无法被占用。所以你无需担心模块的空间被污染，除非你主动 delete layui.{模块名}。调用模块可通过 layui.use 方法来实现，然后再通过 layui 对象获得模块接口。如：</p>
+      <pre class="layui-code">
+layui.use(['layer', 'laypage', 'laydate'], function(){
+  var layer = layui.layer //获得layer模块
+  ,laypage = layui.laypage //获得laypage模块
+  ,laydate = layui.laydate; //获得laydate模块
+  
+  //使用模块
+});      
+      </pre>
+      <p>我们推荐你将所有的业务代码都写在一个大的 use 回调中，而不是将模块接口暴露给全局，比如下面的方式我们是极不推荐的：</p>
+      <pre class="layui-code">
+//强烈不推荐下面的做法
+var laypage, laydate;
+layui.use(['laypage', 'laydate'], function(){
+  laypage = layui.laypage;
+  laydate = layui.laydate;
+});
+      </pre>
+      <p>你之所以想使用上面的错误方式，是想其它地方使用不在执行一次 layui.use？但这种理解本身是存在问题的。因为如果一旦你的业务代码是在模块加载完毕之前执行，你的全局对象将获取不到模块接口，因此这样用不仅不符合规范，还存在报错风险。建议在你的 js 文件中，在最外层写一个 layui.use 来加载所依赖的模块，并将业务代码写在回调中，见：<a href="#before">预先加载</a>。</p>
+      <p>事实上，如果你不想采用 layui.use，你可以引入 layui.all.js 来替代 layui.js，见：<a href="/doc/#nonmodules">非模块化用法</a></p>
+    </div>
+    
+    <div class="site-title">
+      <fieldset><legend><a name="extend">扩展一个 layui 模块</a></legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>layui 官方提供的模块有时可能还无法满足你，或者你试图按照layer的模块规范来扩展一个模块。那么你有必要认识<em>layui.define()</em>方法，相信你在文档左侧的“底层方法”中已有所阅读。下面就就让我们一起扩展一个Layui模块吧：</p>
+      <p>第一步：确认模块名，假设为：<em>mymod</em>，然后新建一个<em>mymod.js</em> 文件放入项目任意目录下（注意：不用放入layui目录）</p>
+      <p>第二步：编写test.js 如下：</p>
+      <pre class="layui-code">
+/**
+  扩展一个test模块
+**/      
+ 
+layui.define(function(exports){ //提示：模块也可以依赖其它模块，如：layui.define('layer', callback);
+  var obj = {
+    hello: function(str){
+      alert('Hello '+ (str||'mymod'));
+    }
+  };
+  
+  //输出test接口
+  exports('mymod', obj);
+});    
+      </pre>
+      <p>第三步：设定扩展模块所在的目录，然后就可以在别的JS文件中使用了</p>
+      <pre class="layui-code">
+//config的设置是全局的
+layui.config({
+  base: '/res/js/' //假设这是你存放拓展模块的根目录
+}).extend({ //设定模块别名
+  mymod: 'mymod' //如果 mymod.js 是在根目录，也可以不用设定别名
+  ,mod1: 'admin/mod1' //相对于上述 base 目录的子目录
+});
+ 
+//你也可以忽略 base 设定的根目录，直接在 extend 指定路径（<span style="color: #FF5722;">主要：该功能为 layui 2.2.0 新增</span>）
+layui.extend({
+  mod2: '{/}http://cdn.xxx.com/lib/mod2' // {/}的意思即代表采用自有路径，即不跟随 base 路径
+})
+ 
+//使用拓展模块
+layui.use(['mymod', 'mod1'], function(){
+  var mymod = layui.mymod
+  ,mod1 = layui.mod1
+  ,mod2 = layui.mod2;
+  
+  mymod.hello('World!'); //弹出 Hello World!
+});
+      </pre>
+      <p>大体上来说，layui 的模块定义很类似 Require.js 和 Sea.js，但跟他们又有着明显的不同，譬如在接口输出等地方。</p>
+    </div>
+    
+    <div class="site-title">
+      <fieldset><legend><a name="other">结语</a></legend></fieldset>
+    </div>
+    <div class="site-text">
+      <p>其实关于模块的核心，就是 layui.js 的两个底层方法：一个用于定义模块的 <em>layui.define()</em>，一个加载模块的 <em>layui.use()</em>。</p>
+    </div>
+    
+    <div class="layui-elem-quote">
+  <p>Layui - 用心与你沟通</p>
+</div>
+    
+  </div></div>
+  
+<div class="layui-footer footer footer-doc">
+  <div class="layui-main">
+    <p>&copy; 2018 <a href="../layui.html">layui.com</a> MIT license</p>
+    <p>
+      <a href="http://fly.layui.com/case/2018/" target="_blank">案例</a>
+      <a href="http://fly.layui.com/jie/3147/" target="_blank">众筹</a>
+      <a href="mailto:xianxin@layui-inc.com">联系</a>
+      <a href="https://github.com/sentsin/layui/" target="_blank" rel="nofollow">GitHub</a>
+      <a href="https://gitee.com/sentsin/layui" target="_blank" rel="nofollow">码云</a>
+      <a href="http://fly.layui.com/jie/2461/" target="_blank">微信公众号</a>
+    </p>
+    <p class="site-union">
+      <a href="https://www.upyun.com?from=layui" target="_blank" rel="nofollow" upyun><img src="../imgs/upyun.png?t=1"></a>
+      <span>提供 CDN 赞助</span>
+    </p>
+  </div>
+</div>
+<script async src="../js/adsbygoogle.js"></script>
+<div class="site-tree-mobile layui-hide">
+  <i class="layui-icon">&#xe602;</i>
+</div>
+<div class="site-mobile-shade"></div>
+<script src="../layui/layui.js?t=1515376178738" charset="utf-8"></script>
+<script>
+window.global = {
+  pageType: 'doc'
+  ,preview: function(){
+    var preview = document.getElementById('LAY_preview');
+    return preview ? preview.innerHTML : '';
+  }()
+};
+layui.config({
+	 base: '../js/'
+	 ,version: '1515376178709'
+}).use('global');
+
+layui.use("form",function(){
+	var form = layui.form;
+	
+  //搜索组件
+  form.on('select(component)', function(data){
+    var value = data.value;
+    location.href = value;
+  });
+
+  //切换版本
+  form.on('select(tabVersion)', function(data){
+    var value = data.value;
+    if(value=="new")
+	{
+		location.href="doc.html";
+	}else if(value=="v1")
+	{
+		location.href="v1.html";
+	}
+  });
+  
+});
+</script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_30088308'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D30088308' type='text/javascript'%3E%3C/script%3E"));</script>
+</body>
+</html>

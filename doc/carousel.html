@@ -1,0 +1,670 @@
+﻿
+ 
+ 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>layui开发使用文档 - 入门指南</title>
+<meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  
+  <link rel="stylesheet" href="../layui/css/layui.css"  media="all">
+  <link rel="stylesheet" href="../css/global.css" media="all">
+</head>
+<body>
+<div class="layui-header header header-doc">
+  <div class="layui-main">
+    <a class="logo" href="../layui.html">
+      <img src="../imgs/logo.png" alt="layui">
+    </a>
+    <div class="layui-form component">
+      <select lay-search lay-filter="component">
+        <option value="">搜索组件或模块</option>
+        <option value="layout.html">grid 栅格布局</option>
+        <option value="layout.html#admin">admin 后台布局</option>
+        <option value="color.html">color 颜色</option>
+        <option value="icon.html">iconfont 字体图标</option>
+        <option value="anim.html">animation 动画</option>
+        <option value="button.html">button 按钮</option>
+        <option value="form.html">form 表单组</option>
+        <option value="form.html#input">input 输入框</option>
+        <option value="form.html#select">select 下拉选择框</option>
+        <option value="form.html#checkbox">checkbox 复选框</option>
+        <option value="form.html#switch">switch 开关</option>
+        <option value="form.html#radio">radio 单选框</option>
+        <option value="form.html#textarea">textarea 文本域</option>
+        <option value="nav.html">nav 导航菜单</option>
+        <option value="nav.html#breadcrumb">breadcrumb 面包屑</option>
+        <option value="tab.html">tabs 选项卡</option>
+        <option value="progress.html">progress 进度条</option>
+        <option value="collapse.html">collapse 折叠面板/手风琴</option>
+        <option value="table.html">table 表格元素</option>
+        <option value="badge.html">badge 徽章</option>
+        <option value="timeline.html">timeline 时间线</option>
+        <option value="auxiliar.html#blockquote">blockquote 引用块</option>
+        <option value="auxiliar.html#fieldset">fieldset 字段集</option>
+        <option value="auxiliar.html#hr">hr 分割线</option>
+        
+        <option value="layer.html">layer 弹出层/弹窗综合</option>
+        <option value="laydate.html">laydate 日期时间选择器</option>
+        <option value="layim.html">layim 即时通讯/聊天</option>
+        <option value="laypage.html">laypage 分页</option>
+        <option value="laytpl.html">laytpl 模板引擎</option>
+        <option value="form.html">form 表单模块</option>
+        <option value="table.html">table 数据表格</option>
+        <option value="upload.html">upload 文件/图片上传</option>
+        <option value="element.html">element 常用元素操作</option>
+        <option value="carousel.html">carousel 轮播/跑马灯</option>
+        <option value="layedit.html">layedit 富文本编辑器</option>
+        <option value="tree.html">tree 树形菜单</option>
+        <option value="flow.html">flow 信息流/图片懒加载</option>
+        <option value="util.html">util 工具集</option>
+        <option value="code.html">code 代码修饰</option>
+      </select>
+    </div>
+    <ul class="layui-nav">
+      <li class="layui-nav-item layui-this">
+        <a href="doc.html">文档<!--  --></a> 
+      </li>
+      <li class="layui-nav-item ">
+        <a href="../demo/demo.html">示例<!-- <span class="layui-badge-dot"></span> --></a>
+      </li> 
+      
+      <li class="layui-nav-item layui-hide-xs">
+        <a href="http://fly.layui.com/" target="_blank">社区</a>
+      </li>
+      
+      
+      <li class="layui-nav-item">
+        <!--<span class="layui-badge-dot" style="margin: -4px 3px 0;"></span>-->
+        <a href="javascript:;">周边</a>
+        <dl class="layui-nav-child">
+          <dd class="layui-hide-sm layui-show-xs"><a href="http://fly.layui.com/" target="_blank">社区交流</a><hr></dd>
+          <dd><a href="http://layim.layui.com/" target="_blank">即时聊天</a></dd>
+          <dd><a href="http://www.layui.com/template/fly/" target="_blank">社区模板<span class="layui-badge-dot"></span></a></dd>
+          <hr>
+          <dd><a href="http://www.layui.com/alone.html" target="_blank">独立组件</a></dd>
+          <dd><a href="http://fly.layui.com/jie/9842/" target="_blank">Axure组件</a></dd>
+        </dl>
+      </li>
+      
+      
+      <li class="layui-nav-item layui-hide-xs">
+        <a href="http://www.layui.com/admin/" target="_blank">后台方案<span class="layui-badge-dot"></span></a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+<!--[if lt IE 9]>
+  <script src="../js/html5.min.js"></script>
+  <script src="../js/respond.min.js"></script>
+<![endif]--> 
+<ul class="site-dir">
+  <li><a href="#use"><cite>快速使用</cite></a></li>
+  <li><a href="#options"><cite>基础参数选项</cite></a></li>
+  <li><a href="#onchange"><cite>切换事件</cite></a></li>
+  <li><a href="#reload"><cite>重置轮播</cite></a></li>
+</ul>
+<div class="layui-main site-inline">
+  <div class="site-tree">
+  <ul class="layui-tree">
+  
+    <li><h2>基础说明</h2></li>
+  
+    <li class="site-tree-noicon ">
+      <a href="doc.html">
+        <cite>开始使用</cite>
+        <em>Getting Started</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="infrastructure.html">
+        <cite>底层方法</cite>
+        <em>基础支撑</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="element.html">
+        <cite>页面元素</cite>
+        <em>规范 / 公共类 / 属性</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="modules.html">
+        <cite>模块规范</cite>
+        <em>使用 / 扩展</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="faq.html">
+        <cite>常见问题</cite>
+        <em>FAQ</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="changelog.html">
+        <cite>更新日志</cite>
+        
+        <span class="layui-badge-dot" style="position: relative; top: -3px; left: -3px;"></span>
+        
+      </a>
+    </li>
+    
+    <li><h2>页面元素</h2></li>
+    
+    
+    <li class="site-tree-noicon ">
+      <a href="layout.html">
+        <cite>布局</cite>
+        <em>栅格 / 后台布局</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="color.html">
+        <cite>颜色</cite>
+        <em>主题色设计感 / 内置背景色</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="icon.html">
+        <cite>图标</cite>
+        <em>字体图标</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="anim.html">
+        <cite>动画</cite>
+        <em>内置的CSS3动画类</em>
+      </a>
+    </li>
+    
+    <li class="site-tree-noicon ">
+      <a href="button.html">
+        <cite>按钮</cite>
+        <em>button组</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="form.html">
+        <cite>表单</cite>
+        <em>form元素集合</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="nav.html">
+        <cite>导航</cite>
+        <em>菜单 / 面包屑</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="tab.html">
+        <cite>选项卡</cite>
+        <em>Tabs 切换</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="progress.html">
+        <cite>进度条</cite>
+        <em>progress</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="panel.html">
+        <cite>面板</cite>
+        <em>折叠 / 手风琴</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="table.html">
+        <cite>表格</cite>
+        <em>静态table</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="badge.html">
+        <cite>徽章</cite>
+        <em>小圆点 / 小边框</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="timeline.html">
+        <cite>时间线</cite>
+        <em>timeline</em>
+      </a>
+    </li>
+    <li class="site-tree-noicon ">
+      <a href="auxiliar.html">
+        <cite>辅助</cite>
+        <em>引用 / 字段集 / 横线等</em>
+      </a>
+    </li>
+   
+    
+    <li><h2>内置模块</h2></li>
+    
+    <li class="">
+      <a href="layer.html">
+        <i class="layui-icon" style="top: 3px;">&#xe638;</i><cite>弹出层</cite>
+        <em>layer</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="laydate.html">
+        <i class="layui-icon" style="top: 1px;">&#xe637;</i><cite>日期与时间选择</cite>
+        <em>laydate</em>
+      </a>
+    </li>
+    <li >
+      <a href="layim.html">
+        <i class="layui-icon" style="position: relative; top: 3px;">&#xe63a;</i>
+        <cite>即时通讯</cite>
+        <em>layim</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="laypage.html">
+        <i class="layui-icon">&#xe633;</i><cite>分页</cite>
+        <em>laypage</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="laytpl.html">
+        <i class="layui-icon">&#xe628;</i><cite>模板引擎</cite>
+        <em>laytpl</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="dataTable.html">
+        <i class="layui-icon">&#xe62d;</i>
+        <cite>数据表格</cite>
+        <em>table</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="DataForm.html">
+        <i class="layui-icon" style="top: 2px;">&#xe63c;</i>
+        <cite>表单</cite>
+        <em>form</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="upload.html">
+        <i class="layui-icon">&#xe62f;</i>
+        <cite>文件上传</cite>
+        <em>upload</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="DataElement.html">
+        <i class="layui-icon" style="top: 1px; font-size: 18px;">&#xe62a;</i>
+        <cite>常用元素操作</cite>
+        <em>element</em>
+      </a>
+    </li>
+    <li class="layui-this">
+      <a href="carousel.html">
+        <i class="layui-icon">&#xe634;</i>
+        <cite>轮播</cite>
+        <em>carousel</em>
+      </a>
+    </li>
+    
+    <li class="">
+      <a href="flow.html">
+        <i class="layui-icon">&#xe636;</i>
+        <cite>流加载</cite>
+        <em>flow</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="util.html">
+        <i class="layui-icon">&#xe631;</i>
+        <cite>工具集</cite>
+        <em>util</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="code.html">
+        <i class="layui-icon" style="top: 1px;">&#xe635;</i>
+        <cite>代码修饰器</cite>
+        <em>code</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="layedit.html">
+        <i class="layui-icon" style="top: 1px;">&#xe639;</i>
+        <cite><span style="font-size:1px;">1.0.9:</span>富文本编辑器</cite>
+        <em>layedit</em>
+      </a>
+    </li>
+    <li class="">
+      <a href="tree.html">
+        <i class="layui-icon" style="top: 1px;">&#xe62e;</i>
+        <cite><span style="font-size:1px;">1.0.9:</span>树形菜单</cite>
+        <em>tree</em>
+      </a>
+    </li>
+  </ul>
+</div>
+
+  <div class="site-content">
+    <h1 class="site-h1"><i class="layui-icon">&#xe634;</i>通用轮播组件文档 - layui.carousel</h1>
+    <blockquote class="layui-elem-quote">
+      carousel 是 layui 2.0 版本中新增的全新模块，主要适用于跑马灯/轮播等交互场景。它并非单纯地为焦点图而生，准确地说，它可以满足任何类型内容的轮播式切换操作，更可以胜任 FullPage （全屏上下轮播）的需求，简洁而不失强劲，灵活而优雅。
+    </blockquote>
+    <blockquote class="layui-elem-quote">
+      <p>模块加载名称：<em>carousel</em></p>
+    </blockquote>
+
+    
+    <fieldset class="layui-elem-field layui-field-title site-title">
+      <legend><a name="use">快速使用</a></legend>
+    </fieldset>
+    
+   <div class="site-text">
+      <p>如下是几个常用的轮播示例，其中背景色是为了区分条目单独加的，在layui框架中并不会包含。条目区域可以放上文字列表、图片等任意内容</p>
+    </div>
+    <style>
+      /* 为了区分效果 */
+      div[carousel-item]>*{text-align: center; line-height: 280px; color: #fff;}
+      div[carousel-item]>*:nth-child(2n){background-color: #5FB878;}
+      div[carousel-item]>*:nth-child(2n+1){background-color: #009688;}
+      #test2 div[carousel-item]>*{line-height: 120px;}
+    </style>
+    
+    <div class="layui-carousel" id="test1">
+      <div carousel-item>
+        <div>条目1</div>
+        <div>条目2</div>
+        <div>条目3</div>
+        <div>条目4</div>
+        <div>条目5</div>
+      </div>
+    </div>  
+    <div class="site-text">
+      <p></p>
+<pre class="layui-code" lay-title="对应的代码">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;title&gt;carousel模块快速使用&lt;/title&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;/static/build/layui.css&quot; media=&quot;all&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;div class=&quot;layui-carousel&quot; id=&quot;test1&quot;&gt;
+  &lt;div carousel-item&gt;
+    &lt;div&gt;条目1&lt;/div&gt;
+    &lt;div&gt;条目2&lt;/div&gt;
+    &lt;div&gt;条目3&lt;/div&gt;
+    &lt;div&gt;条目4&lt;/div&gt;
+    &lt;div&gt;条目5&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- 条目中可以是任意内容，如：&lt;img src=""&gt; --&gt;
+ 
+&lt;script src=&quot;/static/build/layui.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+layui.use(&#x27;carousel&#x27;, function(){
+  var carousel = layui.carousel;
+  //建造实例
+  carousel.render({
+    elem: '#test1'
+    ,width: '100%' //设置容器宽度
+    ,arrow: 'always' //始终显示箭头
+    //,anim: 'updown' //切换动画方式
+  });
+});
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+      <p>
+        在HTML结构中，只需要简单地注意这两项：
+        <br>1) 外层元素的 <em>class="layui-carousel"</em> 用来标识为一个轮播容器
+        <br>2) 内层元素的属性 <em>carousel-item</em> 用来标识条目
+      </p>
+      <p>而 <em>id</em> 则用于carousel模块建造实例的元素指向，剩下的工作，就是按照你的实际需求，给方法设置不同的基础参数了。</p>
+    </div> 
+    
+    <fieldset class="layui-elem-field layui-field-title site-title">
+      <legend><a name="options">基础参数选项</a></legend>
+    </fieldset>
+    <div class="site-text">
+      <p>通过核心方法：<em>carousel.render(options)</em> 来对轮播设置基础参数，也可以通过方法：<em>carousel.set(options)</em> 来设定全局基础参数.</p>
+    </div>
+    
+    <table class="layui-table">
+      <colgroup>
+        <col width="120">
+        <col>
+        <col width="120">
+        <col width="200">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>可选项</th>
+          <th>说明</th>
+          <th>类型</th>
+          <th>默认值</th>
+        </tr> 
+      </thead>
+      <tbody>
+        <tr>
+          <td>elem</td>
+          <td>指向容器选择器，如：elem: '#id'。也可以是DOM对象</td>
+          <td>string/object</td>
+          <td>无</td>
+        </tr>
+        <tr>
+          <td>width</td>
+          <td>设定轮播容器宽度，支持像素和百分比</td>
+          <td>string</td>
+          <td>'600px'</td>
+        </tr>
+        <tr>
+          <td>height</td>
+          <td>设定轮播容器高度，支持像素和百分比</td>
+          <td>string</td>
+          <td>'280px'</td>
+        </tr>
+        <tr>
+          <td>full</td>
+          <td>是否全屏轮播</td>
+          <td>boolean</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>anim</td>
+          <td class="layui-text">
+            轮播切换动画方式，可选值为：
+            <ul>
+              <li>default（左右切换）</li>
+              <li>updown（上下切换）</li>
+              <li>fade（渐隐渐显切换）</li>
+            </ul>
+          </td>
+          <td>string</td>
+          <td>'default'</td>
+        </tr>
+        <tr>
+          <td>autoplay</td>
+          <td>是否自动切换</td>
+          <td>boolean</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>interval</td>
+          <td>自动切换的时间间隔，单位：ms（毫秒），不能低于800</td>
+          <td>number</td>
+          <td>3000</td>
+        </tr>
+        <tr>
+          <td>index</td>
+          <td>初始开始的条目索引</td>
+          <td>number</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>arrow</td>
+          <td class="layui-text">
+            切换箭头默认显示状态，可选值为：
+            <ul>
+              <li>hover（悬停显示）</li>
+              <li>always（始终显示）</li>
+              <li>none（始终不显示）</li>
+            </ul>
+          </td>
+          <td>string</td>
+          <td>'hover'</td>
+        </tr>
+        <tr>
+          <td>indicator</td>
+          <td class="layui-text">
+            指示器位置，可选值为：
+            <ul>
+              <li>inside（容器内部）</li>
+              <li>outside（容器外部）</li>
+              <li>none（不显示）</li>
+            </ul>
+            <br>注意：如果设定了 <em>anim:'updown'</em>，该参数将无效
+          </td>
+          <td>string</td>
+          <td>'inside'</td>
+        </tr>
+        <tr>
+          <td>trigger</td>
+          <td class="layui-text">
+            指示器的触发事件
+          </td>
+          <td>string</td>
+          <td>'click'</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <fieldset class="layui-elem-field layui-field-title site-title">
+      <legend><a name="onchange">切换事件</a></legend>
+    </fieldset>
+    <div class="site-text">
+      <p>轮播的每一次切换时触发，回调函数返回一个object参数，携带的成员如下：</p>
+      <pre class="layui-code">
+var carousel = layui.carousel;
+ 
+//监听轮播切换事件
+carousel.on('change(test1)', function(obj){ //test1来源于对应HTML容器的 <em>lay-filter="test1"</em> 属性值
+  console.log(obj.index); //当前条目的索引
+  console.log(obj.prevIndex); //上一个条目的索引
+  console.log(obj.item); //当前条目的元素对象
+});     
+      </pre>
+    </div>
+    
+    <fieldset class="layui-elem-field layui-field-title site-title">
+      <legend><a name="reload">重置轮播</a></legend>
+    </fieldset>
+    <div class="site-text">
+      <p>事实上，在执行 <em>carousel.render(options)</em> 方法时，有返回一个当前实例的对象。该对象包含了用于操作当前轮播的一些属性和方法。</p>
+      <pre class="layui-code">
+var ins = carousel.render(options);
+ 
+//重置轮播
+ins.reload(options);
+      </pre>
+    </div>
+    
+    <fieldset class="layui-elem-field layui-field-title site-title">
+      <legend><a name="docend">结语</a></legend>
+    </fieldset>
+    <div class="site-text">
+      <p>由于轮播的使用非常简单，所以本篇不做过于详细的讲解，核心在于基础参数选项的设置。你也可以前往示例页面进行更为直观的了解。</p>
+    </div>
+    
+    <div class="layui-elem-quote">
+  <p>Layui - 用心与你沟通</p>
+</div>
+    
+  </div>
+  </div>
+  
+<div class="layui-footer footer footer-doc">
+  <div class="layui-main">
+    <p>&copy; 2018 <a href="../layui.html">layui.com</a> MIT license</p>
+    <p>
+      <a href="http://fly.layui.com/case/2018/" target="_blank">案例</a>
+      <a href="http://fly.layui.com/jie/3147/" target="_blank">众筹</a>
+      <a href="mailto:xianxin@layui-inc.com">联系</a>
+      <a href="https://github.com/sentsin/layui/" target="_blank" rel="nofollow">GitHub</a>
+      <a href="https://gitee.com/sentsin/layui" target="_blank" rel="nofollow">码云</a>
+      <a href="http://fly.layui.com/jie/2461/" target="_blank">微信公众号</a>
+    </p>
+    <p class="site-union">
+      <a href="https://www.upyun.com?from=layui" target="_blank" rel="nofollow" upyun><img src="../imgs/upyun.png?t=1"></a>
+      <span>提供 CDN 赞助</span>
+    </p>
+  </div>
+</div>
+<script async src="../js/adsbygoogle.js"></script>
+<div class="site-tree-mobile layui-hide">
+  <i class="layui-icon">&#xe602;</i>
+</div>
+<div class="site-mobile-shade"></div>
+<script src="../layui/layui.js?t=1515376178738" charset="utf-8"></script>
+<script>
+window.global = {
+  pageType: 'doc'
+  ,preview: function(){
+    var preview = document.getElementById('LAY_preview');
+    return preview ? preview.innerHTML : '';
+  }()
+};
+layui.config({
+	 base: '../js/'
+	 ,version: '1515376178709'
+}).use('global');
+
+layui.use("form",function(){
+	var form = layui.form;
+	
+  //搜索组件
+  form.on('select(component)', function(data){
+    var value = data.value;
+    location.href = value;
+  });
+
+  //切换版本
+  form.on('select(tabVersion)', function(data){
+    var value = data.value;
+    if(value=="new")
+	{
+		location.href="doc.html";
+	}else if(value=="v1")
+	{
+		location.href="v1.html";
+	}
+  });
+  
+});
+</script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_30088308'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D30088308' type='text/javascript'%3E%3C/script%3E"));</script>
+<script>
+layui.use('carousel', function(){
+  var carousel = layui.carousel;
+  //建造实例
+  carousel.render({
+    elem: '#test1'
+    ,width: '100%'
+    ,arrow: 'always'
+  });
+  
+});
+</script>
+</body>
+</html>
